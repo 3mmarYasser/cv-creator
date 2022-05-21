@@ -1,13 +1,19 @@
 import React from 'react';
-import "./App.scss"
 import {BrowserRouter as Router , Routes , Route} from "react-router-dom";
+import HomeScreen from "../screens/HomeScreen/HomeScreen";
+import Navbar from "../components/Navbar/Navbar";
+import "./App.scss"
 const App:React.FC = ()=> {
   return (
       <Router>
-          <Routes>
-              <Route index element={<div>Home Page</div>} />
-              <Route path="*" element={<div>404 Page</div>} />
-          </Routes>
+          <div className="container">
+              <Navbar/>
+              <Routes>
+                  <Route index element={<HomeScreen/>} />
+                  <Route path="*" element={<div>404 Page</div>} />
+              </Routes>
+          </div>
+
       </Router>
   );
 }
