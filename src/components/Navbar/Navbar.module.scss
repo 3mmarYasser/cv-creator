@@ -1,3 +1,30 @@
 .Header {
+  h1{
+    span{
+      color:var(--main-color);
+      font-weight: 900;
+    }
+  }
+  .menuIcon{
+    display: none;
+  }
+  @media screen and (max-width: 1000px) {
+    .header_content{
+      display: none;
+    }
+    .menuIcon{
+      display: block;
+    }
+    .menu{
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
 
+    }
+
+  }
 }
+
+
