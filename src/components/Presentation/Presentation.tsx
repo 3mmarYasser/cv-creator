@@ -24,7 +24,7 @@ const Presentation :React.FC = () => {
 
     useEffect(():void=>{
         gsap.registerPlugin(ScrollTrigger);
-        const tm =  gsap.timeline();
+        const tm =  gsap.timeline({delay:0.5});
         tm
             .from("header",{opacity:0,translateY:-60})
             .from(contentRef.current , {opacity : 0 , translateX:-60})
@@ -79,7 +79,7 @@ const Presentation :React.FC = () => {
                             <path fill="url(#b)" d="M186,216.106c-4.078,0-9,1.447-9,5.524v34.317l-16.437-31.234c-4.133-7.94-6.491-8.607-12.731-8.607-4.4,0-8.832,1.741-8.832,5.631v67.884c0,3.87,4.743,5.632,9,5.632s9-1.762,9-5.632v-34.4L176.174,290.5c2.273,4.187,6.323,4.751,9.864,4.751,4.256,0,8.962-1.762,8.962-5.632V221.63C195,217.553,190.077,216.106,186,216.106Z" data-name="&lt;Path&gt;"/><path fill="url(#c)" d="M259.475,232c3.253,0,5.524-3.469,5.524-8.107,0-3.814-1.708-7.893-5.524-7.893H221.416c-3.742,0-7.416,1.868-7.416,5.737v67.884c0,3.87,3.674,5.379,7.416,5.379h38.059c3.816,0,5.524-3.579,5.524-7.393,0-4.638-2.271-7.607-5.524-7.607H231V263h15.859c3.8,0,5.525-3.615,5.525-6.893,0-3.489-1.9-7.107-5.525-7.107H231V232Z" data-name="&lt;Path&gt;"/><path fill="url(#d)" d="M361.776,216.106c-3.118,0-5.187,1.229-5.825,3.458L340.238,272.6l-8.013-34.289c-.73-3.281-4.92-4.775-8.506-4.775s-7.778,1.494-8.506,4.77L307.2,272.6l-15.712-53.026c-.637-2.233-2.707-3.463-5.826-3.463-5.117,0-11.3,3.18-11.3,7.128a5.226,5.226,0,0,0,.24,1.544l21.272,65.207c1.37,4.362,7.045,5.909,11.488,5.909,4.941,0,10.346-1.839,11.285-5.952l5.072-23.11,5.071,23.115c.939,4.108,6.345,5.947,11.285,5.947,5.747,0,10.255-2.314,11.484-5.9l21.276-65.217a5.28,5.28,0,0,0,.239-1.547C373.074,219.286,366.894,216.106,361.776,216.106Z" data-name="&lt;Path&gt;"/>
                         </g>
                     </svg>
-                    <h1 className="text-6xl mb-[10px] font-bold">Build a CV in
+                    <h1 className="text-6xl mb-[10px] font-bold">Build A CV In
                         <span className="main_color relative inline-block p-[10px] ml-[10px] z-[1]">
 
                     <svg    className={classNames("absolute",[Styles.selectionPre])} xmlns="http://www.w3.org/2000/svg" viewBox="55.435 126.29 319 138">
@@ -98,10 +98,10 @@ const Presentation :React.FC = () => {
                         </g>
                     </svg>
 
-                    less
+                    Less
                 </span>
                         <br/>
-                        than a minute.</h1>
+                        Than A Minute.</h1>
                     <svg className={classNames("stk_1 w-[250px] h-[50px] self-center mr-auto ml-auto  -translate-x-[50px]" , [Styles.stk])} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" id="eQRSxdgHmcN1" viewBox="0 0 72 20" shapeRendering="geometricPrecision" textRendering="geometricPrecision">
                         <path className="draw-svg"  ref={stkRef} pathLength="1" d="M57.268557,49.824867l65.113688-.30714-65.420828,3.0714l62.656567,1.84284-54.363786,2.764261c18.082611,2.01807,35.447025.729757,45.763865.614279l-35.628244,4.6071l18.735542,2.149981L82.45404,67.638987" transform="matrix(1.089174 0 0 1.007945-62.040894-48.176379)" fill="none"/>
                     </svg>
