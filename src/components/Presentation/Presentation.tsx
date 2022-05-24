@@ -1,26 +1,31 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef , useState} from 'react';
 import {gsap} from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import classNames from "classnames";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Styles from './Presentation.module.scss';
+import zIndex from "@mui/material/styles/zIndex";
 
 const Presentation :React.FC = () => {
 
-    const allRef = useRef<any |null>(null),
-     newRef = useRef<SVGSVGElement |null>(null),
-     selection1Ref  = useRef<SVGPathElement |null>(null),
-     selection2Ref  = useRef<SVGPathElement |null>(null),
-     selection3Ref  = useRef<SVGLineElement |null>(null),
-     selection4Ref  = useRef<SVGLineElement |null>(null),
-     selectionE1Ref = useRef<SVGEllipseElement |null>(null),
-     selectionE2Ref = useRef<SVGEllipseElement |null>(null),
-     selectionE3Ref = useRef<SVGEllipseElement |null>(null),
-     selectionE4Ref = useRef<SVGEllipseElement |null>(null),
-     contentRef     = useRef<HTMLDivElement |null>(null),
-     ImageRef     = useRef<HTMLDivElement |null>(null),
-    stkRef = useRef<SVGPathElement |null>(null);
+    const
+        [companies , setCompanies] = useState<string[]>(["Tesla","Google ","Apple","Samsung","Amazon","Facebook","Spotify","Vodafone","Orange"]),
+        allRef = useRef<any |null>(null),
+        newRef = useRef<SVGSVGElement |null>(null),
+        selection1Ref  = useRef<SVGPathElement |null>(null),
+        selection2Ref  = useRef<SVGPathElement |null>(null),
+        selection3Ref  = useRef<SVGLineElement |null>(null),
+        selection4Ref  = useRef<SVGLineElement |null>(null),
+        selectionE1Ref = useRef<SVGEllipseElement |null>(null),
+        selectionE2Ref = useRef<SVGEllipseElement |null>(null),
+        selectionE3Ref = useRef<SVGEllipseElement |null>(null),
+        selectionE4Ref = useRef<SVGEllipseElement |null>(null),
+        contentRef     = useRef<HTMLDivElement |null>(null),
+        ImageRef     = useRef<HTMLDivElement |null>(null),
+        pRef         = useRef<HTMLParagraphElement |null>(null),
+        pBoxRef         = useRef<HTMLSpanElement |null>(null),
+        stkRef = useRef<SVGPathElement |null>(null);
 
     useEffect(():void=>{
         gsap.registerPlugin(ScrollTrigger);
@@ -28,7 +33,12 @@ const Presentation :React.FC = () => {
         tm
             .from("header",{opacity:0,translateY:-60})
             .from(contentRef.current , {opacity : 0 , translateX:-60})
-            .from(ImageRef.current , {opacity : 0 , translateX:60});
+            .from(ImageRef.current , {opacity : 0 , translateX:60})
+            .from(pRef.current , {opacity:0 , translateY:10},"<")
+            .to(pBoxRef.current , {width:`calc(${pRef.current?.offsetWidth }px + 2px )`},"<")
+            .to(pBoxRef.current,{height: `calc(${pRef.current?.offsetHeight}px + 2px)` , zIndex:-1 , padding:"1px"},">")
+            .to(pRef.current,{color:"white" ,zIndex:3},">")
+        ;
 
 
         const parallax = gsap.timeline();
@@ -106,9 +116,12 @@ const Presentation :React.FC = () => {
                         <path className="draw-svg"  ref={stkRef} pathLength="1" d="M57.268557,49.824867l65.113688-.30714-65.420828,3.0714l62.656567,1.84284-54.363786,2.764261c18.082611,2.01807,35.447025.729757,45.763865.614279l-35.628244,4.6071l18.735542,2.149981L82.45404,67.638987" transform="matrix(1.089174 0 0 1.007945-62.040894-48.176379)" fill="none"/>
                     </svg>
                 </div>
-                <p className="text-1xl mb-[40px]">Our CV get people hired at top companies
-                    <br/>
-                    Like Tesla , Google , Apple , Samsung , Amazon ,Facebook , Spotify , Vodafone , Orange</p>
+                <p className={classNames("text-1xl mb-[40px] relative z-10")}>
+                    <span ref={pRef} className={classNames("z-20",[Styles.Content_paragraph])}> Our CV get people hired at top companies Like </span>
+                    <span ref={pBoxRef} className="absolute bottom-[1px] z-11 left-0 w-0 h-[2px] main_bg"></span>
+                    <span>{companies[0]}</span>
+                    <span>_</span>
+                </p>
                 <button className="premium_button"><ArrowForwardIcon className="btn_icon"/> Try It</button>
             </div>
 
