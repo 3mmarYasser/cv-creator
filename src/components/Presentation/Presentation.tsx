@@ -18,10 +18,19 @@ const Presentation :React.FC = () => {
      selectionE2Ref = useRef<SVGEllipseElement |null>(null),
      selectionE3Ref = useRef<SVGEllipseElement |null>(null),
      selectionE4Ref = useRef<SVGEllipseElement |null>(null),
-     stkRef = useRef<SVGPathElement |null>(null);
+     contentRef     = useRef<HTMLDivElement |null>(null),
+     ImageRef     = useRef<HTMLDivElement |null>(null),
+    stkRef = useRef<SVGPathElement |null>(null);
 
     useEffect(():void=>{
         gsap.registerPlugin(ScrollTrigger);
+        const tm =  gsap.timeline();
+        tm
+            .from("header",{opacity:0,translateY:-60})
+            .from(contentRef.current , {opacity : 0 , translateX:-60})
+            .from(ImageRef.current , {opacity : 0 , translateX:60});
+
+
         const parallax = gsap.timeline();
         parallax
             .from(newRef.current ,{ opacity:0 ,translateY:-40 ,translateX:0 ,rotate:0},"<")
@@ -53,7 +62,7 @@ const Presentation :React.FC = () => {
     return (
         <div ref={allRef} className={classNames("pt-[100px] top-0 left-0 pb-[35px] content_color flex justify-center",[Styles.Presentation])}>
 
-            <div className={classNames("w-[50%] ml-[15px] flex   flex-col justify-center items-start ",[Styles.content])}>
+            <div ref={contentRef} className={classNames("w-[50%] ml-[15px] flex   flex-col justify-center items-start ",[Styles.content])}>
                 <div className="mb-[5px]">
                     <svg ref={newRef} className="w-[60px]  h-[60px] translate-x-[100%] -rotate-45"  xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" data-name="NEW" viewBox="0 0 512 512">
                         <defs>
@@ -103,7 +112,7 @@ const Presentation :React.FC = () => {
                 <button className="premium_button"><ArrowForwardIcon className="btn_icon"/> Try It</button>
             </div>
 
-            <div className={classNames("w-[50%] flex justify-center items-center overflow-hidden",[Styles.imagesShow])}>
+            <div ref={ImageRef} className={classNames("w-[50%] flex justify-center items-center overflow-hidden",[Styles.imagesShow])}>
 
                 <img className="h-[50vw] max-h-[100%]" src="https://d18jg6w55vcmy1.cloudfront.net/images/home-img-1.svg" alt="PresentationImage" title="Presentation Image"/>
 
