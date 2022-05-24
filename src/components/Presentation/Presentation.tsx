@@ -25,6 +25,7 @@ const Presentation :React.FC = () => {
         ImageRef     = useRef<HTMLDivElement |null>(null),
         pRef         = useRef<HTMLParagraphElement |null>(null),
         pBoxRef         = useRef<HTMLSpanElement |null>(null),
+        underScoreRef = useRef<HTMLSpanElement |null>(null),
         stkRef = useRef<SVGPathElement |null>(null);
 
     useEffect(():void=>{
@@ -34,12 +35,15 @@ const Presentation :React.FC = () => {
             .from("header",{opacity:0,translateY:-60})
             .from(contentRef.current , {opacity : 0 , translateX:-60})
             .from(ImageRef.current , {opacity : 0 , translateX:60})
-            .from(pRef.current , {opacity:0 , translateY:10},"<")
-            .to(pBoxRef.current , {width:`calc(${pRef.current?.offsetWidth }px + 2px )`},"<")
-            .to(pBoxRef.current,{height: `calc(${pRef.current?.offsetHeight}px + 2px)` , zIndex:-1 , padding:"1px"},">")
-            .to(pRef.current,{color:"white" ,zIndex:3},">")
-        ;
+            .from(pRef.current , {opacity:0 , translateY:10},"<");
 
+        const boxTime = gsap.timeline({delay:4 , duration:2 , yoyo:true , repeat:-1});
+        boxTime
+            .to(pBoxRef.current , {width:`calc(${pRef.current?.offsetWidth }px + 2px )`})
+            .to(pBoxRef.current,{height: `calc(${pRef.current?.offsetHeight}px + 2px)` , zIndex:-1 , padding:"1px" })
+            .to(pRef.current,{color:"white" ,zIndex:3  });
+
+        gsap.to(underScoreRef.current , {opacity:0 , yoyo:true , repeat:-1})
 
         const parallax = gsap.timeline();
         parallax
@@ -119,8 +123,8 @@ const Presentation :React.FC = () => {
                 <p className={classNames("text-1xl mb-[40px] relative z-10")}>
                     <span ref={pRef} className={classNames("z-20",[Styles.Content_paragraph])}> Our CV get people hired at top companies Like </span>
                     <span ref={pBoxRef} className="absolute bottom-[1px] z-11 left-0 w-0 h-[2px] main_bg"></span>
-                    <span>{companies[0]}</span>
-                    <span>_</span>
+                    <span className="ml-[5px] premium_color">{companies[0]}</span>
+                    <span className="main_color font-bold" ref={underScoreRef}> _ </span>
                 </p>
                 <button className="premium_button"><ArrowForwardIcon className="btn_icon"/> Try It</button>
             </div>
