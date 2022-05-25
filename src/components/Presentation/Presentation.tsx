@@ -1,4 +1,4 @@
-import React, {useEffect, useRef , useState} from 'react';
+import React, {useEffect, useRef } from 'react';
 import {gsap} from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TextPlugin } from "gsap/TextPlugin";import classNames from "classnames";
@@ -8,7 +8,6 @@ import Styles from './Presentation.module.scss';
 const Presentation :React.FC = () => {
 
     const
-        [companies , setCompanies] = useState<string[]>(["Tesla","Google ","Apple","Samsung","Amazon","Facebook","Spotify","Vodafone","Orange"]),
         allRef = useRef<any |null>(null),
         newRef = useRef<SVGSVGElement |null>(null),
         selection1Ref  = useRef<SVGPathElement |null>(null),
@@ -28,6 +27,7 @@ const Presentation :React.FC = () => {
         stkRef = useRef<SVGPathElement |null>(null);
 
     useEffect(():void=>{
+        const  companies :string[] = ["Tesla","Google ","Apple","Samsung","Amazon","Facebook","Spotify","Vodafone","Orange"];
         gsap.registerPlugin(ScrollTrigger ,TextPlugin , RoughEase );
         const tm =  gsap.timeline({delay:0.5});
         tm
@@ -81,7 +81,7 @@ const Presentation :React.FC = () => {
             pinType:"fixed"
 
         })
-    },[companies])
+    },[])
 
     return (
         <div ref={allRef} className={classNames("pt-[100px] top-0 left-0 pb-[35px] content_color flex justify-center",[Styles.Presentation])}>
