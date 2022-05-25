@@ -27,7 +27,7 @@ const Presentation :React.FC = () => {
         stkRef = useRef<SVGPathElement |null>(null);
 
     useEffect(():void=>{
-        const  companies :string[] = ["Tesla","Google ","Apple","Samsung","Amazon","Facebook","Spotify","Vodafone","Orange"];
+        const  companies :string[] = ["Tesla","Google ","Apple","Samsung","Amazon","Facebook","Spotify","Vodafone","Orange" ,"Microsoft"];
         gsap.registerPlugin(ScrollTrigger ,TextPlugin  );
         const tm =  gsap.timeline({delay:0.5});
         tm
