@@ -2,9 +2,9 @@ import React, {useEffect, useRef } from 'react';
 import {gsap} from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TextPlugin } from "gsap/TextPlugin";import classNames from "classnames";
-import { RoughEase } from "gsap/EasePack";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Styles from './Presentation.module.scss';
+import Home_Image from "../../assets/svgs/home-img-1.svg"
 const Presentation :React.FC = () => {
 
     const
@@ -28,7 +28,7 @@ const Presentation :React.FC = () => {
 
     useEffect(():void=>{
         const  companies :string[] = ["Tesla","Google ","Apple","Samsung","Amazon","Facebook","Spotify","Vodafone","Orange"];
-        gsap.registerPlugin(ScrollTrigger ,TextPlugin , RoughEase );
+        gsap.registerPlugin(ScrollTrigger ,TextPlugin  );
         const tm =  gsap.timeline({delay:0.5});
         tm
             .from("header",{opacity:0,translateY:-60})
@@ -38,8 +38,8 @@ const Presentation :React.FC = () => {
 
         const boxTime = gsap.timeline({duration:2});
         boxTime
-            .to(pBoxRef.current , {width:`${pRef.current?.offsetWidth }px`})
-            .to(pBoxRef.current,{height: `${pRef.current?.offsetHeight}px` , zIndex:-1 , padding:"1px" })
+            .to(pBoxRef.current , {width:"100%"})
+            .to(pBoxRef.current,{height: "100%" , zIndex:-1 , padding:"1px" })
             .to(pRef.current,{color:"white" ,zIndex:3 });
         tm.add(boxTime)
 
@@ -56,8 +56,8 @@ const Presentation :React.FC = () => {
         gsap.to(underScoreRef.current , {opacity:0 , yoyo:true , repeat:-1 ,ease:"power2.inOut"})
 
         const parallax = gsap.timeline();
-        parallax
-            .from(newRef.current ,{ opacity:0 ,translateY:-40 ,translateX:0 ,rotate:0},"<")
+
+        parallax.from(newRef.current ,{ opacity:0 ,translateY:-40 ,translateX:0 ,rotate:0},"<")
             .fromTo(selection1Ref.current ,{cssText:"stroke-dashoffset: 1;"},{cssText:"stroke-dashoffset: 0;"},"<")
             .fromTo(selection2Ref.current ,{cssText:"stroke-dashoffset: 1;"},{cssText:"stroke-dashoffset: 0;"},"<")
             .fromTo(selection3Ref.current ,{cssText:"stroke-dashoffset: 1;"},{cssText:"stroke-dashoffset: 0;"},"<")
@@ -66,7 +66,7 @@ const Presentation :React.FC = () => {
             .from(selectionE2Ref.current ,{ opacity:0},"<")
             .from(selectionE3Ref.current ,{ opacity:0},"<")
             .from(selectionE4Ref.current ,{ opacity:0},"<")
-            .fromTo(stkRef.current ,{cssText:"stroke-dashoffset: 1;"},{cssText:"stroke-dashoffset: 0;"},"<")
+            .fromTo(stkRef.current ,{cssText:"stroke-dashoffset: 1;"},{cssText:"stroke-dashoffset: 0;" ,onComplete:()=>console.log("hello")},"<")
 
 
 
@@ -130,9 +130,10 @@ const Presentation :React.FC = () => {
                         <path className="draw-svg"  ref={stkRef} pathLength="1" d="M57.268557,49.824867l65.113688-.30714-65.420828,3.0714l62.656567,1.84284-54.363786,2.764261c18.082611,2.01807,35.447025.729757,45.763865.614279l-35.628244,4.6071l18.735542,2.149981L82.45404,67.638987" transform="matrix(1.089174 0 0 1.007945-62.040894-48.176379)" fill="none"/>
                     </svg>
                 </div>
-                <p className={classNames("text-1xl mb-[40px] relative z-10")}>
-                    <span ref={pRef} className={classNames("z-20",[Styles.Content_paragraph])}> Our CV get people hired at top companies Like </span>
-                    <span ref={pBoxRef} className="absolute bottom-[1px] z-11 left-0 w-0 h-[2px] premium_bg"></span>
+                <p className={classNames("text-1xl mb-[40px] z-10")}>
+                    <span ref={pRef} className={classNames("z-20 relative",[Styles.Content_paragraph])}> Our CV get people hired at top companies Like
+                     <span ref={pBoxRef} className="absolute bottom-[1px] z-11 left-0 w-0 h-[2px] premium_bg"></span>
+                    </span>
                     <span ref={pTextRef} className="ml-[5px] main_color"> </span>
                     <span ref={underScoreRef} className="main_color font-bold" > _ </span>
                 </p>
@@ -141,7 +142,7 @@ const Presentation :React.FC = () => {
 
             <div ref={ImageRef} className={classNames("w-[50%] flex justify-center items-center overflow-hidden",[Styles.imagesShow])}>
 
-                <img className="h-[50vw] max-h-[100%]" src="https://d18jg6w55vcmy1.cloudfront.net/images/home-img-1.svg" alt="PresentationImage" title="Presentation Image"/>
+                <img className="h-[50vw] max-h-[100%]" src={Home_Image} alt="PresentationImage" title="Presentation Image"/>
 
             </div>
         </div>
