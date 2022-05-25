@@ -1,12 +1,10 @@
 import React, {useEffect, useRef , useState} from 'react';
 import {gsap} from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-import classNames from "classnames";
+import { TextPlugin } from "gsap/TextPlugin";import classNames from "classnames";
+import { RoughEase } from "gsap/EasePack";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Styles from './Presentation.module.scss';
-import zIndex from "@mui/material/styles/zIndex";
-
 const Presentation :React.FC = () => {
 
     const
@@ -26,10 +24,11 @@ const Presentation :React.FC = () => {
         pRef         = useRef<HTMLParagraphElement |null>(null),
         pBoxRef         = useRef<HTMLSpanElement |null>(null),
         underScoreRef = useRef<HTMLSpanElement |null>(null),
+        pTextRef = useRef<HTMLSpanElement |null>(null),
         stkRef = useRef<SVGPathElement |null>(null);
 
     useEffect(():void=>{
-        gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollTrigger ,TextPlugin , RoughEase );
         const tm =  gsap.timeline({delay:0.5});
         tm
             .from("header",{opacity:0,translateY:-60})
@@ -37,13 +36,24 @@ const Presentation :React.FC = () => {
             .from(ImageRef.current , {opacity : 0 , translateX:60})
             .from(pRef.current , {opacity:0 , translateY:10},"<");
 
-        const boxTime = gsap.timeline({delay:4 , duration:2 , yoyo:true , repeat:-1});
+        const boxTime = gsap.timeline({duration:2});
         boxTime
-            .to(pBoxRef.current , {width:`calc(${pRef.current?.offsetWidth }px + 2px )`})
-            .to(pBoxRef.current,{height: `calc(${pRef.current?.offsetHeight}px + 2px)` , zIndex:-1 , padding:"1px" })
-            .to(pRef.current,{color:"white" ,zIndex:3  });
+            .to(pBoxRef.current , {width:`${pRef.current?.offsetWidth }px`})
+            .to(pBoxRef.current,{height: `${pRef.current?.offsetHeight}px` , zIndex:-1 , padding:"1px" })
+            .to(pRef.current,{color:"white" ,zIndex:3 });
+        tm.add(boxTime)
 
-        gsap.to(underScoreRef.current , {opacity:0 , yoyo:true , repeat:-1})
+
+        const textingTL = gsap.timeline({repeat:-1 , repeatDelay:1});
+        companies.forEach(company=>{
+            const tl = gsap.timeline({});
+            tl.to(pTextRef.current ,{duration: 1, text:company , ease: "none"});
+            tl.to(pTextRef.current ,{duration: 1, delay: 1, text:"" , ease: "none"});
+            textingTL.add(tl);
+        })
+        boxTime.add(textingTL)
+
+        gsap.to(underScoreRef.current , {opacity:0 , yoyo:true , repeat:-1 ,ease:"power2.inOut"})
 
         const parallax = gsap.timeline();
         parallax
@@ -71,7 +81,7 @@ const Presentation :React.FC = () => {
             pinType:"fixed"
 
         })
-    },[])
+    },[companies])
 
     return (
         <div ref={allRef} className={classNames("pt-[100px] top-0 left-0 pb-[35px] content_color flex justify-center",[Styles.Presentation])}>
@@ -122,9 +132,9 @@ const Presentation :React.FC = () => {
                 </div>
                 <p className={classNames("text-1xl mb-[40px] relative z-10")}>
                     <span ref={pRef} className={classNames("z-20",[Styles.Content_paragraph])}> Our CV get people hired at top companies Like </span>
-                    <span ref={pBoxRef} className="absolute bottom-[1px] z-11 left-0 w-0 h-[2px] main_bg"></span>
-                    <span className="ml-[5px] premium_color">{companies[0]}</span>
-                    <span className="main_color font-bold" ref={underScoreRef}> _ </span>
+                    <span ref={pBoxRef} className="absolute bottom-[1px] z-11 left-0 w-0 h-[2px] premium_bg"></span>
+                    <span ref={pTextRef} className="ml-[5px] main_color"> </span>
+                    <span ref={underScoreRef} className="main_color font-bold" > _ </span>
                 </p>
                 <button className="premium_button"><ArrowForwardIcon className="btn_icon"/> Try It</button>
             </div>
