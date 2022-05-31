@@ -1,11 +1,9 @@
 import React from 'react';
-import LineCvAnimation from "../../components/LineCvAnimetion/LineCvAnimation";
+import MainSlide from "./components/MainSlide/MainSlide";
 const HomeScreen :React.FC = () => {
     return (
         <div>
-            <LineCvAnimation/>
-            <LineCvAnimation/>
-            <LineCvAnimation/>
+        <MainSlide></MainSlide>
         </div>
     );
 };
