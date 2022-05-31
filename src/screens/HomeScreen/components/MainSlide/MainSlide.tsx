@@ -10,7 +10,7 @@ const MainSlide = () => {
                        Our resumes get people hired at top companies
                    </p>
                </div>
-                <div className="flex overflow-y-clip  absolute right-0 top-0 pt-20  w-[40vw]">
+                <div className="flex overflow-y-clip  absolute right-0 top-20  w-[40vw]">
                     <div className="flex justify-center relative h-[41.5rem]  rotate-[-21deg]">
                         <LineCvAnimation/>
                         <LineCvAnimation/>
