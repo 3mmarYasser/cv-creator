@@ -20,8 +20,8 @@ const LineCvAnimation = () => {
             {
                 images.map((image, index) => {
                     return (
-                        <div key={index} className="line-cv-animation__image relative bottom-0">
-                            <img src={image} alt="line-cv-animation__image_src "/>
+                        <div key={index} className="line-cv-animation__image relative bottom-0 drop-shadow-lg">
+                            <img src={image} alt="line-cv-animation__image_src"/>
                         </div>
                     )
                 })

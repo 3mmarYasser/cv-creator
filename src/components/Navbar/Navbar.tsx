@@ -2,7 +2,7 @@ import React, {} from 'react';
 const Navbar: React.FC = () => {
 
     return (
-        <header tabIndex={10} className="w-[100vw] mt-10 flex justify-center fixed z-10">
+        <header tabIndex={10} className="w-[100vw]  pt-5 flex justify-center fixed z-10">
             <nav className="flex navbar bg-base-200 rounded-box w-screen-lg mx-5">
                 <div className="flex items-center w-fit ml-8">
                     <svg className="fill-primary" xmlns="http://www.w3.org/2000/svg"
