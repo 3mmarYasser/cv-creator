@@ -65,6 +65,10 @@ const TemplatesSlide: React.FC = () => {
                             spaceBetween: 30,
                         },
                         "1280": {
+                            slidesPerView: 6,
+                            spaceBetween: 30,
+                        },
+                        "1600": {
                             slidesPerView: 7,
                             spaceBetween: 30,
                         }

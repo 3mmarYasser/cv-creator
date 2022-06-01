@@ -48,8 +48,8 @@ const AppSlide :React.FC = () => {
 
             </div>
 
-            <div className="container mx-auto flex justify-center items-center space-x-20 flex-col md:flex-row">
-                <div className="text-3xl font-medium">
+            <div className="container mx-auto flex justify-center items-center space-x-10 flex-col md:flex-row">
+                <div className="text-4xl font-medium mb-10 lg:3xl">
                     <p>The numbers speak</p>
                     <p>for themselves</p>
                 </div>
