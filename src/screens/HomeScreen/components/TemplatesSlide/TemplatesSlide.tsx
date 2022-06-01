@@ -27,8 +27,8 @@ const TemplatesSlide: React.FC = () => {
             <div className="flex container mx-auto p-10 w-fit mt-52 flex-col lg:flex-row">
 
 
-                <h2 className="text-4xl max-w-md text-primary-content">Resume templates tailored for you</h2>
-                <p className="max-w-xl">
+                <h2 className="text-4xl max-w-md text-primary mb-10 " >Resume templates tailored for you</h2>
+                <p className="max-w-xl text-base-content">
                     Highlight your best assets through economical communication. Traditional or creative - take your
                     pick. Your resume will always beat luck.</p>
             </div>

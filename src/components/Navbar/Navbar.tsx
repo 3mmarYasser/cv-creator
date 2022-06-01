@@ -4,7 +4,7 @@ const Navbar: React.FC = () => {
 
     return (
         <header tabIndex={100} className="w-[100vw]  pt-5 flex justify-center fixed z-50">
-            <nav className="flex navbar bg-base-200 rounded-box w-screen-lg mx-5">
+            <nav className="flex navbar bg-base-200 rounded-box w-screen-lg mx-5 border-primary border-2 " style={{boxShadow : "0 5px 0 3px #0000001f"}}>
                 <div className="flex items-center w-fit ml-8">
                     <svg className="fill-primary" xmlns="http://www.w3.org/2000/svg"
                          width="190px"

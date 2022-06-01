@@ -28,7 +28,8 @@ code {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--premium-color);
+  --tw-text-opacity: 1;
+  background-color: hsl(var(--p) / var(--tw-text-opacity));
   border-radius: 3px;
 }
 
