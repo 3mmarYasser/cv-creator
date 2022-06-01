@@ -20,7 +20,7 @@ const LineCvAnimation = () => {
                 images.map((image, index) => {
                     return (
                         <div key={index} className="line-cv-animation__image relative bottom-0 drop-shadow-lg bg-primary">
-                            <img src={image} className="dark:opacity-75  dark:invert-[.9]" alt="line-cv-animation__image_src "/>
+                            <img src={image} className="dark:opacity-75  dark:invert-[.9]" alt="line-cv-animation__image_src " style={{boxShadow : "-12px 6px #00000021"}}/>
                         </div>
                     )
                 })
