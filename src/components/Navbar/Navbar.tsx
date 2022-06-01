@@ -1,4 +1,5 @@
 import React, {} from 'react';
+import {Link} from "react-router-dom";
 const Navbar: React.FC = () => {
 
     return (
@@ -30,7 +31,7 @@ const Navbar: React.FC = () => {
 
                 </div>
                 <ul className="flex w-full mx-8  text-lg">
-                    <li><a className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2">Resume</a>
+                    <li><Link to={"#"}  className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2">Resume</Link>
                     </li>
 
                     <li>
@@ -38,9 +39,9 @@ const Navbar: React.FC = () => {
                             <label tabIndex={0} className="btn-ghost hover:bg-transparent hover:text-primary rounded-btn">CV</label>
                             <ul tabIndex={0}
                                 className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                                <li><a>CV Templates</a></li>
-                                <li><a>CV Examples</a></li>
-                                <li><a>CV Builder</a></li>
+                                <li><Link to={"#"}>CV Templates</Link></li>
+                                <li><Link to={"#"}>CV Examples</Link></li>
+                                <li><Link to={"#"}>CV Builder</Link></li>
                                 <span className="border-t-4 my-2 rounded-box border-primary"/>
                                 <li>
                                     <button className="btn  text-primary-content btn-primary rounded-btn ">Build Your Resume</button></li>
