@@ -1,4 +1,3 @@
-import styles from "./LineCvAnimation.module.scss";
 import img1 from "./../../../../assets/images/img.png"
 let images : string[] = [img1]
 if(images.length < 3){
@@ -20,8 +19,8 @@ const LineCvAnimation = () => {
             {
                 images.map((image, index) => {
                     return (
-                        <div key={index} className="line-cv-animation__image relative bottom-0 drop-shadow-lg">
-                            <img src={image} alt="line-cv-animation__image_src"/>
+                        <div key={index} className="line-cv-animation__image relative bottom-0 drop-shadow-lg bg-primary">
+                            <img src={image} className="dark:opacity-75  dark:invert-[.9]" alt="line-cv-animation__image_src "/>
                         </div>
                     )
                 })
