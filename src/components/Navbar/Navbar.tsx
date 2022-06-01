@@ -48,6 +48,11 @@ const Navbar: React.FC = () => {
                             </ul>
                         </div>
                     </li>
+
+                    <div className="ml-auto w-fit ml-10 space-x-2">
+                        <button className="btn btn-outline btn-primary text-primary-content px-10 text-lg">Sign-in</button>
+                        <button className="btn btn-primary text-primary-content px-10 text-lg">sign-up</button>
+                    </div>
                 </ul>
             </nav>
 
