@@ -10,7 +10,7 @@ const EditorScreen :React.FC<Props> = () => {
     const {data , loading ,err} = Template();
     const render = ():JSX.Element=>{
         if(loading)return <p>Loading</p>
-        else if(err) return <p>{err}</p>
+        else if(err) return <p className="text-red-500">{err}</p>
         return <EditRender data={data} />
     }
     return (
