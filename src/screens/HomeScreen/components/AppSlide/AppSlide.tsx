@@ -41,9 +41,9 @@ const AppSlide :React.FC = () => {
                         <p className="opacity-75">
                             Create a visually stunning resume that makes recruiters want to read it and explore it. Our resume creator will guide you through the process. Focus on the content, while we take care of the formatting.
                         </p>
-                        <button className="mt-5 btn btn-md btn-primary text-primary-content">
+                        <Link to="editor" className="mt-5 btn btn-md btn-primary text-primary-content">
                             Build my resume now
-                        </button>
+                        </Link>
                     </div>
 
             </div>
