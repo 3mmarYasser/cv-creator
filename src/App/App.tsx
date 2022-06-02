@@ -9,11 +9,10 @@ import EditorScreen from "../screens/EditorScreen/EditorScreen";
 const App:React.FC = ()=> {
   return (
    <Router>
-          <Route path="*" element={<Loading/>} />
      <div className="container">
              <Navbar/>
                 <Routes>
-                       <Route path="*" element={<Loading/>} />
+                       {/*<Route path="*" element={<Loading/>} />*/}
                        <Route index element={<HomeScreen/>} />
                       <Route path="editor" element={<EditorScreen/>} />
                       <Route path="*" element={<Page404/>} />
