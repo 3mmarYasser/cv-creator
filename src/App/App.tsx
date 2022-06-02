@@ -5,12 +5,17 @@ import Navbar from "../components/Navbar/Navbar";
 import "./App.scss";
 import Page404 from "../screens/404/404";
 import Editor from "../components/Editor/Index/Editor";
+import Loading from "../screens/loading/loading";
 const App:React.FC = ()=> {
   return (
-      <Router>
+      <Loading/>
+  /*    <Router>
+          <Route path="*" element={<Loading/>} />
+
           <div className="container">
               <Navbar/>
                   <Routes>
+                      <Route path="*" element={<Loading/>} />
                       <Route index element={<HomeScreen/>} />
                       <Route path="editor" element={<Editor/>} />
                       <Route path="*" element={<Page404/>} />
@@ -18,7 +23,7 @@ const App:React.FC = ()=> {
                   </Routes>
           </div>
 
-      </Router>
+      </Router>*/
   );
 }
 
