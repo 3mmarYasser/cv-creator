@@ -4,26 +4,22 @@ import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import Navbar from "../components/Navbar/Navbar";
 import "./App.scss";
 import Page404 from "../screens/404/404";
-import Editor from "../components/Editor/Index/Editor";
 import Loading from "../screens/loading/loading";
+import EditorScreen from "../screens/EditorScreen/EditorScreen";
 const App:React.FC = ()=> {
   return (
-      <Loading/>
-  /*    <Router>
+   <Router>
           <Route path="*" element={<Loading/>} />
-
-          <div className="container">
-              <Navbar/>
-                  <Routes>
-                      <Route path="*" element={<Loading/>} />
-                      <Route index element={<HomeScreen/>} />
-                      <Route path="editor" element={<Editor/>} />
+     <div className="container">
+             <Navbar/>
+                <Routes>
+                       <Route path="*" element={<Loading/>} />
+                       <Route index element={<HomeScreen/>} />
+                      <Route path="editor" element={<EditorScreen/>} />
                       <Route path="*" element={<Page404/>} />
-
                   </Routes>
-          </div>
-
-      </Router>*/
+         </div>
+      </Router>
   );
 }
 
