@@ -1,0 +1,10 @@
+[build]
+ command = "npm run build"
+ publish = "/build"
+ base = "/"
+
+
+[[redirects]]
+ source = "/"
+ destination = "/index.html"
+ permanent = true
