@@ -1,111 +1,82 @@
-import React, {useEffect, useState ,useRef} from 'react';
-import classNames from "classnames";
-import {gsap} from "gsap";
-import {NavLink} from "react-router-dom";
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import TranslateIcon from '@mui/icons-material/Translate';
-import ContactSupportIcon from '@mui/icons-material/ContactSupport';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import React, {useEffect, useState} from 'react';
+import {Link} from "react-router-dom";
+const Navbar = () => {
+    const [show, setShow] = useState(true);
 
-import TryIcon from '@mui/icons-material/Try';
-import Styles from './Navbar.module.scss';
-
-const Navbar :React.FC = () => {
-    const [menu, setMenu] = useState<boolean>(false);
-    const menuRef = useRef<HTMLDivElement | null>(null);
-
-    useEffect(() :void=>{
-       window.addEventListener("resize",() :void=>{
-           if( menu && window.innerWidth > 1000) {
-               setMenu(false)
-           }
-       })
-       menu ? document.body.classList.add("overlay"): document.body.classList.remove("overlay");
-       if(menu){
-           gsap.fromTo(menuRef.current , {scale : "0"} ,{scale:"1" })
-       }
-   },[menu]);
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-    
-    const closeMenu = () :void=>{
-        if(window.innerWidth <= 1000){
-            gsap.fromTo(menuRef.current , {scale : "1"} ,{scale:"0"})
-            setTimeout(()=>{
-                gsap.to(menuRef.current , {scale:1 ,duration:0})
-                setMenu(false);
-            },500)
+    const controlNavbar = () => {
+        if (typeof window !== 'undefined') {
+            if (window.scrollY < 100) {
+                setShow(true);
+            } else {
+                setShow(false);
+            }
         }
-    }
+    };
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', controlNavbar);
+        }
+    }, []);
 
     return (
-        <header className={classNames("pt-[30px]  pr-[20px]  pl-[20px] flex justify-between fixed  p-[10px] w-[100vw] z-[98]" , [Styles.Header])}>
-            <div className="flex">
-                <div className="flex justify-center items-center">
-                    <svg className={classNames("w-[60px] h-[60px] pr-[20px] z-[110]",Styles.logo)}  data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 137">
-                        <title>Logo</title>
-                        <rect className="fls_1" x="31" width="117" height="108" rx="12"/>
-                        <rect className="fls_2" x="16" y="17" width="113" height="105" rx="12"/>
-                        <rect className="fls_3" y="29" width="117" height="108" rx="12"/>
+        <header tabIndex={100} className="w-[100vw]  pt-5 flex justify-center fixed z-50">
+            <nav className="flex navbar bg-base-200 rounded-box w-screen-lg mx-5 border-primary border-2 " style={  {boxShadow : `${show && "0 5px 0 3px #0000001f" } ` , border : `${show && "0"}`  }}>
+                <div className="flex items-center w-fit ml-8">
+                    <svg className="fill-primary" xmlns="http://www.w3.org/2000/svg"
+                         width="190px"
+                         viewBox="0 0 143 22">
+                        <g>
+                            <path
+                                d="M100.561,6.134c-2.758,0-5.003,2.244-5.003,5.002v2.022c0,2.758,2.245,5.002,5.003,5.002 c1.457,0,2.766-0.63,3.681-1.627v1.627h1.321v-5.002v-0.661v-1.361C105.563,8.378,103.318,6.134,100.561,6.134 M104.241,12.498 v0.661c0,2.028-1.651,3.681-3.681,3.681c-2.03,0-3.682-1.652-3.682-3.681v-2.022c0-2.03,1.651-3.682,3.682-3.682 c2.029,0,3.681,1.652,3.681,3.682V12.498z"></path>
+                            <path
+                                d="M87.857,6.134c-1.457,0-2.766,0.63-3.682,1.627V3.422h-1.321v7.714v2.769v4.257h1.321v-4.257v-2.769 c0-2.029,1.651-3.681,3.682-3.681c2.029,0,3.682,1.652,3.682,3.681v7.025h1.32v-7.025C92.859,8.378,90.615,6.134,87.857,6.134"></path>
+                            <path
+                                d="M113.445,6.134c-1.457,0-2.766,0.63-3.681,1.627V6.134h-1.321v5.002v0.661v6.364h1.321v-6.364v-0.661 c0-2.029,1.651-3.681,3.681-3.681c2.03,0,3.682,1.652,3.682,3.681v7.025h1.32v-7.025C118.447,8.378,116.203,6.134,113.445,6.134"></path>
+                            <path
+                                d="M74.641,6.134c-1.457,0-2.766,0.63-3.682,1.627V6.134h-1.321v5.002v0.661v6.364h1.321v-6.364v-0.661 c0-2.029,1.652-3.681,3.682-3.681c2.03,0,3.682,1.652,3.682,3.681v7.025h1.32v-7.025C79.643,8.378,77.398,6.134,74.641,6.134"></path>
+                            <path
+                                d="M126.148,16.84c-2.029,0-3.681-1.652-3.681-3.681v-2.022c0-2.03,1.651-3.682,3.681-3.682 c1.561,0,2.955,0.988,3.473,2.458l1.248-0.439c-0.705-1.998-2.602-3.34-4.721-3.34c-2.758,0-5.002,2.244-5.002,5.003v2.022 c0,2.758,2.244,5.002,5.002,5.002c2.122,0,4.02-1.345,4.721-3.345l-1.246-0.438C129.106,15.852,127.711,16.84,126.148,16.84"></path>
+                            <path
+                                d="M141.645,6.134v5.017c0,0.988-0.387,1.916-1.094,2.617l-2.588,2.588l-2.59-2.59 c-0.703-0.697-1.092-1.627-1.092-2.615V6.134h-1.32v5.017c0,1.344,0.526,2.605,1.48,3.551l3.521,3.521l3.52-3.52 c0.957-0.948,1.482-2.209,1.482-3.553V6.134H141.645z"></path>
+                            <polygon
+                                points="58.256,11.294 66.356,11.294 66.356,9.973 58.256,9.973 58.256,4.743 66.746,4.743 66.746,3.422 56.936,3.422 56.936,9.973 56.936,11.294 56.936,18.16 66.94,18.16 66.94,16.84 58.256,16.84 "></polygon>
+                            <path
+                                d="M35.472,21.453l0.062-0.062c0.025-0.028,0.046-0.054,0.066-0.081s0.04-0.057,0.058-0.086l0.048-0.072 l7.385-13.877c0.379-0.714,0.58-1.523,0.58-2.339c0-2.757-2.243-5-5-5c-1.186,0-2.338,0.423-3.242,1.191l-0.062,0.056l-7.315,6.426 l0.569,0.568c0.037,0.033,0.077,0.073,0.123,0.125c0.339,0.385,0.955,0.433,1.351,0.116l6.595-5.796 c0.556-0.474,1.257-0.732,1.981-0.732c1.679,0,3.045,1.366,3.045,3.046c0,0.503-0.117,0.981-0.35,1.421l-6.79,12.752L18.589,3.121 c-2.057-2.057-4.792-3.19-7.702-3.19c-2.91,0-5.645,1.133-7.701,3.19C1.132,5.175,0,7.91,0,10.822c0,2.912,1.132,5.647,3.186,7.701 c2.056,2.058,4.791,3.19,7.701,3.19c2.891,0,5.614-1.121,7.666-3.155l4.116-3.617l-0.56-0.561c-0.04-0.034-0.081-0.076-0.13-0.131 c-0.342-0.389-0.993-0.434-1.384-0.09l-3.343,2.938c-1.733,1.731-3.978,2.66-6.365,2.66c-2.388,0-4.633-0.929-6.319-2.617 c-1.685-1.685-2.614-3.93-2.614-6.319s0.929-4.634,2.614-6.319c1.686-1.688,3.931-2.617,6.319-2.617c2.387,0,4.632,0.929,6.32,2.617 l16.921,16.922c0.061,0.049,0.088,0.071,0.116,0.092c0.024,0.019,0.051,0.037,0.08,0.054l0.073,0.039 c0.044,0.021,0.074,0.032,0.105,0.043c0.027,0.01,0.056,0.019,0.086,0.025c0.033,0.008,0.066,0.014,0.099,0.02 c0.026,0.002,0.058,0.007,0.09,0.009l0.078,0.007c0.044-0.01,0.077-0.014,0.111-0.018c0.026-0.004,0.056-0.011,0.087-0.019 c0.033-0.009,0.06-0.017,0.086-0.026c0.032-0.01,0.06-0.021,0.09-0.035c0.034-0.017,0.059-0.029,0.084-0.045 c0.029-0.017,0.053-0.032,0.077-0.051C35.419,21.499,35.446,21.477,35.472,21.453"></path>
+                        </g>
                     </svg>
-                    <h1 className="logo_font flex justify-center self-center text-[1.5rem] main_color">CV Builder <span className="premium_color">.</span></h1>
+
                 </div>
+                <ul className="flex w-full mx-8  text-lg">
+                    <li><Link to={"#"}  className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2">Resume</Link>
+                    </li>
 
-                <div ref={menuRef} className={classNames("flex",[[Styles.header_content],{[Styles.menu] : menu},{"back_drop" : menu}])}>
-                    <ul  className={classNames("flex text-[0.8rem] font-light")}>
-                        <li  onMouseOver={handleClick}  className={classNames("flex items-center",[Styles.drop_able_menu])}>Resume<ExpandMoreIcon className="w-[15px] h-[15px]"/> </li>
-                        <li  onMouseOver={handleClick}  className={classNames("flex items-center",[Styles.drop_able_menu])}>CV<ExpandMoreIcon className="w-[15px] h-[15px]"/> </li>
-                        <li onClick={closeMenu}><NavLink to="/ar">Contact US</NavLink></li>
-                        <li onClick={closeMenu}><NavLink to="/ar">Arabic <TranslateIcon className="main_color"/></NavLink></li>
-                    </ul>
+                    <li>
+                        <div className="dropdown cursor-pointer mx-2">
+                            <label tabIndex={0} className="btn-ghost hover:bg-transparent hover:text-primary rounded-btn">CV</label>
+                            <ul tabIndex={0}
+                                className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+                                <li><Link to={"#"}>CV Templates</Link></li>
+                                <li><Link to={"#"}>CV Examples</Link></li>
+                                <li><Link to={"#"}>CV Builder</Link></li>
+                                <span className="border-t-4 my-2 rounded-box border-primary"/>
+                                <li>
+                                    <button className="btn  text-primary-content btn-primary rounded-btn ">Build Your Resume</button></li>
+                            </ul>
+                        </div>
+                    </li>
 
-                    {menu ? (<>
-                                <div className="flex justify-center flex-col items-center">
-                                    <button onClick={closeMenu}  className="main_button __main_button mr-[5px]">Sign in</button>
-                                    <button onClick={closeMenu}  className="main_button ">Get started</button>
-                                </div>
-                                <button className={classNames("absolute top-[5px] right-[5px] p-[2px] rounded-full",[Styles.closeMenu])} onClick={closeMenu}><CloseIcon className={Styles.closeIcon}/></button>
-                            </>
-                        ) :null}
-                </div>
+                    <div className=" w-fit ml-auto space-x-2">
+                        <button className="btn btn-outline btn-primary text-primary-content px-10 text-lg">Sign-in</button>
+                        <button className="btn btn-primary text-primary-content px-10 text-lg">sign-up</button>
+                    </div>
+                </ul>
+            </nav>
 
-
-            </div>
-
-            <div className="flex justify-center items-center hide-on-phone">
-                <button onClick={closeMenu}  className="main_button __main_button mr-[5px]">Sign in</button>
-                <button onClick={closeMenu}  className="main_button ">Get started</button>
-            </div>
-
-            <MenuIcon className={classNames("init_icon cursor-pointer self-center", [Styles.menuIcon])} onClick={()=>{setMenu(!menu)}}/>
-
-            <Menu
-                id="basic-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                    'aria-labelledby': 'basic-button',
-                }}
-            >
-                <MenuItem onClick={()=>{handleClose();closeMenu();}}><NavLink to="templates/new">Resume Builder</NavLink></MenuItem>
-                <MenuItem   onClick={()=>{handleClose();closeMenu();}}>Resume Examples</MenuItem>
-                <MenuItem   onClick={()=>{handleClose();closeMenu();}}>Resume Templates</MenuItem>
-                <MenuItem   onClick={()=>{handleClose();closeMenu();}}>Resume Skills</MenuItem>
-            </Menu>
 
 
         </header>
+
     );
 };
 
-export default Navbar ;
+export default Navbar;
