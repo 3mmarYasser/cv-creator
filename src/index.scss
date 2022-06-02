@@ -3,6 +3,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+#root {
+  overflow: hidden;
+  right: 0;
+  position: relative;
+}
 body {
   margin: 0;
   font-family: scss.$font-family;
@@ -40,6 +45,7 @@ code {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   box-shadow: -13px 16px 0px #0000001c;
+  height: fit-content;
 }
 .line-cv-animation:nth-child(2) {
   animation-name: line-cv2;

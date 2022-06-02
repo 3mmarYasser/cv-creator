@@ -1,10 +1,26 @@
-import React, {} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
-const Navbar: React.FC = () => {
+const Navbar = () => {
+    const [show, setShow] = useState(true);
+
+    const controlNavbar = () => {
+        if (typeof window !== 'undefined') {
+            if (window.scrollY < 100) {
+                setShow(true);
+            } else {
+                setShow(false);
+            }
+        }
+    };
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', controlNavbar);
+        }
+    }, []);
 
     return (
         <header tabIndex={100} className="w-[100vw]  pt-5 flex justify-center fixed z-50">
-            <nav className="flex navbar bg-base-200 rounded-box w-screen-lg mx-5 border-primary border-2 " style={{boxShadow : "0 5px 0 3px #0000001f"}}>
+            <nav className="flex navbar bg-base-200 rounded-box w-screen-lg mx-5 border-primary border-2 " style={  {boxShadow : `${show && "0 5px 0 3px #0000001f" } ` , border : `${show && "0"}`  }}>
                 <div className="flex items-center w-fit ml-8">
                     <svg className="fill-primary" xmlns="http://www.w3.org/2000/svg"
                          width="190px"
