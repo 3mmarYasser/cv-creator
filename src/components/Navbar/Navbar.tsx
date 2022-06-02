@@ -11,7 +11,6 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
 import TryIcon from '@mui/icons-material/Try';
-
 import Styles from './Navbar.module.scss';
 
 const Navbar :React.FC = () => {
@@ -37,6 +36,7 @@ const Navbar :React.FC = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    
     const closeMenu = () :void=>{
         if(window.innerWidth <= 1000){
             gsap.fromTo(menuRef.current , {scale : "1"} ,{scale:"0"})
@@ -48,25 +48,42 @@ const Navbar :React.FC = () => {
     }
 
     return (
-        <header className={classNames("bg_color t-0 l-0 flex justify-between h-[60px] fixed  p-[10px] w-[100vw] z-[98]" , [Styles.Header])}>
-            <div className="flex justify-center items-center">
-                <svg className={classNames("w-[60px] h-[60px] pr-[20px] z-[110]",Styles.logo)}  data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 137">
-                    <title>Logo</title>
-                    <rect className="fls_1" x="31" width="117" height="108" rx="12"/>
-                    <rect className="fls_2" x="16" y="17" width="113" height="105" rx="12"/>
-                    <rect className="fls_3" y="29" width="117" height="108" rx="12"/>
-                </svg>
-                <h1 className="logo_font flex justify-center self-center text-3xl font-bold">CV Builder <span>.</span></h1>
+        <header className={classNames("pt-[30px]  pr-[20px]  pl-[20px] flex justify-between fixed  p-[10px] w-[100vw] z-[98]" , [Styles.Header])}>
+            <div className="flex">
+                <div className="flex justify-center items-center">
+                    <svg className={classNames("w-[60px] h-[60px] pr-[20px] z-[110]",Styles.logo)}  data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 137">
+                        <title>Logo</title>
+                        <rect className="fls_1" x="31" width="117" height="108" rx="12"/>
+                        <rect className="fls_2" x="16" y="17" width="113" height="105" rx="12"/>
+                        <rect className="fls_3" y="29" width="117" height="108" rx="12"/>
+                    </svg>
+                    <h1 className="logo_font flex justify-center self-center text-[1.5rem] main_color">CV Builder <span className="premium_color">.</span></h1>
+                </div>
+
+                <div ref={menuRef} className={classNames("flex",[[Styles.header_content],{[Styles.menu] : menu},{"back_drop" : menu}])}>
+                    <ul  className={classNames("flex text-[0.8rem] font-light")}>
+                        <li  onMouseOver={handleClick}  className={classNames("flex items-center",[Styles.drop_able_menu])}>Resume<ExpandMoreIcon className="w-[15px] h-[15px]"/> </li>
+                        <li  onMouseOver={handleClick}  className={classNames("flex items-center",[Styles.drop_able_menu])}>CV<ExpandMoreIcon className="w-[15px] h-[15px]"/> </li>
+                        <li onClick={closeMenu}><NavLink to="/ar">Contact US</NavLink></li>
+                        <li onClick={closeMenu}><NavLink to="/ar">Arabic <TranslateIcon className="main_color"/></NavLink></li>
+                    </ul>
+
+                    {menu ? (<>
+                                <div className="flex justify-center flex-col items-center">
+                                    <button onClick={closeMenu}  className="main_button __main_button mr-[5px]">Sign in</button>
+                                    <button onClick={closeMenu}  className="main_button ">Get started</button>
+                                </div>
+                                <button className={classNames("absolute top-[5px] right-[5px] p-[2px] rounded-full",[Styles.closeMenu])} onClick={closeMenu}><CloseIcon className={Styles.closeIcon}/></button>
+                            </>
+                        ) :null}
+                </div>
+
+
             </div>
 
-            <div ref={menuRef} className={classNames("flex",[[Styles.header_content],{[Styles.menu] : menu},{"back_drop" : menu}])}>
-                <ul  className={classNames("flex")}>
-                    <li  onMouseOver={handleClick}  className={classNames("flex items-center",[Styles.drop_able_menu])}>Templates <ExpandMoreIcon className="main_color w-[15px] h-[15px]"/> </li>
-                    <li onClick={closeMenu}><NavLink to="/contactus">Contact Us <ContactSupportIcon  className="main_color"/></NavLink></li>
-                    <li onClick={closeMenu}><NavLink to="/ar">Arabic <TranslateIcon className="main_color"/></NavLink></li>
-                </ul>
-                <button onClick={closeMenu}  className="main_button">Give It a Try <TryIcon className="btn_icon"/></button>
-                {menu ? <button className={classNames("absolute top-[5px] right-[5px] p-[2px] rounded-full",[Styles.closeMenu])} onClick={closeMenu}><CloseIcon className={Styles.closeIcon}/></button>:null}
+            <div className="flex justify-center items-center hide-on-phone">
+                <button onClick={closeMenu}  className="main_button __main_button mr-[5px]">Sign in</button>
+                <button onClick={closeMenu}  className="main_button ">Get started</button>
             </div>
 
             <MenuIcon className={classNames("init_icon cursor-pointer self-center", [Styles.menuIcon])} onClick={()=>{setMenu(!menu)}}/>
@@ -80,13 +97,13 @@ const Navbar :React.FC = () => {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItem
-                    className="bg-amber-200"
-                    onClick={()=>{handleClose();closeMenu();}}>
-                    <NavLink to="templates/new">New Templates</NavLink>
-                </MenuItem>
-                <MenuItem   onClick={()=>{handleClose();closeMenu();}}>All Templates</MenuItem>
+                <MenuItem onClick={()=>{handleClose();closeMenu();}}><NavLink to="templates/new">Resume Builder</NavLink></MenuItem>
+                <MenuItem   onClick={()=>{handleClose();closeMenu();}}>Resume Examples</MenuItem>
+                <MenuItem   onClick={()=>{handleClose();closeMenu();}}>Resume Templates</MenuItem>
+                <MenuItem   onClick={()=>{handleClose();closeMenu();}}>Resume Skills</MenuItem>
             </Menu>
+
+
         </header>
     );
 };
