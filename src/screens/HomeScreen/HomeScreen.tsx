@@ -6,7 +6,7 @@ import TemplatesSlide from "./components/TemplatesSlide/TemplatesSlide";
 const HomeScreen: React.FC = () => {
     return (
         <div>
-            <MainSlide></MainSlide>
+            <MainSlide/>
             <AppSlide/>
             <TemplatesSlide/>
         </div>
