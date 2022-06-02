@@ -3,6 +3,7 @@ import {BrowserRouter as Router , Routes , Route} from "react-router-dom";
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import Navbar from "../components/Navbar/Navbar";
 import "./App.scss";
+import Page404 from "../screens/404/404";
 const App:React.FC = ()=> {
   return (
       <Router>
@@ -11,7 +12,7 @@ const App:React.FC = ()=> {
               <div className="">
                   <Routes>
                       <Route index element={<HomeScreen/>} />
-                      <Route path="*" element={<div>404 Page</div>} />
+                      <Route path="*" element={<Page404/>} />
                   </Routes>
               </div>
           </div>
