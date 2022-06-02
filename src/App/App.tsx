@@ -10,14 +10,12 @@ const App:React.FC = ()=> {
       <Router>
           <div className="container">
               <Navbar/>
-              <div className="">
                   <Routes>
                       <Route index element={<HomeScreen/>} />
                       <Route path="editor" element={<Editor/>} />
                       <Route path="*" element={<Page404/>} />
 
                   </Routes>
-              </div>
           </div>
 
       </Router>
