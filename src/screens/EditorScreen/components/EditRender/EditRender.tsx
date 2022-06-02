@@ -5,6 +5,7 @@ import {AddAttrByAttr, AddClassByAttr} from "../Providers/AddInReturn";
 import UserImage from "../../../../assets/svgs/user.svg"
 import {CheckAttr} from "../Providers/CheckIn";
 import  './EditRender.scss'
+import uploadImage from "../Providers/uploadImage";
 
 interface Props {
     data:string
@@ -14,7 +15,19 @@ const EditRender :React.FC<Props> = ({data}) => {
 
     const rendererRef = useRef<HTMLDivElement |null>(null);
     useEffect(() => {
-        AddClassByAttr(rendererRef.current , "[data-content-edit]", "editing_Text");
+        const inputUpload = document.createElement('input');
+        inputUpload.type = "file";
+        inputUpload.id  = "ResumeImageUpload"
+        inputUpload.accept = "image/*";
+        inputUpload.multiple = false;
+        inputUpload.name = "ResumeProfileImage";
+        inputUpload.onchange = (e)=>{uploadImage(e , setImage);}
+        inputUpload.style.display = "none";
+        const labelUpload = document.createElement('label');
+        labelUpload.htmlFor = "ResumeImageUpload";
+        labelUpload.textContent = "Upload";
+
+       AddClassByAttr(rendererRef.current , "[data-content-edit]", "editing_Text");
         AddAttrByAttr(rendererRef.current , "[data-content-edit]","contentEditable");
         AddClassByAttr(rendererRef.current , "[data-resume-header]","resume-header");
         AddClassByAttr(rendererRef.current , "[data-h-right]","resume-header-right");
@@ -23,7 +36,10 @@ const EditRender :React.FC<Props> = ({data}) => {
         const resumeImage = CheckAttr(rendererRef.current , "[data-h-image]");
         console.log(resumeImage)
         if(resumeImage !== null){
-            console.log("Done")
+         if(resumeImage.childElementCount < 2){
+                resumeImage.appendChild(inputUpload)
+                resumeImage.appendChild(labelUpload)
+            }
             resumeImage.style.backgroundImage = `url(${image})`;
         }
 
