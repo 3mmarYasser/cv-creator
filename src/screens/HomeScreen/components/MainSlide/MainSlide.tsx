@@ -1,5 +1,6 @@
 import LineCvAnimation from "../LineCvAnimetion/LineCvAnimation";
 import amazonLogo from "../../../../assets/images/Amazon_logo.svg.png";
+import {Link} from "react-router-dom";
 const logos = [amazonLogo]
 const MainSlide = () => {
     return (
@@ -20,7 +21,7 @@ const MainSlide = () => {
                           })}
                    </div>
                    <div className="flex space-x-6 flex-col-reverse justify-center items-center sm:flex-row">
-                       <button className="btn btn-primary text-primary-content m-5 sm:m-auto">Build my resume now</button>
+                       <Link to="editor" className="btn btn-primary text-primary-content m-5 sm:m-auto">Build my resume now</Link>
                        <p>
                            Create a modern resume that will result in interview callbacks. All key things on a single page. Fast & easy-to-use.
                        </p>
