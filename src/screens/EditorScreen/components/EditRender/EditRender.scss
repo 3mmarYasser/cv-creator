@@ -1,17 +1,26 @@
+:root{
+  --resume-color: #A300CB;
+}
 .resume_overlay{
   background-color: rgba(80,77,98,.2) !important;
 }
 .border_Edit_able{
-  border: solid 1px var(--main-color);
+  border-radius: 7px;
+  border: solid 1px var(--resume-color);
 }
 .resume_Edit_selected{
-  background-color: var(--bg-color) !important;
+  background-color: white !important;
   cursor: text;
   @extend .border_Edit_able;
+}
+[data-editable="true"]{
+  padding: 5px;
+
 }
 [data-editable="true"]:hover{
   @extend .border_Edit_able;
 }
+
 .editing_Text[contenteditable="true"]::before{
   content:"";
 }
@@ -25,4 +34,41 @@
 }
 .editing_Text:focus{
   outline: none;
+}
+.resume-header{
+  display: flex;
+  justify-content: space-between;
+  .resume-header-left{
+    width: calc(100% - 150px);
+  }
+  .resume-header-right{
+    width: 150px;
+  }
+
+}
+#large{
+  font-size: 1.1rem;
+  #header-name{
+    font-size: 3rem;
+  }
+}
+#small{
+  font-size: 0.7rem;
+  #header-name{
+    font-size: 2rem;
+  }
+}
+#header-title{
+  color:var(--resume-color);
+}
+.resume-header-Image{
+  transition: all ease-in-out;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  border-radius: 7px;
+  cursor: pointer;
+}
+#image-curve{
+  border-radius: 50%;
 }
