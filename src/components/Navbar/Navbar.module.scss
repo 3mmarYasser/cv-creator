@@ -1,8 +1,8 @@
 .Header {
+  background-color: var(--content-color);
   h1{
     word-break: keep-all;
     span{
-      color:var(--main-color);
       font-weight: 900;
     }
   }
