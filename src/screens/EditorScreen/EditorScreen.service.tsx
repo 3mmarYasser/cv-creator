@@ -13,7 +13,7 @@ const Template = ()=>{
                     setLoading(false);
                 },
                 (e:any)=>{
-                    setErr(e.massege);
+                    setErr(e.message);
                     setLoading(false)
                 }
             )
