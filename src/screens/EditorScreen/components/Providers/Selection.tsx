@@ -27,6 +27,7 @@ const HandelSelect =(e:any , rendererRef:HTMLDivElement|null)=>{
     }
     else if(!rendererRef?.matches("[editor]") && e.target.matches("[data-editable]")){
         addSelection(e.target ,rendererRef);
+
     }
     AllParents(e.target).forEach(element => {
         if(element.matches("[editing]")){
@@ -39,5 +40,6 @@ const HandelSelect =(e:any , rendererRef:HTMLDivElement|null)=>{
 
 }
 export{
-    HandelSelect
+    HandelSelect,
+    removeSelection
 }
