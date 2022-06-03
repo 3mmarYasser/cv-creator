@@ -39,7 +39,7 @@ const EditorScreen :React.FC<Props> = () => {
 
     return (
         <div className="pt-[100px]">
-            <div className="content_color pt-[40px] w-[100vw]">
+            <div className="bg-base-200 pt-[40px] w-[100vw]">
                 <section className="w-[100vw] justify-center flex mb-5">
                     <button onClick={DownloadCV}   className="self-center btn btn-primary text-primary-content px-10 ">Download</button>
                     <label  htmlFor="PreviewCV" onClick={PreviewCV} className="self-center btn btn-main text-primary-content px-10 ml-[20px] modal-open">Preview</label>
