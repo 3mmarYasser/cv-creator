@@ -22,16 +22,13 @@ const EditorScreen :React.FC<Props> = () => {
 
     const DownloadPDF = ():void =>{
         const input:any = editorRef.current;
-        //     const pdf:any = new jsPDF({
-        //         orientation: "landscape",
-        //         unit: "px"
-        //     });
-        //     pdf.addImage(imgData, "JPEG", 0, 0);
-        //     pdf.save("cv.pdf");
-        // });
+
         html2canvas(input).then(canvas => {
             const imgData = canvas.toDataURL("image/png");
             setImage(imgData)
+                const pdf:any = new jsPDF();
+                pdf.addImage(imgData, "JPEG", 0, 0);
+                pdf.save("cv.pdf");
         });
          }
     return (
@@ -41,7 +38,7 @@ const EditorScreen :React.FC<Props> = () => {
                     <button  onClick={DownloadPDF} className="self-center btn btn-primary text-primary-content px-10">Download</button>
                 </section>
                 <section className="flex flex-col items-center justify-center">
-                    <div className="w-[930px] h-[1330px]" ref={editorRef}>
+                    <div className="w-[930px] h-[1330px] min-w-[930px] min-h-[1330px]" ref={editorRef}>
                         {render()}
                     </div>
                     <img src={image} alt="image"/>
