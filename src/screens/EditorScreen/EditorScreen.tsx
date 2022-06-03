@@ -3,6 +3,7 @@ import {Template} from "./EditorScreen.service";
 import EditRender from "./components/EditRender/EditRender";
 import {DownloadPDFByRef} from "./components/Providers/getPDF";
 import {removeSelection} from "./components/Providers/Selection";
+import {getImageFromRef} from "./components/Providers/getImage";
 // import Styles from './EditorScreen.module.scss'
 
 interface Props{
@@ -25,12 +26,21 @@ const EditorScreen :React.FC<Props> = () => {
         }
         await DownloadPDFByRef(editorRef.current)
     }
+    const PreviewCV = async ():Promise<void>=>{
+        const ChickIsEditing:HTMLDivElement|null = document.querySelector('[data-render-page]');
+        if(ChickIsEditing?.matches("[editor]")){
+            removeSelection(ChickIsEditing)
+        }
+        setImage(await  getImageFromRef(editorRef.current))
+
+    }
 
     return (
         <div className="pt-[100px]">
             <div className="content_color pt-[40px] w-[100vw]">
                 <section className="w-[100vw] justify-center flex mb-5">
                     <button onClick={DownloadCV}   className="self-center btn btn-primary text-primary-content px-10">Download</button>
+                    <button onClick={PreviewCV}   className="self-center btn btn-main text-primary-content px-10 ml-[20px]">Preview</button>
                 </section>
                 <section className="flex flex-col items-center justify-center">
                    <div className="shadow">
