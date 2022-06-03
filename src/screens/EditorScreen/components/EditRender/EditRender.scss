@@ -118,6 +118,11 @@
   }
 
 }
+#h-email , #h-location{
+  div{
+    max-width: 90% !important;
+  }
+}
 @media screen  and (max-width: 950px){
   .render-resume-page{
     width: 100vw !important;
