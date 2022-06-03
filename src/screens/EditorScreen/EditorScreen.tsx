@@ -4,6 +4,7 @@ import EditRender from "./components/EditRender/EditRender";
 import {DownloadPDFByRef} from "./components/Providers/getPDF";
 import {removeSelection} from "./components/Providers/Selection";
 import {getImageFromRef} from "./components/Providers/getImage";
+import StyledSwitch from "../../components/StyledSwitch/StyledSwitch";
 // import Styles from './EditorScreen.module.scss'
 
 interface Props{
@@ -49,6 +50,9 @@ const EditorScreen :React.FC<Props> = () => {
                        </div>
                    </div>
                     <img  src={image} className="mt-[20px]" alt={"Show PdF"}/>
+                    <StyledSwitch check={true} toggle={(e:any)=>{e.target.check = !e.target.check }}>
+                        hello
+                    </StyledSwitch>
                 </section>
             </div>
         </div>

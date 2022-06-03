@@ -60,6 +60,7 @@
 }
 #header-title{
   color:var(--resume-color);
+  margin-bottom: 10px;
 }
 .resume-header-Image{
   transition: all 500ms ease-in-out;
@@ -99,4 +100,21 @@
   padding: 10px;
   background-color: var(--resume-color);
   border-radius: 50%;
+}
+.header-contact{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  & > div{
+    display: flex;
+    width: 50%;
+    margin-bottom: 5px;
+    div{
+      max-width: 50%;
+    }
+    i{
+      color: var(--resume-color);
+    }
+  }
+
 }
