@@ -22,13 +22,13 @@ const EditorScreen :React.FC<Props> = () => {
     const DownloadPDF = ()=>{
         const input:any = editorRef.current;
         html2canvas(input).then(canvas => {
-            const imgData = canvas.toDataURL("image/svg");
-            window.open(imgData , "_blank")
+            const imgData = canvas.toDataURL("image/png");
             const pdf:any = new jsPDF({
-                orientation: "portrait",
-                unit: "px"
+                orientation: "landscape",
+                unit: "px",
+                format: [900, 1400]
             });
-            pdf.addImage(imgData, "svg", 0, 0);
+            pdf.addImage(imgData, "JPEG", 0, 0);
             pdf.save("cv.pdf");
         });
 
