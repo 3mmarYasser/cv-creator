@@ -23,7 +23,7 @@ const EditorScreen :React.FC<Props> = () => {
         if(ChickIsEditing?.matches("[editor]")){
             removeSelection(ChickIsEditing)
         }
-        // await DownloadPDFByRef(editorRef.current)
+        await DownloadPDFByRef(editorRef.current)
     }
 
     return (
