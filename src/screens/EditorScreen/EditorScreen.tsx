@@ -23,14 +23,13 @@ const EditorScreen :React.FC<Props> = () => {
         const input:any = editorRef.current;
         html2canvas(input).then(canvas => {
             const imgData = canvas.toDataURL("image/png");
-            const pdf:any = new jsPDF({
-                orientation: "landscape",
-                unit: "px",
-                format: [900, 1400]
-            });
-            pdf.addImage(imgData, "JPEG", 0, 0);
-            pdf.save("cv.pdf");
-        });
+        //     const pdf:any = new jsPDF({
+        //         orientation: "landscape",
+        //         unit: "px"
+        //     });
+        //     pdf.addImage(imgData, "JPEG", 0, 0);
+        //     pdf.save("cv.pdf");
+        // });
 
     }
     return (
