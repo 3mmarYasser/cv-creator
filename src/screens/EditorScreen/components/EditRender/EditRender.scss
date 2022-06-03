@@ -119,7 +119,13 @@
 
 }
 @media screen  and (max-width: 950px){
-  .resume-header-Image{
-    display: none;
+  .render-resume-page{
+    width: 100vw !important;
+    background-color: transparent !important;
+    padding: 20px 5px !important;
   }
+  .resume-header{
+    flex-direction: column;
+  }
+
 }
