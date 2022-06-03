@@ -1,5 +1,4 @@
 import React,{useRef , useState} from 'react';
-// import ReactDOMServer from "react-dom/server";
 import {Template} from "./EditorScreen.service";
 import EditRender from "./components/EditRender/EditRender";
 import JsPDF from "jspdf";
