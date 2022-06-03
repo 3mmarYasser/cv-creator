@@ -4,8 +4,9 @@ import {HandelSelect} from "../Providers/Selection";
 import {AddAttrByAttr, AddClassByAttr} from "../Providers/AddInReturn";
 import UserImage from "../../../../assets/svgs/user.svg"
 import {CheckAttr} from "../Providers/CheckIn";
-import  './EditRender.scss'
 import uploadImage from "../Providers/uploadImage";
+import  './EditRender.scss'
+
 
 interface Props {
     data:string
@@ -25,7 +26,7 @@ const EditRender :React.FC<Props> = ({data}) => {
         inputUpload.style.display = "none";
         const labelUpload = document.createElement('label');
         labelUpload.htmlFor = "ResumeImageUpload";
-        labelUpload.textContent = "Upload";
+        labelUpload.innerHTML = ` <i class="material-icons solid-main">cloud_upload</i>`;
 
        AddClassByAttr(rendererRef.current , "[data-content-edit]", "editing_Text");
         AddAttrByAttr(rendererRef.current , "[data-content-edit]","contentEditable");

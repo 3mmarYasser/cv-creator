@@ -66,6 +66,7 @@
   width: 150px;
   height: 150px;
   background-size: cover;
+  background-position: center center;
   border-radius: 7px;
   cursor: pointer;
 
@@ -93,4 +94,9 @@
   label{
     border-radius: 50%;
   }
+}
+.solid-main{
+  padding: 10px;
+  background-color: var(--resume-color);
+  border-radius: 50%;
 }
