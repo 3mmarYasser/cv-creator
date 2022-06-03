@@ -1,10 +1,10 @@
 import React,{useRef , useState} from 'react';
-import ReactDOMServer from "react-dom/server";
+// import ReactDOMServer from "react-dom/server";
 import {Template} from "./EditorScreen.service";
 import EditRender from "./components/EditRender/EditRender";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
-import Styles from './EditorScreen.module.scss'
+// import Styles from './EditorScreen.module.scss'
 
 interface Props{
 
@@ -38,10 +38,12 @@ const EditorScreen :React.FC<Props> = () => {
                     <button  onClick={DownloadPDF} className="self-center btn btn-primary text-primary-content px-10">Download</button>
                 </section>
                 <section className="flex flex-col items-center justify-center">
-                    <div className="w-[930px] h-[1330px] min-w-[930px] min-h-[1330px]" ref={editorRef}>
-                        {render()}
-                    </div>
-                    <img src={image} alt="image"/>
+                   <div className="shadow">
+                       <div className="w-[930px] h-[1330px] min-w-[930px] min-h-[1330px]" ref={editorRef}>
+                           {render()}
+                       </div>
+                   </div>
+                    <img  src={image} alt="image"/>
 
                 </section>
             </div>
