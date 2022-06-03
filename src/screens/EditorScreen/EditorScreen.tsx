@@ -2,7 +2,7 @@ import React,{useRef , useState} from 'react';
 // import ReactDOMServer from "react-dom/server";
 import {Template} from "./EditorScreen.service";
 import EditRender from "./components/EditRender/EditRender";
-import jsPDF from "jspdf";
+import JsPDF from "jspdf";
 import html2canvas from "html2canvas";
 // import Styles from './EditorScreen.module.scss'
 
@@ -26,7 +26,7 @@ const EditorScreen :React.FC<Props> = () => {
         html2canvas(input).then(canvas => {
             const imgData = canvas.toDataURL("image/png");
             setImage(imgData)
-                const pdf:any = new jsPDF();
+                const pdf:any = new JsPDF();
                 pdf.addImage(imgData, "JPEG", 0, 0);
                 pdf.save("cv.pdf");
         });
@@ -43,8 +43,7 @@ const EditorScreen :React.FC<Props> = () => {
                            {render()}
                        </div>
                    </div>
-                    <img  src={image} alt="image"/>
-
+                    <img  src={image} className="mt-[20px]" alt={"Show PdF"}/>
                 </section>
             </div>
         </div>
