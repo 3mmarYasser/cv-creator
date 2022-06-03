@@ -23,11 +23,10 @@ const EditorScreen :React.FC<Props> = () => {
         const input:any = editorRef.current;
         html2canvas(input).then(canvas => {
             const imgData = canvas.toDataURL("image/svg");
-            
+            window.open(imgData , "_blank")
             const pdf:any = new jsPDF({
                 orientation: "portrait",
-                unit: "px",
-                format: [1330, 940]
+                unit: "px"
             });
             pdf.addImage(imgData, "svg", 0, 0);
             pdf.save("cv.pdf");
