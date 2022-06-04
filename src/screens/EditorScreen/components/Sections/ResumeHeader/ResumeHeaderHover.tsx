@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import StyledSwitch from "../../../../../components/StyledSwitch/StyledSwitch";
 import {getElByID, getElementByAttr} from "../../Providers/getInHTML";
-import StyledModal from "../../../../../components/StyledModal/StyledModal";
 
 interface Styling {
     title: boolean

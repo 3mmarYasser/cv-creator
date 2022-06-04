@@ -1,4 +1,4 @@
-@use "../Sections/ResumeCustom/ResumeCustom";
+@use "../Sections/SectionsStyles/ResumeCustom";
 
 :root {
   --resume-color: #A300CB;
@@ -67,6 +67,10 @@
   #header-name {
     font-size: 3rem;
   }
+
+  .small-text {
+    font-size: 0.9rem;
+  }
 }
 
 #small {
@@ -75,6 +79,16 @@
   #header-name {
     font-size: 2rem;
   }
+
+  .small-text {
+    font-size: 0.6rem;
+  }
+
+  .resume-header-Image {
+    width: 90px;
+    height: 90px;
+  }
+
 }
 
 #header-title {
@@ -90,6 +104,8 @@
   background-position: center center;
   border-radius: 7px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 
   label {
     transition: all 500ms ease-in-out;
@@ -206,7 +222,32 @@
   }
 }
 
+#left-aria {
+  width: 60%;
+  padding: 5px;
+}
+
+#custom-edit-title {
+  padding: 3px;
+  border-bottom: solid 3px hsl(var(--n));
+}
+
+#right-aria {
+  width: 40%;
+  padding: 5px;
+}
+
+[data-inner-edit ="true"] {
+  &:hover {
+    border: unset;
+  }
+}
+
 .hidden {
   display: none !important;
+}
+
+#custom-edit-desc {
+  font-size: 0.9rem;
 }
 
