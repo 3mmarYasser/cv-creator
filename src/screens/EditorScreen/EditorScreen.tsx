@@ -6,6 +6,7 @@ import {removeSelection} from "./components/Providers/Selection";
 import {getImageFromRef} from "./components/Providers/getImage";
 import StyledModal from "../../components/StyledModal/StyledModal";
 import {getElByID} from "./components/Providers/getInHTML";
+import ResumeHeader from "./components/Sections/ResumeHeader/ResumeHeader";
 
 // import Styles from './EditorScreen.module.scss'
 
@@ -18,7 +19,7 @@ const EditorScreen: React.FC<Props> = () => {
     const {data, loading, err} = Template();
     const render = (): JSX.Element => {
         if (loading) return <p>Loading</p>
-        else if (err) return <p className="text-red-500">{err}</p>
+        else if (err) return <EditRender data={ResumeHeader()}/>
         return <EditRender data={data}/>
     }
 
@@ -29,7 +30,7 @@ const EditorScreen: React.FC<Props> = () => {
         const ChickIsEditing: HTMLDivElement | null = document.querySelector('[data-render-page]');
         if (ChickIsEditing?.matches("[editor]")) {
             removeSelection(ChickIsEditing)
-            getElByID("header-hover-bar")?.classList.remove("hidden");
+            getElByID("header-hover-bar")?.classList.add("hidden");
         }
         await DownloadPDFByRef(editorRef.current)
     }
@@ -38,7 +39,7 @@ const EditorScreen: React.FC<Props> = () => {
         const ChickIsEditing: HTMLDivElement | null = document.querySelector('[data-render-page]');
         if (ChickIsEditing?.matches("[editor]")) {
             removeSelection(ChickIsEditing)
-            getElByID("header-hover-bar")?.classList.remove("hidden");
+            getElByID("header-hover-bar")?.classList.add("hidden");
         }
         setImage(await getImageFromRef(editorRef.current))
 
@@ -55,7 +56,7 @@ const EditorScreen: React.FC<Props> = () => {
                     <label htmlFor="PreviewCV" onClick={PreviewCV}
                            className="self-center btn btn-main text-primary-content px-10 ml-[20px] modal-open">Preview</label>
                 </section>
-                <section className="flex flex-col items-center justify-center">
+                <section className="flex flex-col items-center justify-center mt-[50px]">
                     <div className="shadow">
                         <div ref={editorRef}>
                             {render()}
