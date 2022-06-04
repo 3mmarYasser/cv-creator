@@ -22,6 +22,11 @@ const EditRender: React.FC<Props> = ({data}) => {
     const [selected, setSelected] = useState<HTMLElement | null>(null)
 
     useEffect(() => {
+        document.querySelectorAll("[data-editable]").forEach(el => {
+            el.setAttribute(`data-uid`, (el.getBoundingClientRect().top * Math.round(Math.random() * 100) + Math.round(Math.random() * 500)).toString())
+        })
+    }, []);
+    useEffect(() => {
         const inputUpload = document.createElement('input');
         inputUpload.type = "file";
         inputUpload.id = "ResumeImageUpload"
@@ -55,8 +60,6 @@ const EditRender: React.FC<Props> = ({data}) => {
     useEffect(() => {
         const ResumeHeader = getElementByAttr("[data-resume-header]")
         let headerHoverBar = getElByID("header-hover-bar");
-        const MainHover = getElByID("resume-main-hover")
-
         if (ResumeHeader !== null) {
             if (headerHoverBar === null) {
                 setBuiltInData([...builtInData,
@@ -66,10 +69,6 @@ const EditRender: React.FC<Props> = ({data}) => {
             }
 
             selected && selected?.matches("[data-resume-header]") ? headerHoverBar?.classList.remove("hidden") : headerHoverBar?.classList.add("hidden");
-        }
-
-        if (selected && !selected?.matches("[data-resume-header]")) {
-                                        
         }
 
 
@@ -84,6 +83,9 @@ const EditRender: React.FC<Props> = ({data}) => {
                  dangerouslySetInnerHTML={{__html: data}}/>
             <div>
                 {builtInData}
+                {selected && !selected?.matches("[data-resume-header]") && selected.matches("[data-editable]") ?
+                    <ResumeMainHover selected={selected}/> : null}
+
             </div>
         </>
     );
