@@ -196,6 +196,12 @@
   .resume-header-right {
     width: 100%;
   }
+  .setting-header-hover {
+    display: none !important;
+  }
+  .setting-header-hover-phone {
+    display: block !important;
+  }
 }
 
 .hidden {
