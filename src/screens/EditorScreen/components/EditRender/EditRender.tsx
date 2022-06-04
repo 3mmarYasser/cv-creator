@@ -1,4 +1,5 @@
 import React,{useRef, useEffect ,useState} from 'react';
+import ReactDOMServer from "react-dom/server"
 import classNames from "classnames";
 import {HandelSelect} from "../Providers/Selection";
 import {AddAttrByAttr, AddClassByAttr} from "../Providers/AddInReturn";
@@ -6,6 +7,8 @@ import UserImage from "../../../../assets/svgs/user.svg"
 import {CheckAttr} from "../Providers/CheckIn";
 import uploadImage from "../Providers/uploadImage";
 import  './EditRender.scss'
+import {getElementByAttr} from "../Providers/getInHTML";
+import ResumeHeaderHover from "../Sections/ResumeHeader/ResumeHeaderHover";
 
 
 interface Props {
@@ -45,6 +48,28 @@ const EditRender :React.FC<Props> = ({data}) => {
         }
 
     }, [image]);
+    useEffect(() => {
+        const ResumeHeader = getElementByAttr("[data-resume-header]")
+        let headerHover = getElementByAttr("[data-header-hover-bar]")
+        if(ResumeHeader !== null){
+
+            if(headerHover === null || headerHover === undefined){
+                headerHover = getElementByAttr("[data-header-hover-bar]")
+            }
+          ResumeHeader.onmouseenter = ()=> {
+              if(headerHover !== null){
+                  headerHover.style.display = "flex";
+              }
+          }
+            ResumeHeader.onmouseleave = ()=> {
+                if(headerHover !== null){
+                    // headerHover.style.display = "none";
+                }
+            }
+        }
+
+    }, []);
+
 
 
     return (

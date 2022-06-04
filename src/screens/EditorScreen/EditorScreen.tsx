@@ -4,7 +4,6 @@ import EditRender from "./components/EditRender/EditRender";
 import {DownloadPDFByRef} from "./components/Providers/getPDF";
 import {removeSelection} from "./components/Providers/Selection";
 import {getImageFromRef} from "./components/Providers/getImage";
-import StyledSwitch from "../../components/StyledSwitch/StyledSwitch";
 import StyledModal from "../../components/StyledModal/StyledModal";
 // import Styles from './EditorScreen.module.scss'
 
@@ -40,6 +39,7 @@ const EditorScreen :React.FC<Props> = () => {
     return (
         <div className="pt-[100px]">
             <div className="bg-base-200 pt-[40px] w-[100vw]">
+
                 <section className="w-[100vw] justify-center flex mb-5">
                     <button onClick={DownloadCV}   className="self-center btn btn-primary text-primary-content px-10 ">Download</button>
                     <label  htmlFor="PreviewCV" onClick={PreviewCV} className="self-center btn btn-main text-primary-content px-10 ml-[20px] modal-open">Preview</label>
@@ -50,14 +50,12 @@ const EditorScreen :React.FC<Props> = () => {
                            {render()}
                        </div>
                    </div>
-                    <StyledSwitch check={true} toggle={(e:any)=>{e.target.check = !e.target.check }}>
-                        hello
-                    </StyledSwitch>
                     <StyledModal id="PreviewCV">
                         <img draggable={false} onContextMenu={(e)=>e.preventDefault()} contextMenu="false"  src={image}  alt={"Show PdF"}/>
                     </StyledModal>
                 </section>
             </div>
+
         </div>
     );
 };

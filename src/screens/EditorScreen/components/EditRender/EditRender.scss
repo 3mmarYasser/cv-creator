@@ -36,6 +36,7 @@
   outline: none;
 }
 .resume-header{
+  position: relative;
   display: flex;
   justify-content: space-between;
   .resume-header-left{
@@ -129,9 +130,41 @@
     width: 100vw !important;
     background-color: transparent !important;
     padding: 20px 5px !important;
+
   }
   .resume-header{
-    flex-direction: column;
+    flex-direction: column-reverse;
+    align-items: center;
   }
+.header-contact{
+  flex-direction: column;
+  & > div{
+    div{
+      max-width: 100%;
+    }
+  }
+}
+  #large{
+    font-size: 0.8rem;
+    #header-name{
+      font-size: 1.5rem;
+    }
+  }
+  #small {
+    font-size: 0.5rem;
 
+    #header-name {
+      font-size: 1rem;
+    }
+  }
+  .resume-header-Image{
+    align-self: center;
+  }
+  .resume-header-left{
+    width: 100%;
+    margin-top: 10px;
+  }
+  .resume-header-right{
+    width: 100%;
+  }
 }
