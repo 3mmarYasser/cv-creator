@@ -1,5 +1,4 @@
 import React,{useRef, useEffect ,useState} from 'react';
-import ReactDOMServer from "react-dom/server"
 import classNames from "classnames";
 import {HandelSelect} from "../Providers/Selection";
 import {AddAttrByAttr, AddClassByAttr} from "../Providers/AddInReturn";
@@ -16,8 +15,8 @@ interface Props {
 }
 const EditRender :React.FC<Props> = ({data}) => {
     const [image , setImage] = useState(UserImage)
-
     const rendererRef = useRef<HTMLDivElement |null>(null);
+    const [builtInData ,setBuiltInData] = useState<Array<JSX.Element>>([])
     useEffect(() => {
         const inputUpload = document.createElement('input');
         inputUpload.type = "file";
@@ -50,31 +49,24 @@ const EditRender :React.FC<Props> = ({data}) => {
     }, [image]);
     useEffect(() => {
         const ResumeHeader = getElementByAttr("[data-resume-header]")
-        let headerHover = getElementByAttr("[data-header-hover-bar]")
         if(ResumeHeader !== null){
 
-            if(headerHover === null || headerHover === undefined){
-                headerHover = getElementByAttr("[data-header-hover-bar]")
-            }
           ResumeHeader.onmouseenter = ()=> {
-              if(headerHover !== null){
-                  headerHover.style.display = "flex";
-              }
+            setBuiltInData([...builtInData ,  <ResumeHeaderHover key={"header-nav"} top={ResumeHeader.getBoundingClientRect().top} left={(ResumeHeader.getBoundingClientRect().left + ResumeHeader.getBoundingClientRect().width /2)}/>])
           }
-            ResumeHeader.onmouseleave = ()=> {
-                if(headerHover !== null){
-                    // headerHover.style.display = "none";
-                }
-            }
         }
 
-    }, []);
+    },[]);
 
 
 
     return (
-        <div onClick={(e)=>HandelSelect(e , rendererRef.current)} data-render-page={true} ref={rendererRef} className={classNames("w-[930px] bg_color h-[1330px] transition-all p-[60px] render-resume-page" )} dangerouslySetInnerHTML={{__html:data}}>
-        </div>
+       <>
+           <div onClick={(e)=>HandelSelect(e , rendererRef.current)} data-render-page={true} ref={rendererRef} className={classNames("w-[930px] bg_color h-[1330px] transition-all p-[60px] render-resume-page" )} dangerouslySetInnerHTML={{__html:data}}/>
+           <div>
+               {builtInData}
+           </div>
+       </>
     );
 };
 
