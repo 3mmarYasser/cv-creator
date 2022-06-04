@@ -7,8 +7,8 @@ import {getImageFromRef} from "./components/Providers/getImage";
 import StyledModal from "../../components/StyledModal/StyledModal";
 import {getElByID} from "./components/Providers/getInHTML";
 import ResumeHeader from "./components/Sections/ResumeHeader/ResumeHeader";
-
-// import Styles from './EditorScreen.module.scss'
+import loadingIcon from "../../assets/svgs/loading.svg"
+import './EditorScreen.scss'
 
 interface Props {
 
@@ -24,7 +24,7 @@ const EditorScreen: React.FC<Props> = () => {
     }
 
     const editorRef = useRef<HTMLDivElement | null>(null);
-    const [image, setImage] = useState<string>()
+    const [image, setImage] = useState<string>(loadingIcon)
     const DownloadCV = async (): Promise<void> => {
 
         const ChickIsEditing: HTMLDivElement | null = document.querySelector('[data-render-page]');
@@ -63,7 +63,8 @@ const EditorScreen: React.FC<Props> = () => {
                         </div>
                     </div>
                     <StyledModal id="PreviewCV">
-                        <img draggable={false} onContextMenu={(e) => e.preventDefault()} contextMenu="false" src={image}
+                        <img className="m-auto" draggable={false} onContextMenu={(e) => e.preventDefault()}
+                             contextMenu="false" src={image}
                              alt={"Show PdF"}/>
                     </StyledModal>
                 </section>
