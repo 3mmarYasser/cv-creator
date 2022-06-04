@@ -1,10 +1,13 @@
 import {AllChildren, AllParents} from "./getInElement";
 
-const addSelection = (target :HTMLElement , rendererRef:HTMLDivElement|null ):void=>{
+let setSelected:Function;
+
+const addSelection = (target :HTMLElement , rendererRef:HTMLDivElement|null):void=>{
     target.classList.add("resume_Edit_selected");
     target.setAttribute("editing","true");
     rendererRef?.classList.add("resume_overlay");
     rendererRef?.setAttribute("editor","true");
+    setSelected(true)
 }
 
 const removeSelection  = (rendererRef:HTMLDivElement|null):void=>{
@@ -19,9 +22,12 @@ const removeSelection  = (rendererRef:HTMLDivElement|null):void=>{
             }
         })
     }
+    setSelected(false)
+
 }
 
-const HandelSelect =(e:any , rendererRef:HTMLDivElement|null)=>{
+const HandelSelect =(e:any , rendererRef:HTMLDivElement|null, setSelect :Function)=>{
+    setSelected = setSelect
     if(rendererRef?.matches("[editor]") && !e.target.matches("[editing]")) {
         removeSelection(rendererRef);
     }

@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import StyledSwitch from "../../../../../components/StyledSwitch/StyledSwitch";
-import {getElementByID} from "../../Providers/getInHTML";
+import {getElByID} from "../../Providers/getInHTML";
 
 interface Styling{
     title:boolean
@@ -17,14 +17,14 @@ interface Props {
     left:number
 }
 const ResumeHeaderHover :React.FC<Props> = ({top , left}) => {
-    const HTitle     =  getElementByID("header-title"),
-          HPhone     =  getElementByID("h-phone"),
-          HLink      =  getElementByID("h-link"),
-          HEmail     =  getElementByID("h-email"),
-          HLocation  =  getElementByID("h-location"),
-          HUppercase =  getElementByID("header-name"),
-          HPhoto     =  getElementByID("h-phone"),
-          HCurve     =  getElementByID("image-curve");
+    const HTitle     =  getElByID("header-title"),
+          HPhone     =  getElByID("h-phone"),
+          HLink      =  getElByID("h-link"),
+          HEmail     =  getElByID("h-email"),
+          HLocation  =  getElByID("h-location"),
+          HUppercase =  getElByID("header-name"),
+          HPhoto     =  getElByID("h-phone"),
+          HCurve     =  getElByID("image-curve");
 
     const [styling ,SetStyling ] = useState<Styling>({
         title: !HTitle?.classList.contains("hidden"),
@@ -38,7 +38,7 @@ const ResumeHeaderHover :React.FC<Props> = ({top , left}) => {
     })
     console.log(styling)
     return (
-        <div data-header-hover-bar={true} className={`absolute flex justify-center items-center p-[10px] h-[40px] bg_color rounded-[20px]`}  style={{top:`${(top - 40)}px`,left:`${left}px`}}>
+        <div id="header-hover-bar" className={`hidden absolute flex justify-center items-center p-[10px] h-[40px] bg_color rounded-[20px]`}  style={{top:`${(top - 40)}px`,left:`${left}px`}}>
             <div className="dropdown">
                 <label tabIndex={0} className="cursor-pointer flex"> <i className="material-icons cursor-pointer">settings</i></label>
                 <ul  tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">

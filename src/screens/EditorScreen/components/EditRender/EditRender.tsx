@@ -6,7 +6,7 @@ import UserImage from "../../../../assets/svgs/user.svg"
 import {CheckAttr} from "../Providers/CheckIn";
 import uploadImage from "../Providers/uploadImage";
 import  './EditRender.scss'
-import {getElementByAttr} from "../Providers/getInHTML";
+import {getElementByAttr, getElByID} from "../Providers/getInHTML";
 import ResumeHeaderHover from "../Sections/ResumeHeader/ResumeHeaderHover";
 
 
@@ -17,6 +17,8 @@ const EditRender :React.FC<Props> = ({data}) => {
     const [image , setImage] = useState(UserImage)
     const rendererRef = useRef<HTMLDivElement |null>(null);
     const [builtInData ,setBuiltInData] = useState<Array<JSX.Element>>([])
+    const [selected , setSelected] = useState(false)
+
     useEffect(() => {
         const inputUpload = document.createElement('input');
         inputUpload.type = "file";
@@ -30,7 +32,7 @@ const EditRender :React.FC<Props> = ({data}) => {
         labelUpload.htmlFor = "ResumeImageUpload";
         labelUpload.innerHTML = ` <i class="material-icons solid-main">cloud_upload</i>`;
 
-       AddClassByAttr(rendererRef.current , "[data-content-edit]", "editing_Text");
+        AddClassByAttr(rendererRef.current , "[data-content-edit]", "editing_Text");
         AddAttrByAttr(rendererRef.current , "[data-content-edit]","contentEditable");
         AddClassByAttr(rendererRef.current , "[data-resume-header]","resume-header");
         AddClassByAttr(rendererRef.current , "[data-h-right]","resume-header-right");
@@ -49,20 +51,22 @@ const EditRender :React.FC<Props> = ({data}) => {
     }, [image]);
     useEffect(() => {
         const ResumeHeader = getElementByAttr("[data-resume-header]")
+        let headerHoverBar = getElByID("header-hover-bar");
+
         if(ResumeHeader !== null){
-
-          ResumeHeader.onmouseenter = ()=> {
-            setBuiltInData([...builtInData ,  <ResumeHeaderHover key={"header-nav"} top={ResumeHeader.getBoundingClientRect().top} left={(ResumeHeader.getBoundingClientRect().left + ResumeHeader.getBoundingClientRect().width /2)}/>])
-          }
+            if(headerHoverBar === null){
+                setBuiltInData([...builtInData ,  <ResumeHeaderHover key={"header-nav"} top={ResumeHeader.getBoundingClientRect().top} left={(ResumeHeader.getBoundingClientRect().left + ResumeHeader.getBoundingClientRect().width /2)}/>])
+                headerHoverBar = getElByID("header-hover-bar");
+            }
+            selected ?  headerHoverBar?.classList.remove("hidden"): headerHoverBar?.classList.add("hidden");
         }
-
-    },[]);
+    },[builtInData ,selected]);
 
 
 
     return (
        <>
-           <div onClick={(e)=>HandelSelect(e , rendererRef.current)} data-render-page={true} ref={rendererRef} className={classNames("w-[930px] bg_color h-[1330px] transition-all p-[60px] render-resume-page" )} dangerouslySetInnerHTML={{__html:data}}/>
+           <div onClick={(e)=>HandelSelect(e , rendererRef.current , setSelected)} data-render-page={true} ref={rendererRef} className={classNames("w-[930px] bg_color h-[1330px] transition-all p-[60px] render-resume-page" )} dangerouslySetInnerHTML={{__html:data}}/>
            <div>
                {builtInData}
            </div>
