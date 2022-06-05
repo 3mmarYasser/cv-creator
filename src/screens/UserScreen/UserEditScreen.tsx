@@ -1,6 +1,7 @@
 import React from 'react';
 import Styles from './UserEditScreen.module.scss'
 import {Link} from "react-router-dom";
+import StyledModal from "../../components/StyledModal/StyledModal";
 
 interface Props {
 
@@ -59,11 +60,68 @@ const UserEditScreen: React.FC<Props> = () => {
                 </div>
                 <hr className="mt-[40px]"/>
                 <ul className="flex flex-wrap justify-center items-center">
-                    <li className="mr-[10px]"><span className="link link-hover">Change Password</span></li>
-                    <li className="mr-[10px]"><span className="link link-hover">Change email address</span></li>
-                    <li className="mr-[10px]"><span className="link link-hover">Delete account</span></li>
+                    <li className="mr-[10px]"><label htmlFor="change-password" className="link link-hover">Change
+                        Password</label></li>
+                    <li className="mr-[10px]"><label htmlFor="change-email" className="link link-hover">Change email
+                        address</label></li>
+                    <li className="mr-[10px]"><label htmlFor="delete-account" className="link link-hover">Delete
+                        account</label></li>
                 </ul>
             </div>
+            <StyledModal id="change-password">
+                <div className="card flex-shrink-0 w-full">
+                    <div className="card-body">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Current password</span>
+                            </label>
+                            <input type="password" placeholder="Current password" className="input input-bordered"/>
+                        </div>
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">New password</span>
+                            </label>
+                            <input type="password" placeholder="New password" className="input input-bordered"/>
+                        </div>
+                        <div className="form-control mt-6">
+                            <button className="btn btn-primary">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </StyledModal>
+            <StyledModal id="change-email">
+                <div className="card flex-shrink-0 w-full">
+                    <div className="card-body">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Old Email</span>
+                            </label>
+                            <input disabled type="email" value="email@gmail.com" placeholder="Old Email"
+                                   className="input input-bordered"/>
+                        </div>
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">New Email</span>
+                            </label>
+                            <input type="email" placeholder="New Email" className="input input-bordered"/>
+                        </div>
+                        <div className="form-control mt-6">
+                            <button className="btn btn-primary">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </StyledModal>
+            <StyledModal id="delete-account">
+                <div className="pt-[15px]">
+                    <h3 className="font-bold text-lg">After Deleting You Can Not Get This Account Back !</h3>
+                    <div className="modal-action">
+                        <label htmlFor="my-modal-6" className="btn btn-error">Delete!</label>
+                    </div>
+                </div>
+            </StyledModal>
+
         </div>
     );
 };
