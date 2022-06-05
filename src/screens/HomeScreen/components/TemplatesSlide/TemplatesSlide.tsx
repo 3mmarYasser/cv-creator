@@ -25,11 +25,11 @@ const TemplatesSlide: React.FC = () => {
             </svg>
 
 
-            <div className="flex container mx-auto p-10 w-fit mt-52 flex-col lg:flex-row">
+            <div className="flex container mx-auto p-10 w-fit  mt-24 md:mt-32 flex-col lg:flex-row">
 
 
-                <h2 className="text-4xl max-w-md text-primary mb-10 " >Resume templates tailored for you</h2>
-                <p className="max-w-xl text-base-content">
+                <h2 className="text-5xl font-bold max-w-md text-primary-content mb-10 border-b-primary md:border-b-4 md:pb-4" >Resume templates tailored for you</h2>
+                <p className="mt-auto h-fit max-w-xl text-base-content mb-4 mx-5">
                     Highlight your best assets through economical communication. Traditional or creative - take your
                     pick. Your resume will always beat luck.</p>
             </div>

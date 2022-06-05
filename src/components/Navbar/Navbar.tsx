@@ -34,28 +34,28 @@ const themes = [
 ];
 
 const Navbar = () => {
+    const [menu, setMenu] = useState(false);
+
+
+
+
 
     const getThemeActive = () => {
         return localStorage.getItem('theme')
     }
-
-
-
     // on first load check localStorage for themes and set the active theme
     useEffect(() => {
 
         const myTheme = getThemeActive()
         if (myTheme === null) {
             localStorage.setItem('theme', themes[0])
-        }else {
+        } else {
             changeTheme(myTheme)
         }
     }, [])
 
-    
     const [activeTheme, setActiveTheme] = useState(getThemeActive() || themes[0])
     //change theme of deasy-ui to dark
-
 
     const changeTheme = (theme: string) => {
         const element = document.getElementsByTagName('html')[0];
@@ -73,9 +73,6 @@ const Navbar = () => {
         }
         changeTheme(themes[index])
     }
-
-
-
 
 
     const [show, setShow] = useState(true);
@@ -97,7 +94,9 @@ const Navbar = () => {
 
     return (
         <header tabIndex={100} className="w-[100vw]  pt-5 flex justify-center fixed z-50">
-            <button className="btn rounded-btn bg-base-100 text-base-content fixed bottom-5 right-5" onClick={()=>{changeThemeHandler()}}>{activeTheme}</button>
+            <button className="btn rounded-btn bg-base-100 text-base-content fixed bottom-5 right-5" onClick={() => {
+                changeThemeHandler()
+            }}>{activeTheme}</button>
 
             <nav className="flex navbar bg-base-200 rounded-box w-screen-lg mx-5 border-primary border-2 "
                  style={{boxShadow: `${show && "0 5px 0 3px #0000001f"} `, border: `${show && "0"}`}}>
@@ -128,7 +127,7 @@ const Navbar = () => {
                         </svg>
                     </Link>
                 </div>
-                <ul className="flex w-full mx-8  text-lg">
+                <ul className="w-full mx-8  text-lg hidden lg:flex">
                     <li><Link to={"#"}
                               className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2">Resume</Link>
                     </li>
@@ -154,8 +153,6 @@ const Navbar = () => {
                     </li>
 
 
-
-
                     <div className=" w-fit ml-auto space-x-2">
                         <Link to={"login"}>
                             <button className="btn btn-outline btn-primary text-primary-content px-10 text-lg">Sign-in
@@ -166,7 +163,46 @@ const Navbar = () => {
                         </Link>
                     </div>
                 </ul>
+                <button  onClick={()=>{setMenu(!menu)}} className={`ml-auto mr-5 active:rotate-90 transition-transform z-50 ${(menu) ? "rotate-90" : ""}`}>
+                    <svg  width="35" height="30" viewBox="0 0 35 30"  className=" fill-primary hover:fill-secondary"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <g id="menu-btn">
+                            <rect id="Rectangle" x="0" y="0" width="100%" height="15%" fill="inherit" className="transition-colors duration-300"/>
+                            <rect id="Rectangle" x="0" y="33%" width="100%" height="15%" fill="inherit" className="transition-colors duration-200"/>
+                            <rect id="Rectangle" x="0" y="66%" width="100% " height="15%" fill="inherit" className="transition-colors duration-100"/>
+                        </g>
+                    </svg>
+                </button>
             </nav>
+            {
+                <div className={`bg-base-100 fixed left-0 right-0 z-10 h-full -top-full transition-all duration-[400ms]`} style={{top : `${(menu) ? "0" : "-100%"}`}}>
+                    <div className="flex flex-col items-center justify-center h-full">
+                        <ul className="flex flex-col items-center justify-center h-full">
+                            <li><Link to={"#"}
+                                      className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2">Resume</Link>
+                            </li>
+
+                            <li>
+                                <div className="dropdown cursor-pointer mx-2">
+                                    <label tabIndex={0}
+                                           className="btn-ghost hover:bg-transparent hover:text-primary rounded-btn">CV</label>
+                                    <ul tabIndex={0}
+                                        className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+
+                                        <span className="border-t-4 my-2 rounded-box border-primary"/>
+                                        <li>
+                                            <button className="btn  text-primary-content btn-primary rounded-btn ">Build Your
+                                                Resume
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            }
 
 
         </header>
