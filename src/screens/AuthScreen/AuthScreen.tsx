@@ -97,7 +97,6 @@ const ForgetPassword: React.FC = () => {
 const AuthScreen: React.FC = () => {
 
     const location = useLocation();
-    console.log(location.hash)
     const Auth: React.FC = () => {
         if (location.hash === "#sign-up") return <SignUp/>
         else if (location.hash === "#forget-password") return <ForgetPassword/>
