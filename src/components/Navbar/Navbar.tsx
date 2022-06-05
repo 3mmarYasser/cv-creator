@@ -77,7 +77,7 @@ const Navbar = () => {
                             <button className="btn btn-outline btn-primary text-primary-content px-10 text-lg">Sign-in
                             </button>
                         </Link>
-                        <Link to={"login?sign-up"}>
+                        <Link to={"login#sign-up"}>
                             <button className="btn btn-primary text-primary-content px-10 text-lg">sign-up</button>
                         </Link>
                     </div>
