@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
+
 const Navbar = () => {
     const [show, setShow] = useState(true);
 
@@ -20,7 +21,8 @@ const Navbar = () => {
 
     return (
         <header tabIndex={100} className="w-[100vw]  pt-5 flex justify-center fixed z-50">
-            <nav className="flex navbar bg-base-200 rounded-box w-screen-lg mx-5 border-primary border-2 " style={  {boxShadow : `${show && "0 5px 0 3px #0000001f" } ` , border : `${show && "0"}`  }}>
+            <nav className="flex navbar bg-base-200 rounded-box w-screen-lg mx-5 border-primary border-2 "
+                 style={{boxShadow: `${show && "0 5px 0 3px #0000001f"} `, border: `${show && "0"}`}}>
                 <div className="flex items-center w-fit ml-8">
                     <svg className="fill-primary" xmlns="http://www.w3.org/2000/svg"
                          width="190px"
@@ -47,12 +49,14 @@ const Navbar = () => {
 
                 </div>
                 <ul className="flex w-full mx-8  text-lg">
-                    <li><Link to={"#"}  className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2">Resume</Link>
+                    <li><Link to={"#"}
+                              className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2">Resume</Link>
                     </li>
 
                     <li>
                         <div className="dropdown cursor-pointer mx-2">
-                            <label tabIndex={0} className="btn-ghost hover:bg-transparent hover:text-primary rounded-btn">CV</label>
+                            <label tabIndex={0}
+                                   className="btn-ghost hover:bg-transparent hover:text-primary rounded-btn">CV</label>
                             <ul tabIndex={0}
                                 className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
                                 <li><Link to={"#"}>CV Templates</Link></li>
@@ -60,18 +64,25 @@ const Navbar = () => {
                                 <li><Link to={"#"}>CV Builder</Link></li>
                                 <span className="border-t-4 my-2 rounded-box border-primary"/>
                                 <li>
-                                    <button className="btn  text-primary-content btn-primary rounded-btn ">Build Your Resume</button></li>
+                                    <button className="btn  text-primary-content btn-primary rounded-btn ">Build Your
+                                        Resume
+                                    </button>
+                                </li>
                             </ul>
                         </div>
                     </li>
 
                     <div className=" w-fit ml-auto space-x-2">
-                        <button className="btn btn-outline btn-primary text-primary-content px-10 text-lg">Sign-in</button>
-                        <button className="btn btn-primary text-primary-content px-10 text-lg">sign-up</button>
+                        <Link to={"login"}>
+                            <button className="btn btn-outline btn-primary text-primary-content px-10 text-lg">Sign-in
+                            </button>
+                        </Link>
+                        <Link to={"login?sign-up"}>
+                            <button className="btn btn-primary text-primary-content px-10 text-lg">sign-up</button>
+                        </Link>
                     </div>
                 </ul>
             </nav>
-
 
 
         </header>
