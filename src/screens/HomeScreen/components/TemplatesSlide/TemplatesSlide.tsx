@@ -4,14 +4,15 @@ import "swiper/scss/free-mode";
 import "swiper/scss/pagination";
 
 
-import { FreeMode, Pagination } from "swiper";
+import { FreeMode, A11y } from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 
 import cvImage from "../../../../assets/images/img.png"
-const slides = [cvImage,cvImage,cvImage]
+import {Link} from "react-router-dom";
+const slides = [cvImage,cvImage,cvImage,cvImage,cvImage,cvImage]
 const TemplatesSlide: React.FC = () => {
     return (
-        <div className="flex w-screen items-center flex-col relative h-[904px]">
+        <div className="flex w-screen items-center flex-col relative h-[904px] z-0">
 
             <svg width="2583" className="absolute -z-10  h-full fill-primary" height="904" viewBox="0 0 2583 904"  xmlns="http://www.w3.org/2000/svg">
                 <path opacity="30" className="opacity-30"
@@ -24,11 +25,11 @@ const TemplatesSlide: React.FC = () => {
             </svg>
 
 
-            <div className="flex container mx-auto p-10 w-fit mt-52 flex-col lg:flex-row">
+            <div className="flex container mx-auto p-10 w-fit  mt-24 md:mt-32 flex-col lg:flex-row">
 
 
-                <h2 className="text-4xl max-w-md text-primary mb-10 " >Resume templates tailored for you</h2>
-                <p className="max-w-xl text-base-content">
+                <h2 className="text-5xl font-bold max-w-md text-primary-content mb-10 border-b-primary md:border-b-4 md:pb-4 text-base-100" >Resume templates tailored for you</h2>
+                <p className="mt-auto h-fit max-w-xl text-base-content mb-4 mx-5">
                     Highlight your best assets through economical communication. Traditional or creative - take your
                     pick. Your resume will always beat luck.</p>
             </div>
@@ -42,12 +43,14 @@ const TemplatesSlide: React.FC = () => {
                     pagination={{
                         clickable: true,
                     }}
-                    modules={[FreeMode, Pagination]}
+                    modules={[FreeMode , A11y]}
                     className="mySwiper  by-10"
                     centeredSlides={true}
                     loop={true}
+
                     autoplay={{
                         delay: 1000,
+                        disableOnInteraction: false,
                     }}
                     speed={1000}
 
@@ -78,8 +81,11 @@ const TemplatesSlide: React.FC = () => {
                 >
                     {
                         slides.map((slide,index)=>{
-                            return <SwiperSlide key={slide + index}>
-                                <img  src={slide} alt="slide" className="object-cover w-full max-w-[250px]"/>
+                            return <SwiperSlide  key={slide + index}>
+                                <Link to="#" className="hover:text-primary cursor-pointer flex flex-col justify-center items-center">
+                                    <img  src={slide} alt="slide" className="object-cover w-full max-w-[250px] my-3 drop-shadow-lg"/>
+                                    <p>Title</p>
+                                </Link>
                             </SwiperSlide>
                         })
                     }

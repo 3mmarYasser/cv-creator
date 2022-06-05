@@ -7,3 +7,5 @@ interface Sections {
 export type {
     Sections
 }
+
+// bad syntax with interface
