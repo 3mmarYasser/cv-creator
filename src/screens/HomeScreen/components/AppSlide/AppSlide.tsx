@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 const AppSlide :React.FC = () => {
     return (
         <div className="flex flex-col mx-auto w-screen">
-            <div className="container mx-auto  justify-center items-center space-x-5 hidden sm:flex">
+            <div className="container mx-auto pt-3 justify-center items-center space-x-5 hidden sm:flex">
              <Link className="px-5 flex flex-col justify-center items-center border-b-4 border-ghost hover:border-primary hover:text-primary transition duration-300" to={"#"}>
                  <b className="text-xl">Resume Builder</b>
                  <span className="my-1 font-light">Make a stand-out resume</span>
