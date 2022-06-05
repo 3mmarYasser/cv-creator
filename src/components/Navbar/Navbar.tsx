@@ -39,6 +39,20 @@ const Navbar = () => {
         return localStorage.getItem('theme')
     }
 
+
+
+    // on first load check localStorage for themes and set the active theme
+    useEffect(() => {
+
+        const myTheme = getThemeActive()
+        if (myTheme === null) {
+            localStorage.setItem('theme', themes[0])
+        }else {
+            changeTheme(myTheme)
+        }
+    }, [])
+
+    
     const [activeTheme, setActiveTheme] = useState(getThemeActive() || themes[0])
     //change theme of deasy-ui to dark
 
