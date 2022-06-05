@@ -7,6 +7,8 @@ import AuthScreen from "../screens/AuthScreen/AuthScreen";
 import EditorScreen from "../screens/EditorScreen/EditorScreen";
 
 import "./App.scss";
+import UserScreen from "../screens/UserScreen/UserScreen";
+import UserEditScreen from "../screens/UserScreen/UserEditScreen";
 
 
 const App: React.FC = () => {
@@ -18,6 +20,10 @@ const App: React.FC = () => {
                     <Route index element={<HomeScreen/>}/>
                     <Route path="editor" element={<EditorScreen/>}/>
                     <Route path="login" element={<AuthScreen/>}/>
+                    <Route path="me">
+                        <Route index element={<UserScreen/>}/>
+                        <Route path="edit" element={<UserEditScreen/>}/>
+                    </Route>
                     <Route path="*" element={<Page404/>}/>
                 </Routes>
             </div>
