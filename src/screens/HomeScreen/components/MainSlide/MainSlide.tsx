@@ -8,7 +8,7 @@ const MainSlide = () => {
            <div className="container  mx-auto  px-5 h-[38.5rem]  sm:px-2 grid">
                <div tabIndex={1} className=" max-w-[45rem] mx-auto lg:mr-[40rem]  flex flex-col justify-center z-10 md:mx-auto md:w-full mb-20">
                    <span className="uppercase opacity-80">ONLINE RESUME CREATOR</span>
-                   <p className="text-[50px] leading-[1em] max-w-2xl my-8 md:text-[68px]">
+                   <p className="text-[60px] leading-[1em] max-w-2xl my-8 md:text-[68px] font-bold">
                        Our resumes get people hired at top companies
                    </p>
                    <div className="flex">

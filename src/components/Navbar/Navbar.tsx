@@ -1,7 +1,69 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 
+const themes = [
+    "light",
+    "dark",
+    "cupcake",
+    "bumblebee",
+    "emerald",
+    "corporate",
+    "synthwave",
+    "retro",
+    "cyberpunk",
+    "valentine",
+    "halloween",
+    "garden",
+    "forest",
+    "aqua",
+    "lofi",
+    "pastel",
+    "fantasy",
+    "wireframe",
+    "black",
+    "luxury",
+    "dracula",
+    "cmyk",
+    "autumn",
+    "business",
+    "acid",
+    "lemonade",
+    "night",
+    "coffee",
+    "winter"
+];
+
 const Navbar = () => {
+
+    const getThemeActive = () => {
+        return localStorage.getItem('theme')
+    }
+
+    const [activeTheme, setActiveTheme] = useState(getThemeActive() || themes[0])
+    //change theme of deasy-ui to dark
+
+
+    const changeTheme = (theme: string) => {
+        const element = document.getElementsByTagName('html')[0];
+        element.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme)
+        setActiveTheme(theme)
+    }
+
+    const changeThemeHandler = () => {
+
+        // get index of active theme in themes enum and add 1
+        let index = themes.indexOf(activeTheme) + 1
+        if (index >= themes.length) {
+            index = 0
+        }
+        changeTheme(themes[index])
+    }
+
+
+
+
+
     const [show, setShow] = useState(true);
 
     const controlNavbar = () => {
@@ -21,6 +83,8 @@ const Navbar = () => {
 
     return (
         <header tabIndex={100} className="w-[100vw]  pt-5 flex justify-center fixed z-50">
+            <button className="btn rounded-btn bg-base-100 text-base-content fixed bottom-5 right-5" onClick={()=>{changeThemeHandler()}}>{activeTheme}</button>
+
             <nav className="flex navbar bg-base-200 rounded-box w-screen-lg mx-5 border-primary border-2 "
                  style={{boxShadow: `${show && "0 5px 0 3px #0000001f"} `, border: `${show && "0"}`}}>
 
@@ -72,7 +136,11 @@ const Navbar = () => {
                                 </li>
                             </ul>
                         </div>
+
                     </li>
+
+
+
 
                     <div className=" w-fit ml-auto space-x-2">
                         <Link to={"login"}>
