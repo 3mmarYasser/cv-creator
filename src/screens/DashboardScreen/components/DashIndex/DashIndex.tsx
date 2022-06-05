@@ -4,9 +4,7 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    AreaChart,
-    Area,
-    ResponsiveContainer,
+    AreaChart, ResponsiveContainer, ComposedChart, Line, Area, Bar, Legend,
 } from 'recharts';
 
 const data = [
@@ -48,6 +46,45 @@ const data = [
     }
 ];
 
+const data2 = [
+    {
+        name: 'Page A',
+        uv: 590,
+        pv: 800,
+        amt: 1400,
+    },
+    {
+        name: 'Page B',
+        uv: 868,
+        pv: 967,
+        amt: 1506,
+    },
+    {
+        name: 'Page C',
+        uv: 1397,
+        pv: 1098,
+        amt: 989,
+    },
+    {
+        name: 'Page D',
+        uv: 1480,
+        pv: 1200,
+        amt: 1228,
+    },
+    {
+        name: 'Page E',
+        uv: 1520,
+        pv: 1108,
+        amt: 1100,
+    },
+    {
+        name: 'Page F',
+        uv: 1400,
+        pv: 680,
+        amt: 1700,
+    },
+];
+
 interface Props {
 
 }
@@ -56,8 +93,9 @@ const DashIndex: React.FC<Props> = () => {
 
     return (
         <div
-            className="w-[100vw] grid grid-cols-1 gap-y-12 gap-6 md:grid-cols-2 lg:grid-cols-4 bg-base-300 min-h-[100vh]">
-            <div className=" p-[10px] w-[100vw]">
+            className="w-[100vw] grid pt-[170px] grid-cols-1 gap-y-12 gap-6 md:grid-cols-2 lg:grid-cols-4 bg-base-300 min-h-[100vh]">
+
+            <div className=" p-[10px] w-[100vw] md:w-[400px] lg:w-[600px]">
                 <ResponsiveContainer width="100%" height={200}>
                     <AreaChart
                         width={500}

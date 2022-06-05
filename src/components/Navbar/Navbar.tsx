@@ -89,11 +89,9 @@ const Navbar = () => {
             window.addEventListener('scroll', controlNavbar);
         }
     }, []);
-    const location = ((useLocation().pathname).split("/"))[1];
-    console.log(location)
     return (
         <header tabIndex={100}
-                className={classNames("w-[100vw]  pt-5 flex justify-center fixed z-50 ", {"hidden": location === "dashboard"})}>
+                className={classNames("w-[100vw]  pt-5 flex justify-center fixed z-50 ")}>
             <button className="btn rounded-btn bg-base-100 text-base-content fixed bottom-5 right-5" onClick={() => {
                 changeThemeHandler()
             }}>{activeTheme}</button>
