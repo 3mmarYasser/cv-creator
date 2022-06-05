@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
+import classNames from "classnames";
 
 const Navbar = () => {
     const [show, setShow] = useState(true);
@@ -18,9 +19,10 @@ const Navbar = () => {
             window.addEventListener('scroll', controlNavbar);
         }
     }, []);
-
+    const location = ((useLocation().pathname).split('/'))[1];
     return (
-        <header tabIndex={100} className="w-[100vw]  pt-5 flex justify-center fixed z-50">
+        <header tabIndex={100}
+                className={classNames("w-[100vw]  pt-5 flex justify-center fixed z-50", {'hidden': location === "dashboard"})}>
             <nav className="flex navbar bg-base-200 rounded-box w-screen-lg mx-5 border-primary border-2 "
                  style={{boxShadow: `${show && "0 5px 0 3px #0000001f"} `, border: `${show && "0"}`}}>
 

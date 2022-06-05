@@ -9,13 +9,15 @@ import UserScreen from "../screens/UserScreen/UserScreen";
 import UserEditScreen from "../screens/UserScreen/UserEditScreen";
 import DashboardScreen from "../screens/DashboardScreen/DashboardScreen";
 import "./App.scss";
+import DashIndex from "../screens/DashboardScreen/components/DashIndex/DashIndex";
+import DashUsers from "../screens/DashboardScreen/components/DashUsers/DashUsers";
 
 const App: React.FC = () => {
-    const PathName = ((new URL(window.location.href).pathname).split('/'))[1]
     return (
         <Router>
             <div className="container">
-                {PathName !== "dashboard" ? <Navbar/> : null}
+                <Navbar/>
+
                 <Routes>
                     <Route index element={<HomeScreen/>}/>
                     <Route path="editor" element={<EditorScreen/>}/>
@@ -27,8 +29,9 @@ const App: React.FC = () => {
                     <Route path="*" element={<Page404/>}/>
 
 
-                    <Route path="dashboard">
-                        <Route index element={<DashboardScreen/>}/>
+                    <Route path="dashboard" element={<DashboardScreen/>}>
+                        <Route index element={<DashIndex/>}/>
+                        <Route path="users" element={<DashUsers/>}/>
                     </Route>
                 </Routes>
             </div>
