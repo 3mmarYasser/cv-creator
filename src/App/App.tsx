@@ -11,6 +11,7 @@ import DashboardScreen from "../screens/DashboardScreen/DashboardScreen";
 import "./App.scss";
 import DashIndex from "../screens/DashboardScreen/components/DashIndex/DashIndex";
 import DashUsers from "../screens/DashboardScreen/components/DashUsers/DashUsers";
+import TemplateScreen from "../screens/DashboardScreen/components/TemplateScreen/TemplateScreen";
 
 const App: React.FC = () => {
     return (
@@ -32,6 +33,7 @@ const App: React.FC = () => {
                     <Route path="dashboard" element={<DashboardScreen/>}>
                         <Route index element={<DashIndex/>}/>
                         <Route path="users" element={<DashUsers/>}/>
+                        <Route path="templates" element={<TemplateScreen/>}/>
                     </Route>
                 </Routes>
             </div>
