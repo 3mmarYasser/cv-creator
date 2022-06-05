@@ -58,9 +58,11 @@ const UserEditScreen: React.FC<Props> = () => {
 
                 </div>
                 <hr className="mt-[40px]"/>
-                <div className="flex flex-wrap">
-                    
-                </div>
+                <ul className="flex flex-wrap justify-center items-center">
+                    <li className="mr-[10px]"><span className="link link-hover">Change Password</span></li>
+                    <li className="mr-[10px]"><span className="link link-hover">Change email address</span></li>
+                    <li className="mr-[10px]"><span className="link link-hover">Delete account</span></li>
+                </ul>
             </div>
         </div>
     );
