@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
+import classNames from "classnames";
 
 const themes = [
     "light",
@@ -35,9 +36,6 @@ const themes = [
 
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
-
-
-
 
 
     const getThemeActive = () => {
@@ -91,9 +89,11 @@ const Navbar = () => {
             window.addEventListener('scroll', controlNavbar);
         }
     }, []);
-
+    const location = ((useLocation().pathname).split("/"))[1];
+    console.log(location)
     return (
-        <header tabIndex={100} className="w-[100vw]  pt-5 flex justify-center fixed z-50">
+        <header tabIndex={100}
+                className={classNames("w-[100vw]  pt-5 flex justify-center fixed z-50 ", {"hidden": location === "dashboard"})}>
             <button className="btn rounded-btn bg-base-100 text-base-content fixed bottom-5 right-5" onClick={() => {
                 changeThemeHandler()
             }}>{activeTheme}</button>
@@ -163,19 +163,26 @@ const Navbar = () => {
                         </Link>
                     </div>
                 </ul>
-                <button  onClick={()=>{setMenu(!menu)}} className={`ml-auto mr-5 active:rotate-90 transition-transform z-50 ${(menu) ? "rotate-90" : ""}`}>
-                    <svg  width="35" height="30" viewBox="0 0 35 30"  className=" fill-primary hover:fill-secondary"
+                <button onClick={() => {
+                    setMenu(!menu)
+                }} className={`ml-auto mr-5 active:rotate-90 transition-transform z-50 ${(menu) ? "rotate-90" : ""}`}>
+                    <svg width="35" height="30" viewBox="0 0 35 30" className=" fill-primary hover:fill-secondary"
                          xmlns="http://www.w3.org/2000/svg">
                         <g id="menu-btn">
-                            <rect id="Rectangle" x="0" y="0" width="100%" height="15%" fill="inherit" className="transition-colors duration-300"/>
-                            <rect id="Rectangle" x="0" y="33%" width="100%" height="15%" fill="inherit" className="transition-colors duration-200"/>
-                            <rect id="Rectangle" x="0" y="66%" width="100% " height="15%" fill="inherit" className="transition-colors duration-100"/>
+                            <rect id="Rectangle" x="0" y="0" width="100%" height="15%" fill="inherit"
+                                  className="transition-colors duration-300"/>
+                            <rect id="Rectangle" x="0" y="33%" width="100%" height="15%" fill="inherit"
+                                  className="transition-colors duration-200"/>
+                            <rect id="Rectangle" x="0" y="66%" width="100% " height="15%" fill="inherit"
+                                  className="transition-colors duration-100"/>
                         </g>
                     </svg>
                 </button>
             </nav>
             {
-                <div className={`bg-base-100 fixed left-0 right-0 z-10 h-full -top-full transition-all duration-[400ms]`} style={{top : `${(menu) ? "0" : "-100%"}`}}>
+                <div
+                    className={`bg-base-100 fixed left-0 right-0 z-10 h-full -top-full transition-all duration-[400ms]`}
+                    style={{top: `${(menu) ? "0" : "-100%"}`}}>
                     <div className="flex flex-col items-center justify-center h-full">
                         <ul className="flex flex-col items-center justify-center h-full">
                             <li><Link to={"#"}
@@ -191,7 +198,8 @@ const Navbar = () => {
 
                                         <span className="border-t-4 my-2 rounded-box border-primary"/>
                                         <li>
-                                            <button className="btn  text-primary-content btn-primary rounded-btn ">Build Your
+                                            <button className="btn  text-primary-content btn-primary rounded-btn ">Build
+                                                Your
                                                 Resume
                                             </button>
                                         </li>
