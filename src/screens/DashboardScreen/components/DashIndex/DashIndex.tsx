@@ -6,6 +6,7 @@ import {
     Tooltip,
     AreaChart, ResponsiveContainer, ComposedChart, Area, Legend, BarChart, Bar
 } from 'recharts';
+import StyledSwitch from "../../../../components/StyledSwitch/StyledSwitch";
 
 const data = [
     {
@@ -166,7 +167,7 @@ const DashIndex: React.FC<Props> = () => {
                         <div className="divider"><i className="material-icons text-[2rem]">settings</i></div>
                         <div className="grid card bg-base-300 rounded-box place-items-center">
 
-                            <div className="card w-96 bg-neutral text-neutral-content">
+                            <div className="card w-[100%] flex flex-col md:flex-row bg-neutral text-neutral-content">
                                 <div className="card-body items-center text-center">
                                     <h2 className="card-title">Languages!</h2>
                                     <p>Set The Default Language Know.</p>
@@ -178,6 +179,21 @@ const DashIndex: React.FC<Props> = () => {
                                         </select>
                                     </div>
                                 </div>
+                                <div className="card-body  items-center text-center">
+                                    <h2 className="card-title">Danger Zone!</h2>
+                                    <p>Be Sure After Editing Here.</p>
+                                    <div className="card-actions justify-end">
+                                        <StyledSwitch check={false} toggle={() => {
+                                        }}>
+                                            <span className="pr-[10px]">Under Attack Mode </span>
+                                        </StyledSwitch>
+                                        <StyledSwitch check={true} toggle={() => {
+                                        }}>
+                                            <span className="pr-[10px]">Under maintenance </span>
+                                        </StyledSwitch>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
