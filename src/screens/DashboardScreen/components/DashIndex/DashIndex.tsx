@@ -68,24 +68,36 @@ const DashIndex: React.FC<Props> = () => {
                     <div className="stats m-auto stats-vertical lg:stats-horizontal shadow  w-[100%]">
 
                         <div className="stat">
+                            <div className="stat-figure text-secondary">
+                                <i className="material-icons text-[2rem]">visibility</i>
+                            </div>
                             <div className="stat-title">View</div>
                             <div className="stat-value">31K</div>
                             <div className="stat-desc">Jan 1st - Feb 1st</div>
                         </div>
 
                         <div className="stat">
+                            <div className="stat-figure text-secondary">
+                                <i className="material-icons text-[2rem]">group_add</i>
+                            </div>
                             <div className="stat-title">New Users</div>
                             <div className="stat-value">4,200</div>
                             <div className="stat-desc">↗︎ 400 (22%)</div>
                         </div>
 
                         <div className="stat">
+                            <div className="stat-figure text-secondary">
+                                <i className="material-icons text-[2rem]">create_new_folder</i>
+                            </div>
                             <div className="stat-title">Resume Created</div>
                             <div className="stat-value">1,200</div>
                             <div className="stat-desc">↘︎ 90 (14%)</div>
                         </div>
 
                         <div className="stat">
+                            <div className="stat-figure text-secondary">
+                                <i className="material-icons text-[2rem]">add_card</i>
+                            </div>
                             <div className="stat-title">Cover Letter Created</div>
                             <div className="stat-value">1,800</div>
                             <div className="stat-desc">↗︎ 90 (+14%)</div>
