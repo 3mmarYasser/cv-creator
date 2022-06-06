@@ -106,6 +106,8 @@ const DashIndex: React.FC<Props> = () => {
                     </div>
 
                     <div className="flex flex-col w-full border-opacity-50">
+                        <div className="grid h-20 card bg-base-300 rounded-box place-items-center">Need More</div>
+                        <div className="divider"><i className="material-icons text-[2rem]">settings</i></div>
                         <div className="grid card bg-base-300 rounded-box place-items-center">
 
                             <div className="card w-96 bg-neutral text-neutral-content">
@@ -121,8 +123,7 @@ const DashIndex: React.FC<Props> = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="divider"><i className="material-icons text-[2rem]">settings</i></div>
-                        <div className="grid h-20 card bg-base-300 rounded-box place-items-center">Need More</div>
+
                     </div>
 
                 </div>
