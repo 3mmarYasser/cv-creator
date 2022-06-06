@@ -3,6 +3,7 @@ import {Link, useLocation} from "react-router-dom";
 import classNames from "classnames";
 
 const themes = [
+    "halloween",
     "luxury",
     "light",
     "dark",
@@ -14,7 +15,6 @@ const themes = [
     "retro",
     "cyberpunk",
     "valentine",
-    "halloween",
     "garden",
     "forest",
     "aqua",

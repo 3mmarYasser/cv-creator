@@ -1,7 +1,7 @@
 import React from 'react';
-import Styles from './UserEditScreen.module.scss'
 import {Link} from "react-router-dom";
 import StyledModal from "../../components/StyledModal/StyledModal";
+
 
 interface Props {
 
@@ -59,12 +59,12 @@ const UserEditScreen: React.FC<Props> = () => {
 
                 </div>
                 <hr className="mt-[40px]"/>
-                <ul className="flex flex-wrap justify-center items-center">
-                    <li className="mr-[10px]"><label htmlFor="change-password" className="link link-hover">Change
+                <ul className="flex flex-wrap mt-[50px] justify-center items-center">
+                    <li className="mr-[15px]"><label htmlFor="change-password" className="link link-hover">Change
                         Password</label></li>
-                    <li className="mr-[10px]"><label htmlFor="change-email" className="link link-hover">Change email
+                    <li className="mr-[15px]"><label htmlFor="change-email" className="link link-hover">Change email
                         address</label></li>
-                    <li className="mr-[10px]"><label htmlFor="delete-account" className="link link-hover">Delete
+                    <li className="mr-[15px]"><label htmlFor="delete-account" className="link link-hover">Delete
                         account</label></li>
                 </ul>
             </div>
