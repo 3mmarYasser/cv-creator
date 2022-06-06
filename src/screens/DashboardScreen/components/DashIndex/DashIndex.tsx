@@ -65,7 +65,7 @@ const DashIndex: React.FC<Props> = () => {
             <div
                 className="w-[100vw]   flex flex-col justify-between md:flex-row">
                 <div className="w-[100vw] p-[10px] lg:w-[70%]">
-                    <div className="stats m-auto stats-vertical lg:stats-horizontal shadow  w-[100%]">
+                    <div className="stats mb-[40px] m-auto stats-vertical lg:stats-horizontal shadow  w-[100%]">
 
                         <div className="stat">
                             <div className="stat-figure text-secondary">
@@ -104,6 +104,27 @@ const DashIndex: React.FC<Props> = () => {
                         </div>
 
                     </div>
+
+                    <div className="flex flex-col w-full border-opacity-50">
+                        <div className="grid card bg-base-300 rounded-box place-items-center">
+
+                            <div className="card w-96 bg-neutral text-neutral-content">
+                                <div className="card-body items-center text-center">
+                                    <h2 className="card-title">Languages!</h2>
+                                    <p>Set The Default Language Know.</p>
+                                    <div className="card-actions justify-end">
+                                        <select className="select select-bordered w-full max-w-xs">
+                                            <option selected>EN</option>
+                                            <option>AR</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="divider"><i className="material-icons text-[2rem]">settings</i></div>
+                        <div className="grid h-20 card bg-base-300 rounded-box place-items-center">Need More</div>
+                    </div>
+
                 </div>
                 <div className="flex flex-col justify-between w-[100vw] lg:w-[30%]">
                     <div className=" p-[10px]">
