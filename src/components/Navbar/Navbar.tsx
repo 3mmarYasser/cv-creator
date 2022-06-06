@@ -3,6 +3,7 @@ import {Link, useLocation} from "react-router-dom";
 import classNames from "classnames";
 
 const themes = [
+    "luxury",
     "light",
     "dark",
     "cupcake",
@@ -22,7 +23,6 @@ const themes = [
     "fantasy",
     "wireframe",
     "black",
-    "luxury",
     "dracula",
     "cmyk",
     "autumn",

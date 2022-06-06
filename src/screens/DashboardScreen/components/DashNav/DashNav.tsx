@@ -9,6 +9,9 @@ const DashNav: React.FC = () => {
                 <div className="navbar-center">
                     <ul className="menu menu-horizontal p-0">
                         <li>
+                            <Link to="/dashboard"><span>Dashboard</span></Link>
+                        </li>
+                        <li>
                             <Link to="/dashboard/users"><span>Users</span></Link>
                         </li>
                         <li>
