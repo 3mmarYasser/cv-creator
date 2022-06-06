@@ -4,7 +4,7 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    AreaChart, ResponsiveContainer, ComposedChart, Area, Legend,
+    AreaChart, ResponsiveContainer, ComposedChart, Area, Legend, BarChart, Bar
 } from 'recharts';
 
 const data = [
@@ -52,6 +52,43 @@ const data2 = [
         name: '1Year',
         Resume: 1397,
     }
+];
+const data3 = [
+    {
+        name: 'January',
+        Visitor: 40000,
+        User: 2400,
+    },
+    {
+        name: 'February',
+        Visitor: 30000,
+        User: 1398,
+    },
+    {
+        name: 'March',
+        Visitor: 20000,
+        User: 9800,
+    },
+    {
+        name: 'April',
+        Visitor: 27080,
+        User: 3908,
+    },
+    {
+        name: 'May',
+        Visitor: 10890,
+        User: 4800,
+    },
+    {
+        name: 'June',
+        Visitor: 20390,
+        User: 3800,
+    },
+    {
+        name: 'July',
+        Visitor: 30490,
+        User: 4300,
+    },
 ];
 
 interface Props {
@@ -104,9 +141,28 @@ const DashIndex: React.FC<Props> = () => {
                         </div>
 
                     </div>
-
                     <div className="flex flex-col w-full border-opacity-50">
-                        <div className="grid h-20 card bg-base-300 rounded-box place-items-center">Need More</div>
+                        <div className="grid max-w-[100%] card bg-base-300 rounded-box place-items-center">
+                            <ResponsiveContainer width="100%" height={400}>
+                                <BarChart
+                                    data={data3}
+                                    margin={{
+                                        top: 5,
+                                        right: 30,
+                                        left: 20,
+                                        bottom: 5,
+                                    }}
+                                >
+                                    <CartesianGrid strokeDasharray="3 3"/>
+                                    <XAxis dataKey="name"/>
+                                    <YAxis/>
+                                    <Tooltip/>
+                                    <Legend/>
+                                    <Bar dataKey="User" fill="#8884d8"/>
+                                    <Bar dataKey="Visitor" fill="#82ca9d"/>
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </div>
                         <div className="divider"><i className="material-icons text-[2rem]">settings</i></div>
                         <div className="grid card bg-base-300 rounded-box place-items-center">
 
@@ -115,16 +171,17 @@ const DashIndex: React.FC<Props> = () => {
                                     <h2 className="card-title">Languages!</h2>
                                     <p>Set The Default Language Know.</p>
                                     <div className="card-actions justify-end">
-                                        <select className="select select-bordered w-full max-w-xs">
-                                            <option selected>EN</option>
+                                        <select onChange={(e) => console.log(e)} value={"AR"}
+                                                className="select select-bordered w-full max-w-xs">
+                                            <option>EN</option>
                                             <option>AR</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
+
 
                 </div>
                 <div className="flex flex-col justify-between w-[100vw] lg:w-[30%]">
