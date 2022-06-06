@@ -4,7 +4,7 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    AreaChart, ResponsiveContainer, ComposedChart, Line, Area, Bar, Legend,
+    AreaChart, ResponsiveContainer, ComposedChart, Area, Legend,
 } from 'recharts';
 
 const data = [
@@ -63,9 +63,35 @@ const DashIndex: React.FC<Props> = () => {
     return (
         <div className="w-[100vw] min-h-[100vh] pt-[170px]">
             <div
-                className="w-[100vw]  m-auto flex flex-col justify-between md:flex-row ">
-                <div className="w-[100vw] bg-base-200 lg:w-[70%]">
+                className="w-[100vw]   flex flex-col justify-between md:flex-row">
+                <div className="w-[100vw] p-[10px] lg:w-[70%]">
+                    <div className="stats m-auto stats-vertical lg:stats-horizontal shadow  w-[100%]">
 
+                        <div className="stat">
+                            <div className="stat-title">View</div>
+                            <div className="stat-value">31K</div>
+                            <div className="stat-desc">Jan 1st - Feb 1st</div>
+                        </div>
+
+                        <div className="stat">
+                            <div className="stat-title">New Users</div>
+                            <div className="stat-value">4,200</div>
+                            <div className="stat-desc">↗︎ 400 (22%)</div>
+                        </div>
+
+                        <div className="stat">
+                            <div className="stat-title">Resume Created</div>
+                            <div className="stat-value">1,200</div>
+                            <div className="stat-desc">↘︎ 90 (14%)</div>
+                        </div>
+
+                        <div className="stat">
+                            <div className="stat-title">Cover Letter Created</div>
+                            <div className="stat-value">1,800</div>
+                            <div className="stat-desc">↗︎ 90 (+14%)</div>
+                        </div>
+
+                    </div>
                 </div>
                 <div className="flex flex-col justify-between w-[100vw] lg:w-[30%]">
                     <div className=" p-[10px]">
