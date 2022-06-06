@@ -10,21 +10,28 @@ interface ListProps {
 
 const UserList: React.FC<ListProps> = ({data}) => {
     return (
-        <article className="flex items-start space-x-6 p-6 bg-base-200 rounded-box mb-[20px] border-none">
-            <img src={data.image} alt="" width="60" height="88"
-                 className="flex-none rounded-md bg-slate-100"/>
-            <div className="min-w-0 relative flex-auto">
-                <h2 className="font-semibold text-slate-900 truncate pr-20">{data.userName}</h2>
-                <div className="absolute top-0 right-0 flex items-center space-x-1">
-                    <dt className="text-primary">
-                        <button>
-                            <i className="material-icons">edit</i>
-                        </button>
-                    </dt>
+        <tr>
+            <td>
+                <div className="flex items-center space-x-3">
+                    <div className="avatar">
+                        <div className="mask mask-squircle w-12 h-12">
+                            <img src={data.image}
+                                 alt="Avatar User Dashboard"/>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="font-bold">{data.userName}</div>
+                        <div className="text-sm opacity-50">User</div>
+                    </div>
                 </div>
-            </div>
+            </td>
 
-        </article>
+
+            <th>
+                <button className="btn btn-ghost btn-xs">Edit</button>
+            </th>
+        </tr>
+
     )
 }
 
@@ -36,13 +43,27 @@ const DashUsers: React.FC<Props> = () => {
 
     ]
     return (
-        <div className="mt-[50px] w-[100vw]">
-            <h1 className="text-2xl text-center mb-[20px]">List OF Users</h1>
-            <ul className="divide-y m-auto max-w-[1000px] divide-slate-100">
-                {Users.map((data, index) => (
-                    <UserList key={index} data={data}/>
+        <div className=" pt-[170px] overflow-x-auto w-full">
+            <table className="table max-w-[1024px] m-auto table-compact w-full">
+                <thead>
+                <tr>
+                    <th>UserName</th>
+                    <th>Edit</th>
+                </tr>
+                </thead>
+                <tbody>
+                {Users.map((user, index) => (
+                    <UserList key={index} data={user}/>
                 ))}
-            </ul>
+                </tbody>
+                <tfoot>
+                <tr className="p-[5px]">
+                    <th>Role</th>
+                    <th>Details</th>
+                </tr>
+                </tfoot>
+
+            </table>
         </div>
     );
 };
