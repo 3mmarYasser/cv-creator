@@ -25,14 +25,18 @@ const Login: React.FC = () => {
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <Field name="email" type="email" placeholder="Email"
+                        <Field autoComplete={"email"} name="email" type="email" placeholder="Email"
                                className="input input-bordered"/>
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <Field name="password" type="password" placeholder="Password"
+                        <Field suggested={"current-password"}
+                               autoComplete={"current-password"}
+                               name="password"
+                               type="password"
+                               placeholder="Password"
                                className="input input-bordered"/>
                         <label className="label">
                             <Link to={"/login#forget-password"}><span className="label-text-alt link link-hover">Forgot
@@ -69,7 +73,9 @@ const SignUpScreen: React.FC = () => {
                         <label className="label">
                             <span className="label-text">User Name</span>
                         </label>
-                        <Field name="name" type="text" placeholder="User Name"
+                        <Field autoComplete="username"
+                               name="name" type="text"
+                               placeholder="User Name"
                                className="input input-bordered"/>
                     </div>
                     <div className="form-control">
@@ -77,14 +83,20 @@ const SignUpScreen: React.FC = () => {
                             <span className="label-text">Email</span>
                         </label>
 
-                        <Field name="email" type="email" placeholder="Email"
+                        <Field autoComplete="email"
+                               name="email"
+                               type="email"
+                               placeholder="Email"
                                className="input input-bordered"/>
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <Field suggested={"current-password"} name="password" type="password" placeholder="Password"
+                        <Field autoComplete="new-password"
+                               name="password"
+                               type="password"
+                               placeholder="Password"
                                className="input input-bordered"/>
                     </div>
                     <div className="form-control">

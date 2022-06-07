@@ -1,6 +1,6 @@
 import axios from "axios";
 
 const Axios = axios.create({
-    baseURL: "http://129.213.115.155:3000"
+    baseURL: "https://129.213.115.155:3000"
 })
 export default Axios;
