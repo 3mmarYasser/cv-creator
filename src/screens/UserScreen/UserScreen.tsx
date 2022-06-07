@@ -302,8 +302,8 @@ const UserScreen: React.FC<Props> = () => {
                                     </li>
 
                                     <li className="flex items-center py-4">
-                                        <span>Last Visit</span>
-                                        <span className="ml-auto">Last Day</span>
+                                        <span>Your Profile Views</span>
+                                        <span className="ml-auto">1579</span>
                                     </li>
                                     <li className="flex items-center py-4">
                                         <span>Cover Letter Number</span>
