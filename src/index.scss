@@ -94,3 +94,10 @@ code {
   }
 
 }
+
+input:-webkit-autofill {
+  background-color: unset !important;
+  color: unset !important;
+  border: unset;
+  box-shadow: unset !important;
+}
