@@ -20,7 +20,7 @@ export const signupThunk = createAsyncThunk("auth/signup", async (data: SignUp) 
 )
 export const signInThunk = createAsyncThunk("auth/signin", async (data: SignIn) => {
         try {
-            return (await (Axios.post("/auth/login", data))).data
+            return (await (Axios.post("/auth/login", data)))
         } catch (err: any) {
             throw new Error(err)
         }
@@ -65,7 +65,6 @@ const authSlice = createSlice({
         // Sign IN
         builder.addCase(signInThunk.pending, (state, {payload}) => {
             console.log(state)
-            console.log(payload)
         })
         builder.addCase(signInThunk.fulfilled, (state, {payload}) => {
             console.log(state)
@@ -73,7 +72,6 @@ const authSlice = createSlice({
         })
         builder.addCase(signInThunk.rejected, (state, {payload}) => {
             console.log(state)
-            console.log(payload)
         })
 
     }
