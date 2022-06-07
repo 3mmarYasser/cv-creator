@@ -95,9 +95,14 @@ code {
 
 }
 
-input:-webkit-autofill {
-  background-color: unset !important;
-  color: unset !important;
-  border: unset;
-  box-shadow: unset !important;
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 10000px hsl(var(--b1) / var(--tw-bg-opacity)) inset !important;
+  border-radius: var(--rounded-btn, 0.5rem);
+  border-color: hsl(var(--bc) / var(--tw-border-opacity)) !important;
+  -webkit-text-fill-color: hsl(var(--ac)) !important;
+  transition: background-color 5000s ease-in-out 0s;
+
 }
