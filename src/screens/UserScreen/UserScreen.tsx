@@ -280,7 +280,9 @@ const UserScreen: React.FC<Props> = () => {
                         <div className="w-full md:w-3/12 md:mx-2 mb-[20px]">
                             <div className="bg-base-300 rounded-xl p-3 border-t-4 border-primary">
                                 <div className="image overflow-hidden">
-                                    <img className="h-auto m-auto rounded-xl w-full max-w-[300px] max-h-[300]"
+                                    <img draggable={false} onContextMenu={(e) => e.preventDefault()}
+                                         onSelect={(e) => e.preventDefault()}
+                                         className="h-auto m-auto rounded-xl w-full max-w-[300px] max-h-[300]"
                                          src="https://api.lorem.space/image/face?w=300&h=300"
                                          alt=""/>
                                 </div>
