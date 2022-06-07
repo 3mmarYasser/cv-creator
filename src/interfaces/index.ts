@@ -4,8 +4,44 @@ interface Sections {
     HTML: string
 }
 
+interface ErrMsg {
+    ar: string,
+    en: string
+}
+
+interface SignUp {
+    name: string,
+    email: string,
+    password: string,
+    statusCode?: number,
+    message?: ErrMsg[],
+    error?: string
+}
+
+interface SignIn {
+    email: string,
+    password: string,
+    statusCode?: number,
+    message?: ErrMsg[],
+    error?: string
+}
+
+interface CV {
+
+}
+
+interface User {
+    id: number;
+    email: string;
+    role: string;
+    myCVs: CV[]
+}
+
 export type {
-    Sections
+    Sections,
+    SignUp,
+    User,
+    SignIn
 }
 
 // bad syntax with interface
