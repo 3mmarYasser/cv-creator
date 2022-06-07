@@ -20,7 +20,7 @@ export const signupThunk = createAsyncThunk("auth/signup", async (data: SignUp) 
 )
 export const signInThunk = createAsyncThunk("auth/signin", async (data: SignIn) => {
         try {
-            return (await (Axios.post("/auth/login", data)))
+            return (await (Axios.post("/auth/login", data))).data
         } catch (err: any) {
             throw new Error(err)
         }
@@ -67,6 +67,7 @@ const authSlice = createSlice({
             console.log(state)
         })
         builder.addCase(signInThunk.fulfilled, (state, {payload}) => {
+            
             console.log(state)
             console.log(payload)
         })
