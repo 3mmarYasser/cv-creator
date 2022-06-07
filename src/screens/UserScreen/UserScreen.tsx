@@ -109,7 +109,7 @@ const UserScreen: React.FC<Props> = () => {
                                                         className="relative m-auto flex flex-col justify-center w-[260px] max-h-[400px] shadow-2xl">
                                                         <button
                                                             style={{transform: "translate(-50% , 0)"}}
-                                                            className="absolute bottom-[5px] left-[50%] btn btn-circle btn-success m-auto">
+                                                            className="absolute bottom-[5px] left-[50%] btn btn-circle btn-success m-auto no-animation">
                                                             <i className="material-icons">edit</i>
                                                         </button>
                                                         <div className="flex flex-col place-items-center">
@@ -130,7 +130,7 @@ const UserScreen: React.FC<Props> = () => {
                                                         className="relative m-auto flex flex-col justify-center w-[260px] max-h-[400px] shadow-2xl">
                                                         <button
                                                             style={{transform: "translate(-50% , 0)"}}
-                                                            className="absolute bottom-[5px] left-[50%] btn btn-circle btn-success m-auto">
+                                                            className="absolute bottom-[5px] left-[50%] btn btn-circle btn-success m-auto no-animation">
                                                             <i className="material-icons">edit</i>
                                                         </button>
                                                         <div className="flex flex-col place-items-center">
@@ -151,7 +151,7 @@ const UserScreen: React.FC<Props> = () => {
                                                         className="relative m-auto flex flex-col justify-center w-[260px] max-h-[400px] shadow-2xl">
                                                         <button
                                                             style={{transform: "translate(-50% , 0)"}}
-                                                            className="absolute bottom-[5px] left-[50%] btn btn-circle btn-success m-auto">
+                                                            className="absolute bottom-[5px] left-[50%] btn btn-circle btn-success m-auto no-animation">
                                                             <i className="material-icons">edit</i>
                                                         </button>
                                                         <div className="flex flex-col place-items-center">
@@ -172,7 +172,7 @@ const UserScreen: React.FC<Props> = () => {
                                                         className="relative m-auto flex flex-col justify-center w-[260px] max-h-[400px] shadow-2xl">
                                                         <button
                                                             style={{transform: "translate(-50% , 0)"}}
-                                                            className="absolute bottom-[5px] left-[50%] btn btn-circle btn-success m-auto">
+                                                            className="absolute bottom-[5px] left-[50%] btn btn-circle btn-success m-auto no-animation">
                                                             <i className="material-icons">edit</i>
                                                         </button>
                                                         <div className="flex flex-col place-items-center">
@@ -193,7 +193,7 @@ const UserScreen: React.FC<Props> = () => {
                                                         className="relative m-auto flex flex-col justify-center w-[260px] max-h-[400px] shadow-2xl">
                                                         <button
                                                             style={{transform: "translate(-50% , 0)"}}
-                                                            className="absolute bottom-[5px] left-[50%] btn btn-circle btn-success m-auto">
+                                                            className="absolute bottom-[5px] left-[50%] btn btn-circle btn-success m-auto no-animation">
                                                             <i className="material-icons">edit</i>
                                                         </button>
                                                         <div className="flex flex-col place-items-center">
@@ -207,7 +207,69 @@ const UserScreen: React.FC<Props> = () => {
 
                                                 </div>
                                             </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div
+                                                    className="m-auto">
+                                                    <div
+                                                        className="relative m-auto flex flex-col justify-center w-[260px] max-h-[400px] shadow-2xl">
+                                                        <button
+                                                            style={{transform: "translate(-50% , 0)"}}
+                                                            className="absolute bottom-[5px] left-[50%] btn btn-circle btn-success m-auto no-animation">
+                                                            <i className="material-icons">edit</i>
+                                                        </button>
+                                                        <div className="flex flex-col place-items-center">
+                                                            <img alt={'UserCvImage'}
+                                                                 draggable={false}
+                                                                 onContextMenu={e => e.preventDefault()}
+                                                                 src={img1}
+                                                                 className="max-w-sm rounded-lg  w-[100%] h-[100%]"/>
+                                                        </div>
+                                                    </div>
 
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div
+                                                    className="m-auto">
+                                                    <div
+                                                        className="relative m-auto flex flex-col justify-center w-[260px] max-h-[400px] shadow-2xl">
+                                                        <button
+                                                            style={{transform: "translate(-50% , 0)"}}
+                                                            className="absolute bottom-[5px] left-[50%] btn btn-circle btn-success m-auto no-animation">
+                                                            <i className="material-icons">edit</i>
+                                                        </button>
+                                                        <div className="flex flex-col place-items-center">
+                                                            <img alt={'UserCvImage'}
+                                                                 draggable={false}
+                                                                 onContextMenu={e => e.preventDefault()}
+                                                                 src={img1}
+                                                                 className="max-w-sm rounded-lg  w-[100%] h-[100%]"/>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <div
+                                                    className="m-auto">
+                                                    <div
+                                                        className="relative m-auto flex flex-col justify-center w-[260px] max-h-[400px] shadow-2xl">
+                                                        <button
+                                                            style={{transform: "translate(-50% , 0)"}}
+                                                            className="absolute bottom-[5px] left-[50%] btn btn-circle btn-success m-auto no-animation">
+                                                            <i className="material-icons">edit</i>
+                                                        </button>
+                                                        <div className="flex flex-col place-items-center">
+                                                            <img alt={'UserCvImage'}
+                                                                 draggable={false}
+                                                                 onContextMenu={e => e.preventDefault()}
+                                                                 src={img1}
+                                                                 className="max-w-sm rounded-lg  w-[100%] h-[100%]"/>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </SwiperSlide>
 
                                         </Swiper>
                                     </div>
@@ -247,7 +309,7 @@ const UserScreen: React.FC<Props> = () => {
                                     </li>
                                     <li className="flex items-center py-4">
                                         <span>Resume Numbers</span>
-                                        <span className="ml-auto">20</span>
+                                        <span className="ml-auto">8</span>
                                     </li>
                                 </ul>
                             </div>
