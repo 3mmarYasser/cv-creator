@@ -3,9 +3,13 @@ import Axios from "../api/config/Axios";
 import {SignUp, User, SignIn} from "../interfaces";
 
 
-export const GetUserThunk = createAsyncThunk("auth", async () => {
+export const GetUserThunk = createAsyncThunk("auth", async (data) => {
         try {
-            return (await (Axios.get("/auth")))
+            return (await (Axios.get("/auth", {
+                headers: {
+                    cookies: ""
+                }
+            })))
         } catch (err: any) {
             throw new Error(err)
         }

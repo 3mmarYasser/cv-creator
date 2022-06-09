@@ -172,7 +172,7 @@ const DashIndex: React.FC<Props> = () => {
                                     <h2 className="card-title">Languages!</h2>
                                     <p>Set The Default Language Know.</p>
                                     <div className="card-actions justify-end">
-                                        <select onChange={(e) => console.log(e)} value={"AR"}
+                                        <select onChange={(e) => console.log(e)} value={"EN"}
                                                 className="select select-bordered w-full max-w-xs">
                                             <option>EN</option>
                                             <option>AR</option>
@@ -185,11 +185,11 @@ const DashIndex: React.FC<Props> = () => {
                                     <div className="card-actions justify-end">
                                         <StyledSwitch check={false} toggle={() => {
                                         }}>
-                                            <span className="pr-[10px]">Under Attack Mode </span>
+                                            <p className="pr-[10px]">Under Attack Mode </p>
                                         </StyledSwitch>
                                         <StyledSwitch check={true} toggle={() => {
                                         }}>
-                                            <span className="pr-[10px]">Under maintenance </span>
+                                            <p className="pr-[10px]">Under maintenance </p>
                                         </StyledSwitch>
                                     </div>
                                 </div>
