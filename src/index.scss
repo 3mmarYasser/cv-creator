@@ -103,5 +103,5 @@ input:-webkit-autofill:active {
   border-radius: var(--rounded-btn, 0.5rem) !important;
   border-color: solid 1px hsl(var(--bc) / var(--tw-border-opacity)) !important;
   -webkit-text-fill-color: hsl(var(--bc) / var(--tw-border-opacity)) !important;
-  transition: background-color, 5000s ease-in-out;
+  transition: background-color, 500000s ease-in-out;
 }

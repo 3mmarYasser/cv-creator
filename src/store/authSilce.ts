@@ -1,6 +1,8 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import Axios from "../api/config/Axios";
 import {SignUp, User, SignIn} from "../interfaces";
+import Cookies from 'universal-cookie';
+
 
 export const GetUserThunk = createAsyncThunk("auth", async () => {
         try {
@@ -12,7 +14,7 @@ export const GetUserThunk = createAsyncThunk("auth", async () => {
 )
 export const signupThunk = createAsyncThunk("auth/signup", async (data: SignUp) => {
         try {
-            return (await (Axios.post("/auth/register", data))).data
+            return (await (Axios.post("/auth/register", data)))
         } catch (err: any) {
             throw new Error(err)
         }
@@ -38,41 +40,38 @@ const authSlice = createSlice({
     extraReducers: (builder) => {
         // Get User
         builder.addCase(GetUserThunk.pending, (state, {payload}) => {
-            console.log(state)
             console.log(payload)
         })
         builder.addCase(GetUserThunk.fulfilled, (state, {payload}) => {
-            console.log(state)
             console.log(payload)
         })
         builder.addCase(GetUserThunk.rejected, (state, {payload}) => {
-            console.log(state)
             console.log(payload)
         })
         // Sign Up
         builder.addCase(signupThunk.pending, (state, {payload}) => {
-            console.log(state)
             console.log(payload)
         })
         builder.addCase(signupThunk.fulfilled, (state, {payload}) => {
-            console.log(state)
             console.log(payload)
         })
         builder.addCase(signupThunk.rejected, (state, {payload}) => {
-            console.log(state)
             console.log(payload)
         })
         // Sign IN
+
         builder.addCase(signInThunk.pending, (state, {payload}) => {
-            console.log(state)
+            console.log(payload)
+
         })
         builder.addCase(signInThunk.fulfilled, (state, {payload}) => {
-            
-            console.log(state)
+            const cookies = new Cookies();
+            console.log((payload.accessTokenCookies).toLocaleString().split("="))
+            document.cookie = payload.refreshTokenCookies;
+            console.log(document.cookie)
             console.log(payload)
         })
         builder.addCase(signInThunk.rejected, (state, {payload}) => {
-            console.log(state)
         })
 
     }
