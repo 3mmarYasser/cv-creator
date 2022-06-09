@@ -5,16 +5,31 @@ import {SignIn, SignUp} from "../../interfaces";
 import {useDispatch} from 'react-redux';
 import {signupThunk, signInThunk} from "../../store/authSilce";
 import {AppDispatch} from "../../store";
+import {useCookies} from 'react-cookie';
 
 
 const Login: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
+    const [cookies, setCookie] = useCookies();
+
     const initValue: SignIn = {
         email: "",
         password: ""
     }
     const login = (values: SignIn) => {
-        dispatch(signInThunk(values));
+        dispatch(signInThunk(values)).then(
+            r => {
+                const AuthCookies = r.payload.cookies[0],
+                    AuthRefresh = r.payload.cookies[1];
+                setCookie(AuthCookies.name, AuthCookies.value, {
+                    maxAge: AuthCookies.maxAge
+                })
+                setCookie(AuthRefresh.name, AuthRefresh.value, {
+                    maxAge: AuthRefresh.maxAge
+                })
+            },
+            e => console.error(e)
+        );
     }
     return (
         <Formik initialValues={initValue} onSubmit={login}>

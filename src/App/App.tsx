@@ -18,7 +18,6 @@ import FooterNav from "../components/FooterNav/FooterNav";
 import DashCoverLetter from "../screens/DashboardScreen/components/DashCoverLetter/DashCoverLetter";
 import DashAds from "../screens/DashboardScreen/components/DashAds/DashAds";
 import "./App.scss";
-import GetAuth, {GetUser} from "../api/requests/GetAuth";
 
 
 const App: React.FC = () => {

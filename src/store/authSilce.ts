@@ -1,7 +1,6 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import Axios from "../api/config/Axios";
 import {SignUp, User, SignIn} from "../interfaces";
-import Cookies from 'universal-cookie';
 
 
 export const GetUserThunk = createAsyncThunk("auth", async () => {
@@ -31,7 +30,7 @@ export const signInThunk = createAsyncThunk("auth/signin", async (data: SignIn) 
 const initialState = {
     user: {} as User,
     isLoading: false as boolean,
-    errMSG: "" as string
+    errMSG: "" as string,
 }
 const authSlice = createSlice({
     name: "auth",
@@ -58,6 +57,7 @@ const authSlice = createSlice({
         builder.addCase(signupThunk.rejected, (state, {payload}) => {
             console.log(payload)
         })
+
         // Sign IN
 
         builder.addCase(signInThunk.pending, (state, {payload}) => {
@@ -65,13 +65,12 @@ const authSlice = createSlice({
 
         })
         builder.addCase(signInThunk.fulfilled, (state, {payload}) => {
-            const cookies = new Cookies();
-            console.log((payload.accessTokenCookies).toLocaleString().split("="))
-            document.cookie = payload.refreshTokenCookies;
-            console.log(document.cookie)
+            console.log(payload.cookies)
             console.log(payload)
         })
         builder.addCase(signInThunk.rejected, (state, {payload}) => {
+            console.log(payload)
+
         })
 
     }
