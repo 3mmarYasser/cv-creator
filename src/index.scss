@@ -43,7 +43,7 @@ code {
 
 .line-cv-animation {
   animation-name: line-cv;
-  animation-duration: 25s;
+  animation-duration: 100s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   box-shadow: -13px 16px 0px #0000001c;
@@ -55,7 +55,7 @@ code {
 }
 
 .line-cv-animation:nth-child(1) {
-  animation-duration: 30s;
+  animation-duration: 100s;
 }
 
 @keyframes line-cv {
@@ -105,3 +105,4 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: hsl(var(--bc) / var(--tw-border-opacity)) !important;
   transition: background-color, 500000s ease-in-out;
 }
+

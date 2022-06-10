@@ -27,6 +27,12 @@ const App: React.FC = () => {
         dispatch(
             GetUserThunk()
         )
+        window.addEventListener("keydown", e => {
+            //ts-ignore
+            if (e?.keyCode === 17 || e?.keyCode === 80) {
+                e.preventDefault();
+            }
+        })
     })
     return (
         <Router>

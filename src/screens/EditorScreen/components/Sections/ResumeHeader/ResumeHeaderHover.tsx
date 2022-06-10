@@ -29,13 +29,13 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
         HCurve = getElementByAttr("[data-h-image]")
 
     const [styling, SetStyling] = useState<Styling>({
-        title: !HTitle?.classList.contains("hidden"),
-        phone: !HPhone?.classList.contains("hidden"),
-        link: !HLink?.classList.contains("hidden"),
-        email: !HEmail?.classList.contains("hidden"),
-        location: !HLocation?.classList.contains("hidden"),
+        title: !HTitle?.classList.contains("pro-hidden"),
+        phone: !HPhone?.classList.contains("pro-hidden"),
+        link: !HLink?.classList.contains("pro-hidden"),
+        email: !HEmail?.classList.contains("pro-hidden"),
+        location: !HLocation?.classList.contains("pro-hidden"),
         uppercase: HUppercase ? HUppercase?.classList.contains("uppercase") : false,
-        photo: !HPhoto?.classList.contains("hidden"),
+        photo: !HPhoto?.classList.contains("pro-hidden"),
         curve: HCurve ? HCurve?.classList.contains("image-curve") : false
     })
     const switchContainer = (
@@ -43,7 +43,7 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
             <li>
                 <StyledSwitch check={styling.title} toggle={(e: any) => {
                     SetStyling({...styling, title: !e.target.checked})
-                    HTitle?.classList.toggle("hidden")
+                    HTitle?.classList.toggle("pro-hidden")
                 }}>
                     Show title
                 </StyledSwitch>
@@ -52,7 +52,7 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
             <li>
                 <StyledSwitch check={styling.phone} toggle={(e: any) => {
                     SetStyling({...styling, phone: !e.target.checked});
-                    HPhone?.classList.toggle("hidden");
+                    HPhone?.classList.toggle("pro-hidden");
                 }}>
                     Show Phone
                 </StyledSwitch>
@@ -61,7 +61,7 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
             <li>
                 <StyledSwitch check={styling.link} toggle={(e: any) => {
                     SetStyling({...styling, link: !e.target.checked});
-                    HLink?.classList.toggle("hidden");
+                    HLink?.classList.toggle("pro-hidden");
                 }}>
                     Show Link
                 </StyledSwitch>
@@ -70,7 +70,7 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
             <li>
                 <StyledSwitch check={styling.email} toggle={(e: any) => {
                     SetStyling({...styling, email: !e.target.checked});
-                    HEmail?.classList.toggle("hidden");
+                    HEmail?.classList.toggle("pro-hidden");
                 }}>
                     Show Email
                 </StyledSwitch>
@@ -79,7 +79,7 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
             <li>
                 <StyledSwitch check={styling.location} toggle={(e: any) => {
                     SetStyling({...styling, location: !e.target.checked});
-                    HLocation?.classList.toggle("hidden");
+                    HLocation?.classList.toggle("pro-hidden");
                 }}>
                     Show Location
                 </StyledSwitch>
@@ -88,7 +88,7 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
             <li>
                 <StyledSwitch check={styling.photo} toggle={(e: any) => {
                     SetStyling({...styling, photo: !e.target.checked});
-                    HPhoto?.classList.toggle("hidden");
+                    HPhoto?.classList.toggle("pro-hidden");
                 }}>
                     Show Photo
                 </StyledSwitch>

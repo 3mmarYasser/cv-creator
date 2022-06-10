@@ -44,7 +44,8 @@ const Navbar = () => {
     // on first load check localStorage for themes and set the active theme
     useEffect(() => {
 
-        const myTheme = getThemeActive()
+        const myTheme = getThemeActive();
+
         if (myTheme === null) {
             localStorage.setItem('theme', themes[0])
         } else {
@@ -53,13 +54,18 @@ const Navbar = () => {
     }, [])
 
     const [activeTheme, setActiveTheme] = useState(getThemeActive() || themes[0])
-    //change theme of deasy-ui to dark
+    //change theme of DaisyUI to dark
 
     const changeTheme = (theme: string) => {
         const element = document.getElementsByTagName('html')[0];
         element.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme)
         setActiveTheme(theme)
+        if (localStorage.getItem("theme") === "light") {
+            element.classList.remove("dark");
+        } else {
+            element.classList.add("dark");
+        }
     }
 
     const changeThemeHandler = () => {
@@ -125,9 +131,28 @@ const Navbar = () => {
                         </svg>
                     </Link>
                 </div>
+
                 <ul className="w-full mx-8  text-lg hidden lg:flex">
-                    <li><Link to={"#"}
-                              className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2">Resume</Link>
+
+
+                    <li>
+                        <div className="dropdown cursor-pointer mx-2">
+                            <label tabIndex={5}
+                                   className="btn-ghost hover:bg-transparent hover:text-primary rounded-btn">Resume</label>
+                            <ul tabIndex={5}
+                                className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+                                <li><Link to={"resume/template"}>Resume Templates</Link></li>
+                                <li><Link to={"resume/examples"}>Resume Examples</Link></li>
+                                <li><Link to={"resume/build"}>Resume Builder</Link></li>
+                                <span className="border-t-4 my-2 rounded-box border-primary"/>
+                                <li>
+                                    <Link className="btn  text-primary-content btn-primary rounded-btn "
+                                          to={"resume/build"}>
+                                        Build Your Resume
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
 
                     <li>
@@ -136,23 +161,33 @@ const Navbar = () => {
                                    className="btn-ghost hover:bg-transparent hover:text-primary rounded-btn">CV</label>
                             <ul tabIndex={0}
                                 className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                                <li><Link to={"#"}>CV Templates</Link></li>
-                                <li><Link to={"#"}>CV Examples</Link></li>
-                                <li><Link to={"#"}>CV Builder</Link></li>
+                                <li><Link to={"resume/template"}>CV Templates</Link></li>
+                                <li><Link to={"resume/examples"}>CV Examples</Link></li>
+                                <li><Link to={"resume/build"}>CV Builder</Link></li>
                                 <span className="border-t-4 my-2 rounded-box border-primary"/>
                                 <li>
-                                    <button className="btn  text-primary-content btn-primary rounded-btn ">Build Your
-                                        Resume
-                                    </button>
+                                    <Link className="btn  text-primary-content btn-primary rounded-btn "
+                                          to={"resume/build"}>
+                                        Build Your CV
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
+                    </li>
+
+                    <li><Link to={"/cover-letter"}
+                              className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2">Cover
+                        Letter</Link></li>
+                    <li>
+                        <span
+                            className="btn-ghost flex hover:bg-transparent hover:text-primary cursor-pointer mx-2">AR
+                            <li className="material-icons ml-2 text-primary">translate</li>
+                        </span>
 
                     </li>
 
-
                     <div className=" w-fit ml-auto space-x-2">
-                        <Link to={"login"}>
+                        <Link to={"/login"}>
                             <button className="btn btn-outline btn-primary text-primary-content px-10 text-lg">Sign-in
                             </button>
                         </Link>
@@ -161,9 +196,11 @@ const Navbar = () => {
                         </Link>
                     </div>
                 </ul>
+
                 <button onClick={() => {
                     setMenu(!menu)
-                }} className={`ml-auto mr-5 active:rotate-90 transition-transform z-50 ${(menu) ? "rotate-90" : ""}`}>
+                }}
+                        className={`ml-auto  mr-5 active:rotate-90 transition-transform z-50 lg:hidden ${(menu) ? "rotate-90" : ""}`}>
                     <svg width="35" height="30" viewBox="0 0 35 30" className=" fill-primary hover:fill-secondary"
                          xmlns="http://www.w3.org/2000/svg">
                         <g id="menu-btn">
@@ -182,30 +219,53 @@ const Navbar = () => {
                     className={`bg-base-100 fixed left-0 right-0 z-10 h-full -top-full transition-all duration-[400ms]`}
                     style={{top: `${(menu) ? "0" : "-100%"}`}}>
                     <div className="flex flex-col items-center justify-center h-full">
-                        <ul className="flex flex-col items-center justify-center h-full">
-                            <li><Link to={"#"}
-                                      className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2">Resume</Link>
-                            </li>
-
+                        <ul onClick={() => {
+                            setMenu(!menu)
+                        }} className="flex flex-col items-center justify-center h-full">
+                            <li><Link
+                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
+                                to={"resume/template"}>Resume Templates</Link></li>
+                            <li><Link
+                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
+                                to={"resume/examples"}>Resume Examples</Link></li>
+                            <li><Link
+                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
+                                to={"resume/build"}> Resume Builder</Link></li>
+                            <li><Link
+                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
+                                to={"resume/template"}>CV Templates</Link></li>
+                            <li><Link
+                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
+                                to={"resume/examples"}>CV Examples</Link></li>
+                            <li><Link
+                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
+                                to={"resume/build"}>CV Builder</Link></li>
+                            <li><Link to={"/cover-letter"}
+                                      className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2">Cover
+                                Letter</Link></li>
                             <li>
-                                <div className="dropdown cursor-pointer mx-2">
-                                    <label tabIndex={0}
-                                           className="btn-ghost hover:bg-transparent hover:text-primary rounded-btn">CV</label>
-                                    <ul tabIndex={0}
-                                        className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+                                <span
+                                    className="btn-ghost flex hover:bg-transparent hover:text-primary cursor-pointer mx-2">
+                                    AR
+                                <li className="material-icons ml-2 text-primary">translate</li></span>
+                            </li>
+                            <li className="mt-3">
+                                <div className=" w-screen flex flex-col justify-center items-center ml-auto">
 
-                                        <span className="border-t-4 my-2 rounded-box border-primary"/>
-                                        <li>
-                                            <button className="btn  text-primary-content btn-primary rounded-btn ">Build
-                                                Your
-                                                Resume
-                                            </button>
-                                        </li>
-                                    </ul>
+                                    <Link
+                                        className="btn mb-2 btn-outline btn-primary text-primary-content px-10 text-md"
+                                        to={"/login"}>
+                                        Sign-in
+                                    </Link>
+
+                                    <Link className="btn btn-primary text-primary-content px-10 text-md"
+                                          to={"/login#sign-up"}>
+                                        sign-up
+                                    </Link>
                                 </div>
                             </li>
-
                         </ul>
+
                     </div>
                 </div>
             }
