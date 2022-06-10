@@ -1,18 +1,24 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 interface Props {
 
 }
 
 const FooterNav: React.FC<Props> = () => {
+    const lang = ((useSelector((state: any) => state)).lang).value;
+
     return (
         <footer className="footer footer-center w-[100vw] p-10 bg-base-200 text-base-content rounded">
             <div className="grid grid-flow-col gap-4">
-                <Link to="/"><span className="link link-hover">Home</span></Link>
-                <Link to="/resume"><span className="link link-hover">Resume</span></Link>
-                <Link to="cover-letter"><span className="link link-hover">Cover Letter</span></Link>
-                <Link to="/resume/cv"><span className="link link-hover">CV Builder</span></Link>
+                <Link to="/"><span className="link link-hover">{lang === "AR" ? "الرئيسية" : "Home"}</span></Link>
+                <Link to="/resume"><span
+                    className="link link-hover">{lang === "AR" ? "السيرة الذاتية" : "Resume"}</span></Link>
+                <Link to="cover-letter"><span
+                    className="link link-hover">{lang === "AR" ? "خطاب تلقائى" : "Cover Letter"}</span></Link>
+                <Link to="/resume/cv"><span
+                    className="link link-hover">{lang === "AR" ? "بناء سى فى" : "CV Builder"}</span></Link>
             </div>
             <div>
                 <div className="grid grid-flow-col gap-4">
@@ -43,10 +49,12 @@ const FooterNav: React.FC<Props> = () => {
                 </div>
             </div>
             <div>
-                <p>Copyright © 2022 - All right reserved by <a href="#"
-                                                               target="_blank"
-                                                               rel="noreferrer"
-                                                               className="link link-hover">Royal-Code</a> Ltd</p>
+                <p>{lang === "AR" ? "حقوق الطبع والنشر © 2022 - جميع الحقوق محفوظة" : "Copyright © 2022 - All right reserved by"}
+                    <a href={"#"}
+                       target="_blank"
+                       rel="noreferrer"
+                       className="link link-hover"> Royal-Code </a> {lang === "AR" ? "المحدودة" : "Ltd"}
+                </p>
             </div>
         </footer>
     );

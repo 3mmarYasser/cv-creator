@@ -9,9 +9,12 @@ import {Swiper, SwiperSlide} from "swiper/react";
 
 import cvImage from "../../../../assets/images/img.png"
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 const slides = [cvImage, cvImage, cvImage, cvImage, cvImage, cvImage]
 const TemplatesSlide: React.FC = () => {
+    const lang = ((useSelector((state: any) => state)).lang).value;
+
     return (
         <div id={"resume_template"} className="flex w-screen items-center flex-col relative h-[904px] z-0">
 
@@ -30,13 +33,14 @@ const TemplatesSlide: React.FC = () => {
             <div className="flex container mx-auto p-10 w-fit  mt-24 md:mt-32 flex-col lg:flex-row">
 
 
-                <h2 className="text-5xl font-bold max-w-md text-primary-content mb-10 border-b-primary md:border-b-4 md:pb-4 text-base-100">Resume
-                    templates tailored for you</h2>
+                <h2 className="text-5xl font-bold max-w-md text-primary-content mb-10 border-b-primary md:border-b-4 md:pb-4 text-base-100">
+                    {lang === "AR" ? "قوالب سيرة ذاتية مصممة خصيصا لك" : "Resume templates tailored for you"}
+                </h2>
                 <p className="mt-auto h-fit max-w-xl text-base-content mb-4 mx-5">
-                    Highlight your best assets through economical communication. Traditional or creative - take your
-                    pick. Your resume will always beat luck.</p>
+                    {lang === "AR" ? "سلط الضوء على أفضل أصولك من خلال التواصل الاقتصادي. تقليدية أو إبداعية - اختر ما يناسبك ، سيرتك الذاتية ستفوز دائمًا اهزم الحظ." : " Highlight your best assets through economical communication. Traditional or creative - take your pick. Your resume will always beat luck."}
+                </p>
             </div>
-            <div className="w-screen">
+            <div className="w-screen" style={{direction: "ltr"}}>
 
 
                 <Swiper
@@ -89,7 +93,7 @@ const TemplatesSlide: React.FC = () => {
                                       className="hover:text-primary cursor-pointer flex flex-col justify-center items-center">
                                     <img src={slide} alt="slide"
                                          className="object-cover w-full max-w-[250px] my-3 drop-shadow-lg"/>
-                                    <p>Title</p>
+                                    <p>{lang === "AR" ? "العنوان" : "Title"}</p>
                                 </Link>
                             </SwiperSlide>
                         })

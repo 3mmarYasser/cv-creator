@@ -1,11 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import classNames from "classnames";
+import {useDispatch, useSelector} from "react-redux";
+import {setGLang} from "../../store/langSlice";
 
 const themes = [
+    "light",
     "halloween",
     "luxury",
-    "light",
     "dark",
     "cupcake",
     "bumblebee",
@@ -35,15 +37,50 @@ const themes = [
 ];
 
 const Navbar = () => {
+    //Get Lang from SELECTOR
+    const lang = ((useSelector((state: any) => state)).lang).value;
+    const dispatch = useDispatch();
     const [menu, setMenu] = useState(false);
-
+    //Get Languages
+    const getLang = (): string | null => {
+        return localStorage.getItem("lang");
+    }
+    //Change Languages
+    const ChangeLang = (): void => {
+        if (getLang() === "AR") {
+            localStorage.setItem("lang", "EN")
+        } else if (getLang() === "EN") {
+            localStorage.setItem("lang", "AR")
+        }
+        SetLangAttr();
+    }
+    //SET ATTR Lang
+    const SetLangAttr = (): void => {
+        const HTMLEL = document.getElementsByTagName('html')[0];
+        if (getLang() === "EN") {
+            HTMLEL.lang = "en";
+            HTMLEL.dir = "ltr";
+            setGlobalLang("EN")
+        } else if (getLang() === "AR") {
+            HTMLEL.lang = "ar";
+            HTMLEL.dir = "rtl";
+            setGlobalLang("AR");
+        }
+    }
+    //CHANGE Value Global
+    const setGlobalLang = (lang: string | null) => {
+        dispatch(setGLang(lang))
+    }
 
     const getThemeActive = () => {
         return localStorage.getItem('theme')
     }
     // on first load check localStorage for themes and set the active theme
     useEffect(() => {
-
+        if (getLang() === null) {
+            localStorage.setItem("lang", "EN")
+        }
+        SetLangAttr();
         const myTheme = getThemeActive();
 
         if (myTheme === null) {
@@ -81,6 +118,7 @@ const Navbar = () => {
 
     const [show, setShow] = useState(true);
 
+
     const controlNavbar = () => {
         if (typeof window !== 'undefined') {
             if (window.scrollY < 100) {
@@ -102,10 +140,11 @@ const Navbar = () => {
                 changeThemeHandler()
             }}>{activeTheme}</button>
 
-            <nav className="flex navbar bg-base-200 rounded-box w-screen-lg mx-5 border-primary border-2 "
-                 style={{boxShadow: `${show && "0 5px 0 3px #0000001f"} `, border: `${show && "0"}`}}>
+            <nav
+                className={classNames("flex navbar bg-base-200 rounded-box w-screen-lg mx-5 border-primary border-2 ")}
+                style={{boxShadow: `${show && "0 5px 0 3px #0000001f"} `, border: `${show && "0"}`}}>
 
-                <div className="flex items-center w-fit ml-8">
+                <div className={classNames("flex items-center w-fit ml-8", {"ml-0 mr-8": lang === "AR"})}>
                     <Link to="">
                         <svg className="fill-primary" xmlns="http://www.w3.org/2000/svg"
                              width="190px"
@@ -132,23 +171,34 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-                <ul className="w-full mx-8  text-lg hidden lg:flex">
+                <ul className={classNames("w-full mx-8  text-lg hidden lg:flex")}>
 
 
                     <li>
                         <div className="dropdown cursor-pointer mx-2">
                             <label tabIndex={5}
-                                   className="btn-ghost hover:bg-transparent hover:text-primary rounded-btn">Resume</label>
+                                   className="btn-ghost hover:bg-transparent hover:text-primary rounded-btn">
+                                {lang === "AR" ? "سيرة ذاتية" : "Resume"}
+                            </label>
                             <ul tabIndex={5}
                                 className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                                <li><Link to={"resume/template"}>Resume Templates</Link></li>
-                                <li><Link to={"resume/examples"}>Resume Examples</Link></li>
-                                <li><Link to={"resume/build"}>Resume Builder</Link></li>
+                                <li><Link to={"resume/template"}>
+                                    {lang === "AR" ? "قوالب السيرة الذاتية" : "Resume Templates"}
+
+                                </Link></li>
+                                <li><Link to={"resume/examples"}>
+                                    {lang === "AR" ? "أمثلة السيرة الذاتية" : "Resume Examples"}
+
+                                </Link></li>
+                                <li><Link to={"resume/build"}>
+                                    {lang === "AR" ? "منشئ السيرة الذاتية" : "Resume Builder"}
+
+                                </Link></li>
                                 <span className="border-t-4 my-2 rounded-box border-primary"/>
                                 <li>
                                     <Link className="btn  text-primary-content btn-primary rounded-btn "
                                           to={"resume/build"}>
-                                        Build Your Resume
+                                        {lang === "AR" ? "بناء سيرتك الذاتية" : "Build Your Resume"}
                                     </Link>
                                 </li>
                             </ul>
@@ -158,17 +208,26 @@ const Navbar = () => {
                     <li>
                         <div className="dropdown cursor-pointer mx-2">
                             <label tabIndex={0}
-                                   className="btn-ghost hover:bg-transparent hover:text-primary rounded-btn">CV</label>
+                                   className="btn-ghost hover:bg-transparent hover:text-primary rounded-btn">
+                                {lang === "AR" ? "سى فى" : "CV"}
+                            </label>
                             <ul tabIndex={0}
                                 className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                                <li><Link to={"resume/template"}>CV Templates</Link></li>
-                                <li><Link to={"resume/examples"}>CV Examples</Link></li>
-                                <li><Link to={"resume/build"}>CV Builder</Link></li>
+                                <li><Link to={"resume/template"}>
+                                    {lang === "AR" ? "قوالب سى فى" : "CV Templates"}
+                                </Link></li>
+                                <li><Link to={"resume/examples"}>
+                                    {lang === "AR" ? "امثلة سى فى" : "CV Examples"}
+
+                                </Link></li>
+                                <li><Link to={"resume/build"}>
+                                    {lang === "AR" ? "بناء سى فى" : "CV Builder"}
+                                </Link></li>
                                 <span className="border-t-4 my-2 rounded-box border-primary"/>
                                 <li>
                                     <Link className="btn  text-primary-content btn-primary rounded-btn "
                                           to={"resume/build"}>
-                                        Build Your CV
+                                        {lang === "AR" ? "ابنى السى فى الخاص بك" : " Build Your CV"}
                                     </Link>
                                 </li>
                             </ul>
@@ -176,23 +235,30 @@ const Navbar = () => {
                     </li>
 
                     <li><Link to={"/cover-letter"}
-                              className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2">Cover
-                        Letter</Link></li>
-                    <li>
+                              className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2">
+                        {lang === "AR" ? "خطاب تلقائى" : "Cover Letter"}
+                    </Link></li>
+
+                    <li onClick={ChangeLang}>
                         <span
-                            className="btn-ghost flex hover:bg-transparent hover:text-primary cursor-pointer mx-2">AR
-                            <li className="material-icons ml-2 text-primary">translate</li>
+                            className={classNames("btn-ghost flex hover:bg-transparent hover:text-primary cursor-pointer mx-2", {"flex-row-reverse": lang === "AR"})}>
+                                                               {lang === "AR" ? "الإنجليزية" : lang === "EN" ? "AR" : "AR"}
+                            <i className="material-icons ml-2 text-primary">translate</i>
                         </span>
 
                     </li>
 
-                    <div className=" w-fit ml-auto space-x-2">
+                    <div
+                        className={classNames(" w-fit space-x-2", {"mr-auto  ": lang === "AR"}, {"ml-auto": lang === "EN"})}>
                         <Link to={"/login"}>
-                            <button className="btn btn-outline btn-primary text-primary-content px-10 text-lg">Sign-in
+                            <button className="btn btn-outline btn-primary ml-2 text-primary-content px-10 text-lg">
+                                {lang === "AR" ? "تسجيل الدخول" : "Sign-in"}
                             </button>
                         </Link>
                         <Link to={"login#sign-up"}>
-                            <button className="btn btn-primary text-primary-content px-10 text-lg">sign-up</button>
+                            <button className="btn btn-primary text-primary-content px-10 text-lg">
+                                {lang === "AR" ? "حساب جديد" : "sign-up"}
+                            </button>
                         </Link>
                     </div>
                 </ul>
@@ -200,7 +266,7 @@ const Navbar = () => {
                 <button onClick={() => {
                     setMenu(!menu)
                 }}
-                        className={`ml-auto  mr-5 active:rotate-90 transition-transform z-50 lg:hidden ${(menu) ? "rotate-90" : ""}`}>
+                        className={classNames(` active:rotate-90 transition-transform z-50 lg:hidden ${(menu) ? "rotate-90" : ""}`, {"mr-auto ml-5": lang === "AR"}, {"ml-auto mr-5": lang === "EN"})}>
                     <svg width="35" height="30" viewBox="0 0 35 30" className=" fill-primary hover:fill-secondary"
                          xmlns="http://www.w3.org/2000/svg">
                         <g id="menu-btn">
@@ -224,30 +290,44 @@ const Navbar = () => {
                         }} className="flex flex-col items-center justify-center h-full">
                             <li><Link
                                 className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
-                                to={"resume/template"}>Resume Templates</Link></li>
+                                to={"resume/template"}>
+                                {lang === "AR" ? "قوالب السيرة الذاتية" : "Resume Templates"}
+                            </Link></li>
                             <li><Link
                                 className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
-                                to={"resume/examples"}>Resume Examples</Link></li>
+                                to={"resume/examples"}>
+                                {lang === "AR" ? "أمثلة السيرة الذاتية" : "Resume Examples"}
+                            </Link></li>
                             <li><Link
                                 className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
-                                to={"resume/build"}> Resume Builder</Link></li>
+                                to={"resume/build"}>
+                                {lang === "AR" ? "منشئ السيرة الذاتية" : "Resume Builder"}
+                            </Link></li>
                             <li><Link
                                 className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
-                                to={"resume/template"}>CV Templates</Link></li>
+                                to={"resume/template"}>
+                                {lang === "AR" ? "قوالب سى فى" : "CV Templates"}
+                            </Link></li>
                             <li><Link
                                 className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
-                                to={"resume/examples"}>CV Examples</Link></li>
+                                to={"resume/examples"}>
+                                {lang === "AR" ? "امثلة سى فى" : "CV Examples"}
+                            </Link></li>
                             <li><Link
                                 className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
-                                to={"resume/build"}>CV Builder</Link></li>
+                                to={"resume/build"}>
+                                {lang === "AR" ? "ابنى السى فى الخاص بك" : " Build Your CV"}
+
+                            </Link></li>
                             <li><Link to={"/cover-letter"}
-                                      className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2">Cover
-                                Letter</Link></li>
-                            <li>
+                                      className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2">
+                                {lang === "AR" ? "خطاب تلقائى" : "Cover Letter"}
+                            </Link></li>
+                            <li onClick={ChangeLang}>
                                 <span
                                     className="btn-ghost flex hover:bg-transparent hover:text-primary cursor-pointer mx-2">
-                                    AR
-                                <li className="material-icons ml-2 text-primary">translate</li></span>
+                                                               {lang === "AR" ? "الإنجليزية" : lang === "EN" ? "AR" : "AR"}
+                                    <i className="material-icons ml-2 text-primary">translate</i></span>
                             </li>
                             <li className="mt-3">
                                 <div className=" w-screen flex flex-col justify-center items-center ml-auto">
@@ -255,12 +335,12 @@ const Navbar = () => {
                                     <Link
                                         className="btn mb-2 btn-outline btn-primary text-primary-content px-10 text-md"
                                         to={"/login"}>
-                                        Sign-in
+                                        {lang === "AR" ? "تسجيل الدخول" : "Sign-in"}
                                     </Link>
 
                                     <Link className="btn btn-primary text-primary-content px-10 text-md"
                                           to={"/login#sign-up"}>
-                                        sign-up
+                                        {lang === "AR" ? "حساب جديد" : "sign-up"}
                                     </Link>
                                 </div>
                             </li>

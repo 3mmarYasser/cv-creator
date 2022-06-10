@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 const ExtraSlide: React.FC = () => {
+    const lang = ((useSelector((state: any) => state)).lang).value;
     return (
         <div className="w-screen">
             <div id={"resume_examples"}
@@ -17,16 +19,15 @@ const ExtraSlide: React.FC = () => {
 
                 <div className="max-w-xl my-10 w-full mx-auto sm:mx-1  p-10 sm:p-0 pt-0">
                     <h1 className="text-4xl mb-5 lg:text-4xl">
-                        Professional resume examples by industry and job title
+                        {lang === "AR" ? "أمثلة السيرة الذاتية المهنية حسب الصناعة والمسمى الوظيفي" : "Professional resume examples by industry and job title"}
                     </h1>
                     <p className="opacity-75">
-                        Unleash the full potential of your career with professionally vetted resume samples. We’ll show
+                        {lang === "AR" ? `أطلق العنان للإمكانات الكاملة لحياتك المهنية من خلال عينات السيرة الذاتية التي تم فحصها بشكل احترافي. سنعرض لك نوع اللغة المستخدمة في مجالك ، مع توضيح أمثلة من الحياة الواقعية. تعرف على ما يصلح لكل وظيفة وابني سيرتك الذاتية عليها.` : `Unleash the full potential of your career with professionally vetted resume samples. We’ll show
                         you the type of language used in your field, illustrated with real-life examples. See what works
-                        for each job and build your resume off it.
-
+                        for each job and build your resume off it.`}
                     </p>
                     <Link to="/resume/examples" className="mt-5 btn btn-md btn-primary text-primary-content">
-                        View all resume examples
+                        {lang === "AR" ? "عرض جميع الأمثلة على السيرة الذاتية" : "View all resume examples"}
                     </Link>
                 </div>
 
@@ -44,16 +45,15 @@ const ExtraSlide: React.FC = () => {
 
                 <div className="max-w-xl my-10 w-full mx-auto sm:mx-1  p-10 sm:p-0 pt-0">
                     <h1 className="text-4xl mb-5 lg:text-4xl">
-                        Eliminate costly mistakes with a single switch
+                        {lang === "AR" ? "تخلص من الأخطاء المكلفة بمفتاح واحد" : "Eliminate costly mistakes with a single switch"}
 
                     </h1>
                     <p className="opacity-75">
-                        With our content analyzer tool, you won’t let mistakes or typos cost you the job. You’ll also
-                        cut out cliches, repetition, vague wording, and phrases that are not performance-oriented.
-
+                        {lang === "AR" ? `باستخدام أداة تحليل المحتوى ، لن تدع الأخطاء أو الأخطاء المطبعية تكلفك المهمة. ستقوم أيضًا بحذف العبارات المبتذلة والتكرار والصياغة الغامضة والعبارات التي لا تركز على الأداء.` : ` With our content analyzer tool, you won’t let mistakes or typos cost you the job. You’ll also
+                        cut out cliches, repetition, vague wording, and phrases that are not performance-oriented.`}
                     </p>
                     <Link to="/resume/build" className="mt-5 btn btn-md btn-primary text-primary-content">
-                        Build a mistake-free resume
+                        {lang === "AR" ? "بناء سيرة ذاتية خالية من الأخطاء" : "Build a mistake-free resume"}
                     </Link>
                 </div>
 
@@ -70,15 +70,15 @@ const ExtraSlide: React.FC = () => {
                     </div>
                     <div className="max-w-xl my-10 w-full mx-auto sm:mx-1  p-10 sm:p-0 pt-0">
                         <h1 className="text-4xl mb-5 lg:text-4xl font-bold">
-                            You don’t have to deal with the job search alone
+                            {lang === "AR" ? "لست مضطرًا للتعامل مع البحث عن وظيفة بمفردك" : "You don’t have to deal with the job search alone"}
                         </h1>
                         <p className="opacity-75">
-                            Get on-line with our team, share your career goals, and we’ll help you with every part of
+                            {lang === "AR" ? `تواصل مع فريقنا على الإنترنت ، وشارك أهدافك المهنية ، وسنساعدك في كل جزء من بحثك عن وظيفة. استئناف وكتابة رسالة الغلاف شيك. الإعدادية للمقابلة؟ يفحص. مساعدة في البحث عن وظيفة؟ تحقق.` : `  Get on-line with our team, share your career goals, and we’ll help you with every part of
                             your job search. Resume & cover letter writing? Check. Interview prep? Check. Job search
-                            help? Check.
+                            help? Check.`}
                         </p>
                         <h1 className="text-4xl mt-5 lg:text-2xl opacity-75 font-bold">
-                            Pick one of the services to learn more
+                            {lang === "AR" ? "اختر إحدى الخدمات لمعرفة المزيد" : "Pick one of the services to learn more"}
                         </h1>
                         <div className="flex flex-col md:flex-row mt-5">
                             <Link to="/resume/build"
@@ -88,7 +88,7 @@ const ExtraSlide: React.FC = () => {
                                      onContextMenu={e => e.preventDefault()}
                                      src="https://enhancv.com/static/c3618aa785b83bcf93106d48afb722d6/b3779/ccs-resume-write.png"
                                      alt=""/>
-                                <span className="mt-5">Resume Writing</span>
+                                <span className="mt-5">{lang === "AR" ? "كتابة سيرة ذاتية" : "Resume Writing"}</span>
                             </Link>
                             <Link to="/resume/examples"
                                   className="shadow hover:shadow-2xl flex  mr-3  flex-col justify-center items-center bg-base-100 mt-2 w-full md:w-[150px] pt-5 pb-5 border-t-secondary border-t-4 ">
@@ -97,7 +97,8 @@ const ExtraSlide: React.FC = () => {
                                      onContextMenu={e => e.preventDefault()}
                                      src="https://enhancv.com/static/c2e4dc3f3899fd7909c718ae5ec76a40/b3779/ccs-resume-review.png"
                                      alt=""/>
-                                <span className="mt-5">Resume Reviewer</span>
+                                <span
+                                    className="mt-5">{lang === "AR" ? "أمثلة السيرة الذاتية" : "Resume Examples"}</span>
                             </Link>
 
                             <Link to="/cover-letter"
@@ -107,7 +108,7 @@ const ExtraSlide: React.FC = () => {
                                      onContextMenu={e => e.preventDefault()}
                                      src="https://enhancv.com/static/62472c3f00667258fea3ba0f76d5d957/b3779/ccs-cover-letter-write.png"
                                      alt=""/>
-                                <span className="mt-5">Cover letter</span>
+                                <span className="mt-5">{lang === "AR" ? "خطاب تلقائى" : "Cover Letter"}</span>
                             </Link>
 
                         </div>

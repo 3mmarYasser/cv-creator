@@ -19,7 +19,6 @@ import DashCoverLetter from "../screens/DashboardScreen/components/DashCoverLett
 import DashAds from "../screens/DashboardScreen/components/DashAds/DashAds";
 import "./App.scss";
 
-
 const App: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
 
@@ -28,8 +27,7 @@ const App: React.FC = () => {
             GetUserThunk()
         )
         window.addEventListener("keydown", e => {
-            //ts-ignore
-            if (e?.keyCode === 17 || e?.keyCode === 80) {
+            if (e?.key === "Control" || e?.key === "p") {
                 e.preventDefault();
             }
         })

@@ -1,18 +1,25 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import {scrollTOElement} from "../../../../utils/scrollElement";
+import {useSelector} from "react-redux";
 
 const AppSlide: React.FC = () => {
+    const lang = ((useSelector((state: any) => state)).lang).value;
+
     return (
         <div className="flex flex-col mx-auto w-screen">
 
-            <div className="container mx-auto pt-3 justify-center items-center space-x-5 hidden  sm:flex">
+            <div className="container mx-auto pt-3 justify-center items-center space-x-5 hidden  lg:flex">
                 <span
                     onClick={() => scrollTOElement("resume_builder")}
                     className="px-5 cursor-pointer flex flex-col justify-center items-center border-b-4 border-ghost hover:border-primary hover:text-primary transition duration-300"
                 >
-                    <b className="text-xl">Resume Builder</b>
-                    <span className="my-1 font-light">Make a stand-out resume</span>
+                    <b className="text-xl">
+                        {lang === "AR" ? "منشئ السيرة الذاتية" : "Resume Builder"}
+                        </b>
+                    <span className="my-1 font-light">
+                         {lang === "AR" ? "اصنع سيرة ذاتية مميزة" : "Make a stand-out resume"}
+                    </span>
                 </span>
 
                 <span
@@ -20,8 +27,12 @@ const AppSlide: React.FC = () => {
 
                     className="px-5 cursor-pointer flex flex-col justify-center items-center border-b-4 border-ghost hover:border-primary hover:text-primary transition duration-300"
                 >
-                    <b className="text-xl">Resume Templates</b>
-                    <span className="my-1 font-light">Tailored for you</span>
+                    <b className="text-xl">
+                          {lang === "AR" ? "قوالب السيرة الذاتية" : "Resume Templates"}
+                    </b>
+                    <span className="my-1 font-light">
+                        {lang === "AR" ? "مصممة خصيصًا لك" : "Tailored for you"}
+                    </span>
                 </span>
 
                 <span
@@ -29,8 +40,12 @@ const AppSlide: React.FC = () => {
 
                     className="px-5 cursor-pointer flex flex-col justify-center items-center border-b-4 border-ghost hover:border-primary hover:text-primary transition duration-300"
                 >
-                    <b className="text-xl">Resume Examples</b>
-                    <span className="my-1 font-light">Follow tips from the experts</span>
+                    <b className="text-xl">
+                        {lang === "AR" ? "أمثلة السيرة الذاتية" : "Resume Examples"}
+                    </b>
+                    <span className="my-1 font-light">
+                        {lang === "AR" ? "اتبع نصائح الخبراء" : "Follow tips from the experts"}
+                    </span>
                 </span>
 
                 <span
@@ -38,16 +53,24 @@ const AppSlide: React.FC = () => {
 
                     className="px-5 cursor-pointer flex flex-col justify-center items-center border-b-4 border-ghost hover:border-primary hover:text-primary transition duration-300"
                 >
-                    <b className="text-xl">Proofreading</b>
-                    <span className="my-1 font-light">No more mistakes in your resume</span>
+                    <b className="text-xl">
+                        {lang === "AR" ? "التدقيق اللغوي" : "Proofreading"}
+                    </b>
+                    <span className="my-1 font-light">
+                        {lang === "AR" ? "لا مزيد من الأخطاء في سيرتك الذاتية" : "No more mistakes in your resume"}
+                    </span>
                 </span>
                 <span
                     onClick={() => scrollTOElement("career_counseling")}
 
                     className="px-5 cursor-pointer flex flex-col justify-center items-center border-b-4 border-ghost hover:border-primary hover:text-primary transition duration-300"
                 >
-                    <b className="text-xl">Career Counseling</b>
-                    <span className="my-1 font-light">Our experts, your secret weapon</span>
+                    <b className="text-xl">
+                        {lang === "AR" ? "إرشاد وظيفي" : "Career Counseling"}
+                    </b>
+                    <span className="my-1 font-light">
+                        {lang === "AR" ? "خبرائنا, سلاحك السري" : "Our experts, your secret weapon"}
+                    </span>
                 </span>
             </div>
 
@@ -64,15 +87,16 @@ const AppSlide: React.FC = () => {
 
                 <div className="max-w-xl my-10 w-full mx-auto sm:mx-1  p-10 sm:p-0 pt-0">
                     <h1 className="text-4xl mb-5 lg:text-6xl">
-                        The resume builder trusted by professionals
+                        {lang === "AR" ? "منشئ السيرة الذاتية الذي يثق به المحترفون" : "The resume builder trusted by professionals"}
                     </h1>
                     <p className="opacity-75">
-                        Create a visually stunning resume that makes recruiters want to read it and explore it. Our
+                        {lang === "AR" ? `قم بإنشاء سيرة ذاتية مذهلة بصريًا تجعل المجندين يرغبون في قراءتها واستكشافها. سيرشدك منشئ السيرة الذاتية خلال هذه العملية. ركز على المحتوى بينما نهتم بالتنسيق.` : `  Create a visually stunning resume that makes recruiters want to read it and explore it. Our
                         resume creator will guide you through the process. Focus on the content, while we take care of
-                        the formatting.
+                        the formatting.`}
+
                     </p>
                     <Link to="editor" className="mt-5 btn btn-md btn-primary text-primary-content">
-                        Build my resume now
+                        {lang === "AR" ? "بناء سيرتي الذاتية الآن" : "Build my resume now"}
                     </Link>
                 </div>
 
@@ -80,8 +104,8 @@ const AppSlide: React.FC = () => {
 
             <div className="container mx-auto flex justify-center items-center space-x-10 flex-col md:flex-row">
                 <div className="text-4xl font-medium mb-10 lg:3xl">
-                    <p>The numbers speak</p>
-                    <p>for themselves</p>
+                    <p>{lang === "AR" ? "دع الأرقام" : "The numbers speak"}</p>
+                    <p>{lang === "AR" ? "تتحدث عنا" : "for themselves"}</p>
                 </div>
 
                 <div className="flex flex-col lg:flex-row">
@@ -112,8 +136,8 @@ const AppSlide: React.FC = () => {
 
 
                         <div className="flex flex-col  justify-center">
-                            <p className="text-2xl">2 000 000+</p>
-                            <p className="text-xl font-light">successful resumes</p>
+                            <p className="text-2xl">{lang === "AR" ? "+000 000 2" : "2 000 000+"}</p>
+                            <p className="text-xl font-light">{lang === "AR" ? "سيرة ذاتية ناجحة" : "successful resumes"}</p>
                         </div>
                     </div>
                     <div className="text-3xl font-medium flex mx-10">
@@ -167,8 +191,8 @@ const AppSlide: React.FC = () => {
 
 
                         <div className="flex flex-col  justify-center">
-                            <p className="text-2xl">29 days</p>
-                            <p className="text-xl font-light">average time to get hired</p>
+                            <p className="text-2xl">{lang === "AR" ? " 29يوم" : "29 days"}</p>
+                            <p className="text-xl font-light">{lang === "AR" ? "متوسط الوقت اللازم للتوظيف" : "average time to get hired"}</p>
                         </div>
                     </div>
                 </div>
