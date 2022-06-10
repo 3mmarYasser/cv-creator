@@ -146,8 +146,7 @@ const Navbar = () => {
 
                 <div className={classNames("flex items-center w-fit ml-8", {"ml-0 mr-8": lang === "AR"})}>
                     <Link to="">
-                        <svg className="fill-primary" xmlns="http://www.w3.org/2000/svg"
-                             width="190px"
+                        <svg className="fill-primary w-[150px] md:w-[194px]" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 143 22">
                             <g>
                                 <path
@@ -182,7 +181,7 @@ const Navbar = () => {
                             </label>
                             <ul tabIndex={5}
                                 className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                                <li><Link to={"resume/template"}>
+                                <li><Link to={"resume/templates"}>
                                     {lang === "AR" ? "قوالب السيرة الذاتية" : "Resume Templates"}
 
                                 </Link></li>
@@ -213,7 +212,7 @@ const Navbar = () => {
                             </label>
                             <ul tabIndex={0}
                                 className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                                <li><Link to={"resume/template"}>
+                                <li><Link to={"resume/templates"}>
                                     {lang === "AR" ? "قوالب سى فى" : "CV Templates"}
                                 </Link></li>
                                 <li><Link to={"resume/examples"}>
@@ -290,7 +289,7 @@ const Navbar = () => {
                         }} className="flex flex-col items-center justify-center h-full">
                             <li><Link
                                 className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
-                                to={"resume/template"}>
+                                to={"resume/templates"}>
                                 {lang === "AR" ? "قوالب السيرة الذاتية" : "Resume Templates"}
                             </Link></li>
                             <li><Link
@@ -305,7 +304,7 @@ const Navbar = () => {
                             </Link></li>
                             <li><Link
                                 className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
-                                to={"resume/template"}>
+                                to={"resume/templates"}>
                                 {lang === "AR" ? "قوالب سى فى" : "CV Templates"}
                             </Link></li>
                             <li><Link

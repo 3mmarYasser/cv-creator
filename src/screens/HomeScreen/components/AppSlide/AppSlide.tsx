@@ -86,7 +86,7 @@ const AppSlide: React.FC = () => {
                 </div>
 
                 <div className="max-w-xl my-10 w-full mx-auto sm:mx-1  p-10 sm:p-0 pt-0">
-                    <h1 className="text-4xl mb-5 lg:text-6xl">
+                    <h1 className="text-2xl mb-5 md:text-6xl">
                         {lang === "AR" ? "منشئ السيرة الذاتية الذي يثق به المحترفون" : "The resume builder trusted by professionals"}
                     </h1>
                     <p className="opacity-75">
@@ -103,12 +103,12 @@ const AppSlide: React.FC = () => {
             </div>
 
             <div className="container mx-auto flex justify-center items-center space-x-10 flex-col md:flex-row">
-                <div className="text-4xl font-medium mb-10 lg:3xl">
+                <div className="text-2xl md:text4xl font-medium mb-10 lg:3xl">
                     <p>{lang === "AR" ? "دع الأرقام" : "The numbers speak"}</p>
                     <p>{lang === "AR" ? "تتحدث عنا" : "for themselves"}</p>
                 </div>
 
-                <div className="flex flex-col lg:flex-row">
+                <div className="flex flex-col items-center justify-center lg:flex-row">
                     <div className="text-3xl font-medium flex mx-10">
                         <svg className="mr-2 fill-inherit" width="80" height="80" viewBox="0 0 60 60"
                              xmlns="http://www.w3.org/2000/svg">
@@ -135,13 +135,13 @@ const AppSlide: React.FC = () => {
                         </svg>
 
 
-                        <div className="flex flex-col  justify-center">
-                            <p className="text-2xl">{lang === "AR" ? "+000 000 2" : "2 000 000+"}</p>
-                            <p className="text-xl font-light">{lang === "AR" ? "سيرة ذاتية ناجحة" : "successful resumes"}</p>
+                        <div className="flex flex-col mr-2 justify-center">
+                            <p className="text-xl md:text-2xl">{lang === "AR" ? "+000 000 2" : "2 000 000+"}</p>
+                            <p className="text-xl md:text-2xl font-light">{lang === "AR" ? "سيرة ذاتية ناجحة" : "successful resumes"}</p>
                         </div>
                     </div>
-                    <div className="text-3xl font-medium flex mx-10">
-                        <svg width="100" height="100" viewBox="0 0 60 60" fill="none"
+                    <div className="text-3xl  font-medium flex mx-10 ">
+                        <svg width="80" className="mr-4 md:mr-0" height="80" viewBox="0 0 60 60" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <g className="fill-primary dark:fill-secondary">
                                 <path
@@ -190,9 +190,9 @@ const AppSlide: React.FC = () => {
                         </svg>
 
 
-                        <div className="flex flex-col  justify-center">
-                            <p className="text-2xl">{lang === "AR" ? " 29يوم" : "29 days"}</p>
-                            <p className="text-xl font-light">{lang === "AR" ? "متوسط الوقت اللازم للتوظيف" : "average time to get hired"}</p>
+                        <div className="flex flex-col mr-2 justify-center">
+                            <p className="text-xl md:text-2xl">{lang === "AR" ? " 29يوم" : "29 days"}</p>
+                            <p className="text-xl md:text-2xl font-light">{lang === "AR" ? "متوسط وقت التوظيف" : "average time to get hired"}</p>
                         </div>
                     </div>
                 </div>

@@ -17,7 +17,7 @@ const FooterNav: React.FC<Props> = () => {
                     className="link link-hover">{lang === "AR" ? "السيرة الذاتية" : "Resume"}</span></Link>
                 <Link to="cover-letter"><span
                     className="link link-hover">{lang === "AR" ? "خطاب تلقائى" : "Cover Letter"}</span></Link>
-                <Link to="/resume/cv"><span
+                <Link className="hidden md:block" to="/resume/cv"><span
                     className="link link-hover">{lang === "AR" ? "بناء سى فى" : "CV Builder"}</span></Link>
             </div>
             <div>

@@ -33,7 +33,7 @@ const TemplatesSlide: React.FC = () => {
             <div className="flex container mx-auto p-10 w-fit  mt-24 md:mt-32 flex-col lg:flex-row">
 
 
-                <h2 className="text-5xl font-bold max-w-md text-primary-content mb-10 border-b-primary md:border-b-4 md:pb-4 text-base-100">
+                <h2 className="text-2xl md:text-5xl font-bold max-w-md text-primary-content mb-10 border-b-primary md:border-b-4 md:pb-4 text-base-100">
                     {lang === "AR" ? "قوالب سيرة ذاتية مصممة خصيصا لك" : "Resume templates tailored for you"}
                 </h2>
                 <p className="mt-auto h-fit max-w-xl text-base-content mb-4 mx-5">

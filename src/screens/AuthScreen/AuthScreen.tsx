@@ -180,11 +180,11 @@ const AuthScreen: React.FC = () => {
     }
 
     return (
-        <div className="hero min-h-screen min-w-[100vw] bg-base-200">
+        <div className="hero min-h-screen min-w-[100vw] bg-base-200 pt-[120px] md:pt-0">
             <div className="hero-content flex-col lg:flex-row-reverse max-w-[55rem] transition-all">
                 <Auth/>
                 <div className="text-center lg:text-left">
-                    <h1 className={classNames("text-3xl", {"text-right": lang === "AR"}, {"text-left": lang === "EN"})}>{lang === "AR" ? "قم بإنشاء سيرة ذاتية تفتخر بها" : "Create a resume you are proud of"}</h1>
+                    <h1 className={classNames("text-2xl md:text-3xl", {"text-right": lang === "AR"}, {"text-left": lang === "EN"})}>{lang === "AR" ? "قم بإنشاء سيرة ذاتية تفتخر بها" : "Create a resume you are proud of"}</h1>
 
                     <ul className="mt-[2rem]">
                         <li className="flex mt-[1.3rem] items-center">

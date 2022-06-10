@@ -18,7 +18,7 @@ const ExtraSlide: React.FC = () => {
                 </div>
 
                 <div className="max-w-xl my-10 w-full mx-auto sm:mx-1  p-10 sm:p-0 pt-0">
-                    <h1 className="text-4xl mb-5 lg:text-4xl">
+                    <h1 className="text-2xl mb-5 md:text-4xl">
                         {lang === "AR" ? "أمثلة السيرة الذاتية المهنية حسب الصناعة والمسمى الوظيفي" : "Professional resume examples by industry and job title"}
                     </h1>
                     <p className="opacity-75">
@@ -44,7 +44,7 @@ const ExtraSlide: React.FC = () => {
                 </div>
 
                 <div className="max-w-xl my-10 w-full mx-auto sm:mx-1  p-10 sm:p-0 pt-0">
-                    <h1 className="text-4xl mb-5 lg:text-4xl">
+                    <h1 className="text-2xl md:text-4xl mb-5 lg:text-4xl">
                         {lang === "AR" ? "تخلص من الأخطاء المكلفة بمفتاح واحد" : "Eliminate costly mistakes with a single switch"}
 
                     </h1>
@@ -69,7 +69,7 @@ const ExtraSlide: React.FC = () => {
                              alt=""/>
                     </div>
                     <div className="max-w-xl my-10 w-full mx-auto sm:mx-1  p-10 sm:p-0 pt-0">
-                        <h1 className="text-4xl mb-5 lg:text-4xl font-bold">
+                        <h1 className="text-2xl md:text-4xl mb-5 lg:text-4xl font-bold">
                             {lang === "AR" ? "لست مضطرًا للتعامل مع البحث عن وظيفة بمفردك" : "You don’t have to deal with the job search alone"}
                         </h1>
                         <p className="opacity-75">
@@ -77,12 +77,12 @@ const ExtraSlide: React.FC = () => {
                             your job search. Resume & cover letter writing? Check. Interview prep? Check. Job search
                             help? Check.`}
                         </p>
-                        <h1 className="text-4xl mt-5 lg:text-2xl opacity-75 font-bold">
+                        <h1 className="text-2xl md:text-4xl mt-5 lg:text-2xl opacity-75 font-bold">
                             {lang === "AR" ? "اختر إحدى الخدمات لمعرفة المزيد" : "Pick one of the services to learn more"}
                         </h1>
                         <div className="flex flex-col md:flex-row mt-5">
                             <Link to="/resume/build"
-                                  className="shadow hover:shadow-2xl flex mr-3 flex-col justify-center items-center bg-base-100 mt-2 w-full md:w-[150px] pt-5 pb-5 border-t-accent border-t-4 ">
+                                  className="shadow hover:shadow-2xl flex md:mr-3 flex-col justify-center items-center bg-base-100 mt-2 w-full md:w-[150px] pt-5 pb-5 border-t-accent border-t-4 ">
                                 <img width="50px"
                                      draggable={false}
                                      onContextMenu={e => e.preventDefault()}
@@ -91,7 +91,7 @@ const ExtraSlide: React.FC = () => {
                                 <span className="mt-5">{lang === "AR" ? "كتابة سيرة ذاتية" : "Resume Writing"}</span>
                             </Link>
                             <Link to="/resume/examples"
-                                  className="shadow hover:shadow-2xl flex  mr-3  flex-col justify-center items-center bg-base-100 mt-2 w-full md:w-[150px] pt-5 pb-5 border-t-secondary border-t-4 ">
+                                  className="shadow hover:shadow-2xl flex  md:mr-3  flex-col justify-center items-center bg-base-100 mt-2 w-full md:w-[150px] pt-5 pb-5 border-t-secondary border-t-4 ">
                                 <img width="50px"
                                      draggable={false}
                                      onContextMenu={e => e.preventDefault()}
@@ -102,7 +102,7 @@ const ExtraSlide: React.FC = () => {
                             </Link>
 
                             <Link to="/cover-letter"
-                                  className="shadow hover:shadow-2xl flex  mr-3  flex-col justify-center items-center bg-base-100 mt-2 w-full md:w-[150px] pt-5 pb-5 border-t-warning border-t-4 ">
+                                  className="shadow hover:shadow-2xl flex  md:mr-3  flex-col justify-center items-center bg-base-100 mt-2 w-full md:w-[150px] pt-5 pb-5 border-t-warning border-t-4 ">
                                 <img width="50px"
                                      draggable={false}
                                      onContextMenu={e => e.preventDefault()}

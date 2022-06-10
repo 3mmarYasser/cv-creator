@@ -18,6 +18,7 @@ import FooterNav from "../components/FooterNav/FooterNav";
 import DashCoverLetter from "../screens/DashboardScreen/components/DashCoverLetter/DashCoverLetter";
 import DashAds from "../screens/DashboardScreen/components/DashAds/DashAds";
 import "./App.scss";
+import ResumeTemplate from "../screens/ResumeScreen/ResumeTemplates/ResumeTemplate";
 
 const App: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
@@ -45,7 +46,6 @@ const App: React.FC = () => {
                             <Route index element={<UserScreen/>}/>
                             <Route path="edit" element={<UserEditScreen/>}/>
                         </Route>
-                        <Route path="*" element={<Page404/>}/>
 
 
                         <Route path="dashboard" element={<DashboardScreen/>}>
@@ -55,6 +55,11 @@ const App: React.FC = () => {
                             <Route path="cover-letter" element={<DashCoverLetter/>}/>
                             <Route path="ads" element={<DashAds/>}/>
                         </Route>
+                        <Route path="resume">
+                            <Route path="templates" element={<ResumeTemplate/>}/>
+                        </Route>
+                        <Route path="*" element={<Page404/>}/>
+
                     </Routes>
                 </div>
                 <FooterNav/>

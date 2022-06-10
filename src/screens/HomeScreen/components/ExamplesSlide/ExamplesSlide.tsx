@@ -36,7 +36,7 @@ const ExamplesSlide: React.FC = () => {
                 </svg>
             </div>
             <div className="flex flex-col items-center justify-center my-10 w-screen">
-                <h1 className="text-5xl pb-5 text-center">{lang === "AR" ? "على استعداد للبدء؟" : "Ready to get started?"}</h1>
+                <h1 className="text-3xl md:text-5xl pb-5 text-center">{lang === "AR" ? "على استعداد للبدء؟" : "Ready to get started?"}</h1>
                 <button
                     className="btn btn-primary text-primary-content px-10">{lang === "AR" ? "ابنى سيرتي الذاتية" : "Build my resume"}</button>
             </div>

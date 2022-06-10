@@ -16,7 +16,7 @@ const MainSlide = () => {
                    <span className="uppercase opacity-80">
                        {lang === "AR" ? "منشئ سيرة ذاتية اونلاين" : "ONLINE RESUME CREATOR"}
                    </span>
-                    <p className="text-[53px] leading-[1em] max-w-2xl my-8 md:text-[68px] font-bold">
+                    <p className="text-4xl md:text-6xl leading-[1em] max-w-2xl my-8 md:text-[68px] font-bold">
                         {lang === "AR" ? "تعمل سيرتنا الذاتية على توظيف عملائنا في أفضل الشركات" : "Our resumes get people hired at top companies"}
                     </p>
                     <div className="flex">
