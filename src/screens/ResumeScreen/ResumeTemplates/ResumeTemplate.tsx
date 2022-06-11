@@ -11,7 +11,7 @@ const ResumeTemplate: React.FC = () => {
         <div className="pt-[140px] min-h-screen w-screen bg-base-100 relative">
             <div className="flex w-screen justify-center ">
                 <div className="text-center z-10 w-full md:w-[1140px]">
-                    <div className="">
+                    <div>
                         <h1 className="text-3xl md:text-6xl font-bold opacity-75">{lang === "AR" ? "قوالب السيرة الذاتية" : "Resume Templates"}</h1>
                         <div className="text-sm breadcrumbs opacity-60 flex justify-center mt-2">
                             <ul>
@@ -20,6 +20,9 @@ const ResumeTemplate: React.FC = () => {
                             </ul>
                         </div>
                         <p className="py-2">{lang === "AR" ? `اختر أحد قوالب السير الذاتية الاحترافية المتميزة. أنشئ سيرتك الذاتية بمساعدة منشئ سيرة ذاتية سهل الاستخدام يعمل بالسحب والإفلات ، وقم بتنزيله في خمس دقائق. اتخذ حركتك واحصل على وظيفة أحلامك.` : `Pick one of our stand-out, professional resume templates. Create your resume with the help of an intuitive drag-and-drop resume builder, and download it in five minutes. Make your move and land your dream job.`}</p>
+
+                    </div>
+                    <div className="grid ">
 
                     </div>
                 </div>

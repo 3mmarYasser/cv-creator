@@ -110,7 +110,7 @@ const AppSlide: React.FC = () => {
 
                 <div className="flex flex-col lg:flex-row">
                     <div className="text-3xl font-medium flex mx-10">
-                        <svg className="mr-2 fill-inherit" width="80" height="80" viewBox="0 0 60 60"
+                        <svg className=" fill-inherit" width="80" height="80" viewBox="0 0 60 60"
                              xmlns="http://www.w3.org/2000/svg">
                             <g className="fill-primary dark:fill-secondary">
                                 <path d="M59.9621 29.3193H55.7969V31.677H59.9621V29.3193Z" className="fill-inherit"/>
@@ -141,7 +141,7 @@ const AppSlide: React.FC = () => {
                         </div>
                     </div>
                     <div className="text-3xl  font-medium flex mx-10 ">
-                        <svg width="80" className="mr-4 md:mr-0" height="80" viewBox="0 0 60 60" fill="none"
+                        <svg width="80" height="80" viewBox="0 0 60 60" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <g className="fill-primary dark:fill-secondary">
                                 <path
