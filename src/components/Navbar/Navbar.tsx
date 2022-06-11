@@ -98,7 +98,25 @@ const Navbar = () => {
         element.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme)
         setActiveTheme(theme)
-        if (localStorage.getItem("theme") === "light") {
+        if (
+            getThemeActive() === "light" ||
+            getThemeActive() === "cupcake" ||
+            getThemeActive() === "bumblebee" ||
+            getThemeActive() === "emerald" ||
+            getThemeActive() === "corporate" ||
+            getThemeActive() === "valentine" ||
+            getThemeActive() === "garden" ||
+            getThemeActive() === "aqua" ||
+            getThemeActive() === "lofi" ||
+            getThemeActive() === "pastel" ||
+            getThemeActive() === "fantasy" ||
+            getThemeActive() === "wireframe" ||
+            getThemeActive() === "cmyk" ||
+            getThemeActive() === "autumn" ||
+            getThemeActive() === "acid" ||
+            getThemeActive() === "lemonade" ||
+            getThemeActive() === "winter"
+        ) {
             element.classList.remove("dark");
         } else {
             element.classList.add("dark");

@@ -108,7 +108,7 @@ const AppSlide: React.FC = () => {
                     <p>{lang === "AR" ? "تتحدث عنا" : "for themselves"}</p>
                 </div>
 
-                <div className="flex flex-col items-center justify-center lg:flex-row">
+                <div className="flex flex-col lg:flex-row">
                     <div className="text-3xl font-medium flex mx-10">
                         <svg className="mr-2 fill-inherit" width="80" height="80" viewBox="0 0 60 60"
                              xmlns="http://www.w3.org/2000/svg">
