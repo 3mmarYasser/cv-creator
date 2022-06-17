@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import StyledSwitch from "../../../../../components/StyledSwitch/StyledSwitch";
+import StyledSwitch from "../../../../StyledSwitch/StyledSwitch";
 import {getElByID, getElementByAttr} from "../../Providers/getInHTML";
 
 interface Styling {

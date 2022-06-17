@@ -171,8 +171,8 @@ const DashIndex: React.FC<Props> = () => {
                                 <div className="card-body items-center text-center">
                                     <h2 className="card-title">Languages!</h2>
                                     <p>Set The Default Language Know.</p>
-                                    <div className="card-actions justify-end">
-                                        <select onChange={(e) => console.log(e)} value={"EN"}
+                                    <div className="card-actions justify-end text-primary">
+                                        <select onChange={(e) => console.log(e)} defaultValue={"EN"}
                                                 className="select select-bordered w-full max-w-xs">
                                             <option>EN</option>
                                             <option>AR</option>
@@ -182,14 +182,15 @@ const DashIndex: React.FC<Props> = () => {
                                 <div className="card-body  items-center text-center">
                                     <h2 className="card-title">Danger Zone!</h2>
                                     <p>Be Sure After Editing Here.</p>
-                                    <div className="card-actions justify-end">
-                                        <StyledSwitch check={false} toggle={() => {
+                                    <div className="card-actions justify-end ">
+                                        <StyledSwitch check={false} toggle={(e: any) => {
+                                            e.target.checked = !e.target.checked
                                         }}>
-                                            <p className="pr-[10px]">Under Attack Mode </p>
+                                            <p className="pr-[10px] text-base-100">Under Attack Mode </p>
                                         </StyledSwitch>
                                         <StyledSwitch check={true} toggle={() => {
                                         }}>
-                                            <p className="pr-[10px]">Under maintenance </p>
+                                            <p className="pr-[10px] text-base-100">Under maintenance </p>
                                         </StyledSwitch>
                                     </div>
                                 </div>

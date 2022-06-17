@@ -194,11 +194,16 @@ const Navbar = () => {
                     <li>
                         <div className="dropdown cursor-pointer mx-2">
                             <label tabIndex={5}
-                                   className="btn-ghost hover:bg-transparent hover:text-primary rounded-btn">
+                                   className="btn-ghost hover:bg-transparent flex items-center hover:text-primary rounded-btn">
                                 {lang === "AR" ? "سيرة ذاتية" : "Resume"}
+                                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                     viewBox="0 0 24 24">
+                                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+                                </svg>
+
                             </label>
                             <ul tabIndex={5}
-                                className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+                                className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-56 mt-4">
                                 <li><Link to={"resume/templates"}>
                                     {lang === "AR" ? "قوالب السيرة الذاتية" : "Resume Templates"}
 
@@ -225,8 +230,12 @@ const Navbar = () => {
                     <li>
                         <div className="dropdown cursor-pointer mx-2">
                             <label tabIndex={0}
-                                   className="btn-ghost hover:bg-transparent hover:text-primary rounded-btn">
+                                   className="btn-ghost hover:bg-transparent flex items-center hover:text-primary rounded-btn">
                                 {lang === "AR" ? "سى فى" : "CV"}
+                                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                     viewBox="0 0 24 24">
+                                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+                                </svg>
                             </label>
                             <ul tabIndex={0}
                                 className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
@@ -306,47 +315,47 @@ const Navbar = () => {
                             setMenu(!menu)
                         }} className="flex flex-col items-center justify-center h-full">
                             <li><Link
-                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
+                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1 text-2xl"
                                 to={"resume/templates"}>
                                 {lang === "AR" ? "قوالب السيرة الذاتية" : "Resume Templates"}
                             </Link></li>
-                            <li><Link
-                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
+                            <li className="mt-5"><Link
+                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1 text-2xl"
                                 to={"resume/examples"}>
                                 {lang === "AR" ? "أمثلة السيرة الذاتية" : "Resume Examples"}
                             </Link></li>
-                            <li><Link
-                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
+                            <li className="mt-5"><Link
+                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1 text-2xl"
                                 to={"resume/build"}>
                                 {lang === "AR" ? "منشئ السيرة الذاتية" : "Resume Builder"}
                             </Link></li>
-                            <li><Link
-                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
+                            <li className="mt-5"><Link
+                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1 text-2xl"
                                 to={"resume/templates"}>
                                 {lang === "AR" ? "قوالب سى فى" : "CV Templates"}
                             </Link></li>
-                            <li><Link
-                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
+                            <li className="mt-5"><Link
+                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1 text-2xl"
                                 to={"resume/examples"}>
                                 {lang === "AR" ? "امثلة سى فى" : "CV Examples"}
                             </Link></li>
-                            <li><Link
-                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1"
+                            <li className="mt-5"><Link
+                                className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 mb-1 text-2xl"
                                 to={"resume/build"}>
                                 {lang === "AR" ? "ابنى السى فى الخاص بك" : " Build Your CV"}
 
                             </Link></li>
-                            <li><Link to={"/cover-letter"}
-                                      className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2">
+                            <li className="mt-5"><Link to={"/cover-letter"}
+                                                       className="btn-ghost hover:bg-transparent hover:text-primary cursor-pointer mx-2 text-2xl">
                                 {lang === "AR" ? "خطاب تلقائى" : "Cover Letter"}
                             </Link></li>
-                            <li onClick={ChangeLang}>
+                            <li className="mt-5" onClick={ChangeLang}>
                                 <span
-                                    className="btn-ghost flex hover:bg-transparent hover:text-primary cursor-pointer mx-2">
+                                    className="btn-ghost flex hover:bg-transparent hover:text-primary cursor-pointer mx-2 text-2xl">
                                                                {lang === "AR" ? "الإنجليزية" : lang === "EN" ? "AR" : "AR"}
                                     <i className="material-icons ml-2 text-primary">translate</i></span>
                             </li>
-                            <li className="mt-3">
+                            <li className="mt-5">
                                 <div className=" w-screen flex flex-col justify-center items-center ml-auto">
 
                                     <Link

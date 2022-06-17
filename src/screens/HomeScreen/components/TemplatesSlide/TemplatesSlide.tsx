@@ -2,14 +2,13 @@ import React from 'react';
 import "swiper/scss";
 import "swiper/scss/free-mode";
 import "swiper/scss/pagination";
-
-
 import {FreeMode, A11y} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 
 import cvImage from "../../../../assets/images/img.png"
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
+import {fakeTemplates} from "../../../../fake/fakeTemplate";
 
 const slides = [cvImage, cvImage, cvImage, cvImage, cvImage, cvImage]
 const TemplatesSlide: React.FC = () => {
@@ -87,13 +86,13 @@ const TemplatesSlide: React.FC = () => {
 
                 >
                     {
-                        slides.map((slide, index) => {
-                            return <SwiperSlide key={slide + index}>
+                        fakeTemplates.map((template, index) => {
+                            return <SwiperSlide key={template.id + index}>
                                 <Link to="#"
                                       className="hover:text-primary cursor-pointer flex flex-col justify-center items-center">
-                                    <img src={slide} alt="slide"
+                                    <img src={template.imagePath} alt="slide"
                                          className="object-cover w-full max-w-[250px] my-3 drop-shadow-lg"/>
-                                    <p>{lang === "AR" ? "العنوان" : "Title"}</p>
+                                    <p>{template.title}</p>
                                 </Link>
                             </SwiperSlide>
                         })

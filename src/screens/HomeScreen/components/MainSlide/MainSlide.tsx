@@ -29,7 +29,7 @@ const MainSlide = () => {
                         })}
                     </div>
                     <div className="flex space-x-6 flex-col-reverse justify-center items-center sm:flex-row">
-                        <Link to="editor" className="btn btn-primary text-primary-content  m-5  sm:m-auto">
+                        <Link to="/resume/build" className="btn btn-primary text-primary-content  m-5  sm:m-auto">
                             {lang === "AR" ? "بناء سيرتي الذاتية الآن" : "Build my resume now"}
                         </Link>
                         <div className="w-1"/>

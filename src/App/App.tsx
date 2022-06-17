@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar/Navbar";
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import Page404 from "../screens/404/404";
 import AuthScreen from "../screens/AuthScreen/AuthScreen";
-import EditorScreen from "../screens/EditorScreen/EditorScreen";
+import Editor from "../components/Editor/Editor";
 import UserScreen from "../screens/UserScreen/UserScreen";
 import UserEditScreen from "../screens/UserScreen/UserEditScreen";
 import DashboardScreen from "../screens/DashboardScreen/DashboardScreen";
@@ -19,6 +19,8 @@ import DashCoverLetter from "../screens/DashboardScreen/components/DashCoverLett
 import DashAds from "../screens/DashboardScreen/components/DashAds/DashAds";
 import "./App.scss";
 import ResumeTemplate from "../screens/ResumeScreen/ResumeTemplates/ResumeTemplate";
+import ResumeExamples from "../screens/ResumeScreen/ResumeExamples/ResumeExamples";
+import ResumeBuilder from "../screens/ResumeScreen/ResumeBuilder/ResumeBuilder";
 
 const App: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
@@ -40,7 +42,6 @@ const App: React.FC = () => {
                 <div className="min-h-[100vh]">
                     <Routes>
                         <Route index element={<HomeScreen/>}/>
-                        <Route path="editor" element={<EditorScreen/>}/>
                         <Route path="login" element={<AuthScreen/>}/>
                         <Route path="me">
                             <Route index element={<UserScreen/>}/>
@@ -57,6 +58,8 @@ const App: React.FC = () => {
                         </Route>
                         <Route path="resume">
                             <Route path="templates" element={<ResumeTemplate/>}/>
+                            <Route path="examples" element={<ResumeExamples/>}/>
+                            <Route path="build" element={<ResumeBuilder/>}/>
                         </Route>
                         <Route path="*" element={<Page404/>}/>
 

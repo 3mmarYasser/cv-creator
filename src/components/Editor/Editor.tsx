@@ -1,22 +1,22 @@
 import React, {useRef, useState} from 'react';
-import {Template} from "./EditorScreen.service";
 import EditRender from "./components/EditRender/EditRender";
 import {DownloadPDFByRef} from "./components/Providers/getPDF";
 import {removeSelection} from "./components/Providers/Selection";
 import {getImageFromRef} from "./components/Providers/getImage";
-import StyledModal from "../../components/StyledModal/StyledModal";
+import StyledModal from "../StyledModal/StyledModal";
 import {getElByID} from "./components/Providers/getInHTML";
 import ResumeHeader from "./components/Sections/ResumeHeader/ResumeHeader";
 import loadingIcon from "../../assets/svgs/loading.svg"
-import './EditorScreen.scss'
+import './Editor.scss'
 
 interface Props {
-
+    data: string;
+    loading: boolean;
+    err: string;
 }
 
-const EditorScreen: React.FC<Props> = () => {
+const Editor: React.FC<Props> = ({data, loading, err}) => {
 
-    const {data, loading, err} = Template();
     const render = (): JSX.Element => {
         if (loading) return <p>Loading</p>
         else if (err) return <EditRender data={ResumeHeader()}/>
@@ -74,4 +74,4 @@ const EditorScreen: React.FC<Props> = () => {
     );
 };
 
-export default EditorScreen;
+export default Editor;
