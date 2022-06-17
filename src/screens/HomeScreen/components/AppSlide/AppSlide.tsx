@@ -95,7 +95,7 @@ const AppSlide: React.FC = () => {
                         the formatting.`}
 
                     </p>
-                    <Link to="editor" className="mt-5 btn btn-md btn-primary text-primary-content">
+                    <Link to="/resume/build" className="mt-5 btn btn-md btn-primary text-primary-content">
                         {lang === "AR" ? "بناء سيرتي الذاتية الآن" : "Build my resume now"}
                     </Link>
                 </div>

@@ -51,7 +51,7 @@ const UserEditScreen: React.FC<Props> = () => {
                                 <h2 className="card-title">Amazing Resumes Template!</h2>
                                 <p>There Is A lot of Amazing Templates Waiting You to try Is ?</p>
                                 <div className="card-actions justify-end">
-                                    <button className="btn">Go Now</button>
+                                    <Link to={"/resume/templates"} className="btn">Go Now</Link>
                                 </div>
                             </div>
                         </div>

@@ -32,7 +32,7 @@ const ResumeTemplate: React.FC = () => {
                                         src={temp.imagePath}
                                         alt={""}/>
                                     <h1 className="text-2xl mt-6 ">{temp.title}</h1>
-                                    <Link to={`/resume/${temp.id}`}
+                                    <Link to={`/resume/build/${temp.id}`}
                                           className="btn btn-primary mt-5">{lang === "AR" ? "تخصيص هذا القالب" : "Customize This Template"}</Link>
                                 </div>
 
