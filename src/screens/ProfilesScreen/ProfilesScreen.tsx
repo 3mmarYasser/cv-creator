@@ -150,8 +150,8 @@ const ProfilesScreen: React.FC = () => {
                 </header>
 
                 <main className={classNames("bg-base-200 overflow-y-auto min-h-screen ml-auto pb-32", [Styles.Main])}>
-                    <div className="hero min-h-screen"
-                         style={{backgroundImage: "url('https://demo.themearabia.net/basma-resume/uploads/2021/11/unit-secretary-job-description-6888x4592-2020124.jpeg')"}}>
+                    <section className="hero min-h-screen"
+                             style={{backgroundImage: "url('https://demo.themearabia.net/basma-resume/uploads/2021/11/unit-secretary-job-description-6888x4592-2020124.jpeg')"}}>
                         <div className="hero-overlay bg-[#00000070] bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="">
@@ -180,40 +180,279 @@ const ProfilesScreen: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="mt-5">
-                        <div className="text-center flex flex-col justify-center items-center">
-                            <h1 className="text-4xl font-bold">About Me</h1>
-                            <span className="text-6xs opacity-75">Basma Design</span>
-                            <div className="h-1 mt-1 w-16 bg-primary rounded-box"/>
-                        </div>
-                        <div className="hero">
-                            <div className="hero-content flex-col lg:flex-row-reverse">
-                                <div className="avatar">
-                                    <div
-                                        className="w-36 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                        <img draggable={false} onContextMenu={e => e.preventDefault()}
-                                             src="https://demo.themearabia.net/basma-resume/frontend/default/assets/images/avatar.jpg"
-                                             alt={""}/>
+                    </section>
+                    <div className="px-3 md:px-5 max-w-[1300px] mx-auto">
+                        <section className="mt-5 text-center md:text-current">
+                            <div className="text-center flex flex-col justify-center items-center">
+                                <h1 className="text-4xl font-bold">About Me</h1>
+                                <span className="text-6xs opacity-75">Basma Design</span>
+                                <div className="h-1 mt-1 w-16 bg-primary rounded-box"/>
+                            </div>
+                            <div className="hero">
+                                <div className="hero-content flex-col lg:flex-row-reverse">
+                                    <div className="avatar">
+                                        <div
+                                            className="w-36 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                            <img draggable={false} onContextMenu={e => e.preventDefault()}
+                                                 src="https://demo.themearabia.net/basma-resume/frontend/default/assets/images/avatar.jpg"
+                                                 alt={""}/>
+                                        </div>
+                                    </div>
+                                    <div className={"py-7"} style={{direction: "rtl"}}>
+                                        <h1 className="text-3xl opacity-80 font-bold">Basma Design</h1>
+                                        <p className="py-1">I‘m a Freelance Full Stack Developer based in New York, USA,
+                                            and
+                                            I‘m very passionate and dedicated to my work .With 8 years experience as a
+                                            professional Full Stack Developer, I have acquired the skills necessary to
+                                            build
+                                            great and premium websites. Lorem ipsum dolor sit amet, mauris suspendisse
+                                            viverra eleifend tortor tellus suscipit, tortor aliquet at nulla mus,
+                                            dignissim
+                                            neque, nulla neque. Ultrices proin mi urna nibh ut, aenean sollicitudin
+                                            etiam
+                                            libero nisl, ultrices ridiculus in magna purus consequuntur, ipsum donec
+                                            orci ad
+                                            vitae pede, id odio. Turpis venenatis at laoreet. Etiam commodo fusce in
+                                            diam
+                                            feugiat, nullam suscipit tortor per velit viverra minim sed metus egestas
+                                            sapien
+                                            consectetuer. Turpis venenatis at laoreet. Etiam commodo fusce in diam
+                                            feugiat,
+                                            nullam suscipit tortor per velit viverra minim sed metus egestas sapien
+                                            consectetuer.</p>
                                     </div>
                                 </div>
-                                <div className={"py-7"} style={{direction: "rtl"}}>
-                                    <h1 className="text-3xl opacity-80 font-bold">Basma Design</h1>
-                                    <p className="py-1">I‘m a Freelance Full Stack Developer based in New York, USA, and
-                                        I‘m very passionate and dedicated to my work .With 8 years experience as a
-                                        professional Full Stack Developer, I have acquired the skills necessary to build
-                                        great and premium websites. Lorem ipsum dolor sit amet, mauris suspendisse
-                                        viverra eleifend tortor tellus suscipit, tortor aliquet at nulla mus, dignissim
-                                        neque, nulla neque. Ultrices proin mi urna nibh ut, aenean sollicitudin etiam
-                                        libero nisl, ultrices ridiculus in magna purus consequuntur, ipsum donec orci ad
-                                        vitae pede, id odio. Turpis venenatis at laoreet. Etiam commodo fusce in diam
-                                        feugiat, nullam suscipit tortor per velit viverra minim sed metus egestas sapien
-                                        consectetuer. Turpis venenatis at laoreet. Etiam commodo fusce in diam feugiat,
-                                        nullam suscipit tortor per velit viverra minim sed metus egestas sapien
-                                        consectetuer.</p>
+                            </div>
+                        </section>
+                        <section className="mt-7">
+                            <div className="flex justify-end flex-col border-b-2 border-base-300  items-end">
+                                <h1 className="text-4xl font-bold">What I‘m Doing</h1>
+                                <div className="h-1 mt-1.5 w-20 bg-primary rounded-box"/>
+                            </div>
+                            <div className={"flex flex-wrap gap-y-3 overflow-hidden lg:-mx-px p-2 md:p-10"}>
+                                <div className="w-full p-2 md:p-7 overflow-hidden  md:my-px  md:w-1/2 xl:w-1/3">
+                                    <div className="card w-full bg-base-100 shadow hover:shadow-xl rounded-none">
+                                        <figure className="px-10 pt-10">
+                                            <img width={70}
+                                                 height={70}
+                                                 src="https://demo.themearabia.net/basma-resume/uploads/2021/11/web-design.svg"
+                                                 alt="Shoes"
+                                                 className="rounded-xl"/>
+                                        </figure>
+                                        <div className="card-body items-center text-center">
+                                            <h2 className="card-title">Web Design</h2>
+                                            <p>The most modern and high-quality design made at a professional level.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="w-full p-2 md:p-7 overflow-hidden  md:my-px  md:w-1/2 xl:w-1/3">
+                                    <div className="card w-full bg-base-100 shadow hover:shadow-xl rounded-none">
+                                        <figure className="px-10 pt-10">
+                                            <img width={70}
+                                                 height={70}
+                                                 src="https://demo.themearabia.net/basma-resume/uploads/2021/11/web-design.svg"
+                                                 alt="Shoes"
+                                                 className="rounded-xl"/>
+                                        </figure>
+                                        <div className="card-body items-center text-center">
+                                            <h2 className="card-title">Web Design</h2>
+                                            <p>The most modern and high-quality design made at a professional level.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="w-full p-2 md:p-7 overflow-hidden  md:my-px  md:w-1/2 xl:w-1/3">
+                                    <div className="card w-full bg-base-100 shadow hover:shadow-xl rounded-none">
+                                        <figure className="px-10 pt-10">
+                                            <img width={70}
+                                                 height={70}
+                                                 src="https://demo.themearabia.net/basma-resume/uploads/2021/11/web-design.svg"
+                                                 alt="Shoes"
+                                                 className="rounded-xl"/>
+                                        </figure>
+                                        <div className="card-body items-center text-center">
+                                            <h2 className="card-title">Web Design</h2>
+                                            <p>The most modern and high-quality design made at a professional level.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="w-full p-2 md:p-7 overflow-hidden  md:my-px  md:w-1/2 xl:w-1/3">
+                                    <div className="card w-full bg-base-100 shadow hover:shadow-xl rounded-none">
+                                        <figure className="px-10 pt-10">
+                                            <img width={70}
+                                                 height={70}
+                                                 src="https://demo.themearabia.net/basma-resume/uploads/2021/11/web-design.svg"
+                                                 alt="Shoes"
+                                                 className="rounded-xl"/>
+                                        </figure>
+                                        <div className="card-body items-center text-center">
+                                            <h2 className="card-title">Web Design</h2>
+                                            <p>The most modern and high-quality design made at a professional level.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="w-full p-2 md:p-7 overflow-hidden  md:my-px  md:w-1/2 xl:w-1/3">
+                                    <div className="card w-full bg-base-100 shadow hover:shadow-xl rounded-none">
+                                        <figure className="px-10 pt-10">
+                                            <img width={70}
+                                                 height={70}
+                                                 src="https://demo.themearabia.net/basma-resume/uploads/2021/11/web-design.svg"
+                                                 alt="Shoes"
+                                                 className="rounded-xl"/>
+                                        </figure>
+                                        <div className="card-body items-center text-center">
+                                            <h2 className="card-title">Web Design</h2>
+                                            <p>The most modern and high-quality design made at a professional level.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="w-full p-2 md:p-7 overflow-hidden  md:my-px  md:w-1/2 xl:w-1/3">
+                                    <div className="card w-full bg-base-100 shadow hover:shadow-xl rounded-none">
+                                        <figure className="px-10 pt-10">
+                                            <img width={70}
+                                                 height={70}
+                                                 src="https://demo.themearabia.net/basma-resume/uploads/2021/11/web-design.svg"
+                                                 alt="Shoes"
+                                                 className="rounded-xl"/>
+                                        </figure>
+                                        <div className="card-body items-center text-center">
+                                            <h2 className="card-title">Web Design</h2>
+                                            <p>The most modern and high-quality design made at a professional level.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </section>
+
+                        <section className="mt-10">
+                            <div className="flex justify-end flex-col border-b-2 border-base-300  items-end">
+                                <h1 className="text-4xl font-bold">Working Way</h1>
+                                <div className="h-1 mt-1.5 w-20 bg-primary rounded-box"/>
+                            </div>
+                            <div className={"flex flex-wrap gap-y-3 overflow-hidden lg:-mx-px p-2 md:p-10"}>
+                                <div className="w-full p-2 md:p-7 overflow-hidden  md:my-px  md:w-1/2 xl:w-1/3">
+                                    <div className="card w-full   rounded-none">
+                                        <figure
+                                            className="p-4 w-fit h-fit mx-auto mb-3 border-base-300 border-2 border-dashed bg-base-100 rounded-full">
+                                            <img width={54}
+                                                 height={54}
+                                                 draggable={false}
+                                                 onContextMenu={e => e.preventDefault()}
+                                                 src="https://demo.themearabia.net/basma-resume/uploads/2021/11/step03.svg"
+                                                 alt="Icon"
+                                                 className="rounded-xl"/>
+                                        </figure>
+                                        <div
+                                            className="card-body  shadow hover:shadow-xl items-center text-center bg-base-100">
+                                            <h2 className="card-title">Development</h2>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                                                Lorem Ipsum .</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="w-full p-2 md:p-7 overflow-hidden  md:my-px  md:w-1/2 xl:w-1/3">
+                                    <div className="card w-full   rounded-none">
+                                        <figure
+                                            className="p-4 w-fit h-fit mx-auto mb-3 border-base-300 border-2 border-dashed bg-base-100 rounded-full">
+                                            <img width={54}
+                                                 height={54}
+                                                 draggable={false}
+                                                 onContextMenu={e => e.preventDefault()}
+                                                 src="https://demo.themearabia.net/basma-resume/uploads/2021/11/step03.svg"
+                                                 alt="Icon"
+                                                 className="rounded-xl"/>
+                                        </figure>
+                                        <div
+                                            className="card-body  shadow hover:shadow-xl items-center text-center bg-base-100">
+                                            <h2 className="card-title">Development</h2>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                                                Lorem Ipsum .</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="w-full p-2 md:p-7 overflow-hidden  md:my-px  md:w-1/2 xl:w-1/3">
+                                    <div className="card w-full   rounded-none">
+                                        <figure
+                                            className="p-4 w-fit h-fit mx-auto mb-3 border-base-300 border-2 border-dashed bg-base-100 rounded-full">
+                                            <img width={54}
+                                                 height={54}
+                                                 draggable={false}
+                                                 onContextMenu={e => e.preventDefault()}
+                                                 src="https://demo.themearabia.net/basma-resume/uploads/2021/11/step03.svg"
+                                                 alt="Icon"
+                                                 className="rounded-xl"/>
+                                        </figure>
+                                        <div
+                                            className="card-body  shadow hover:shadow-xl items-center text-center bg-base-100">
+                                            <h2 className="card-title">Development</h2>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                                                Lorem Ipsum .</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="w-full p-2 md:p-7 overflow-hidden  md:my-px  md:w-1/2 xl:w-1/3">
+                                    <div className="card w-full   rounded-none">
+                                        <figure
+                                            className="p-4 w-fit h-fit mx-auto mb-3 border-base-300 border-2 border-dashed bg-base-100 rounded-full">
+                                            <img width={54}
+                                                 height={54}
+                                                 draggable={false}
+                                                 onContextMenu={e => e.preventDefault()}
+                                                 src="https://demo.themearabia.net/basma-resume/uploads/2021/11/step03.svg"
+                                                 alt="Icon"
+                                                 className="rounded-xl"/>
+                                        </figure>
+                                        <div
+                                            className="card-body  shadow hover:shadow-xl items-center text-center bg-base-100">
+                                            <h2 className="card-title">Development</h2>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                                                Lorem Ipsum .</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="w-full p-2 md:p-7 overflow-hidden  md:my-px  md:w-1/2 xl:w-1/3">
+                                    <div className="card w-full   rounded-none">
+                                        <figure
+                                            className="p-4 w-fit h-fit mx-auto mb-3 border-base-300 border-2 border-dashed bg-base-100 rounded-full">
+                                            <img width={54}
+                                                 height={54}
+                                                 draggable={false}
+                                                 onContextMenu={e => e.preventDefault()}
+                                                 src="https://demo.themearabia.net/basma-resume/uploads/2021/11/step03.svg"
+                                                 alt="Icon"
+                                                 className="rounded-xl"/>
+                                        </figure>
+                                        <div
+                                            className="card-body  shadow hover:shadow-xl items-center text-center bg-base-100">
+                                            <h2 className="card-title">Development</h2>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                                                Lorem Ipsum .</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="w-full p-2 md:p-7 overflow-hidden  md:my-px  md:w-1/2 xl:w-1/3">
+                                    <div className="card w-full   rounded-none">
+                                        <figure
+                                            className="p-4 w-fit h-fit mx-auto mb-3 border-base-300 border-2 border-dashed bg-base-100 rounded-full">
+                                            <img width={54}
+                                                 height={54}
+                                                 draggable={false}
+                                                 onContextMenu={e => e.preventDefault()}
+                                                 src="https://demo.themearabia.net/basma-resume/uploads/2021/11/step03.svg"
+                                                 alt="Icon"
+                                                 className="rounded-xl"/>
+                                        </figure>
+                                        <div
+                                            className="card-body  shadow hover:shadow-xl items-center text-center bg-base-100">
+                                            <h2 className="card-title">Development</h2>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                                                Lorem Ipsum .</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </section>
                     </div>
 
                 </main>
