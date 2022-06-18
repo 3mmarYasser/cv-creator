@@ -155,9 +155,10 @@ const Navbar = () => {
     }, []);
     return (
         <>
-            <button className="btn rounded-btn bg-base-100 text-base-content fixed bottom-5 right-5" onClick={() => {
-                changeThemeHandler()
-            }}>{activeTheme}</button>
+            <button className="btn rounded-btn z-40 bg-base-100 text-base-content fixed bottom-5 right-5"
+                    onClick={() => {
+                        changeThemeHandler()
+                    }}>{activeTheme}</button>
 
             <header tabIndex={100}
                     className={classNames("w-[100vw]  pt-5 flex justify-center fixed z-50 ", {"hidden": location === "profiles"})}>

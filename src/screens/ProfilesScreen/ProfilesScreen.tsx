@@ -10,6 +10,7 @@ import Styles from "./ProfilesScreen.module.scss";
 import "swiper/scss";
 import "swiper/scss/free-mode";
 import "swiper/scss/pagination";
+import {scrollTOElement} from "../../utils/scrollElement";
 
 const Music = require("../../assets/audio/music.mp3")
 const music = new Audio(Music);
@@ -17,6 +18,13 @@ const music = new Audio(Music);
 const ProfilesScreen: React.FC = () => {
     const words: string[] = ["Photographer", "Mobile Developer", "Web Developer", "UI/UX Designer"];
     const clients: string[] = ["https://demo.themearabia.net/basma-resume/uploads/2021/11/06.png", "https://demo.themearabia.net/basma-resume/uploads/2021/11/08.png", "https://demo.themearabia.net/basma-resume/uploads/2021/11/04-1.png", "https://demo.themearabia.net/basma-resume/uploads/2021/11/05.png"]
+    const Skills: any[] = [
+        {title: "Laravel coding", progress: 93},
+        {title: "Php coding", progress: 85},
+        {title: "Html / Css coding", progress: 75},
+        {title: "React coding", progress: 100},
+        {title: "Nest Coding", progress: 80}
+    ]
     const userName = useParams().userName;
     const [menu, setMenu] = useState<boolean>(false);
     const [audio, setAudio] = useState<boolean>(false);
@@ -44,7 +52,7 @@ const ProfilesScreen: React.FC = () => {
     if (userName === null || userName === undefined) return <Navigate to={"/404"}/>
     return (
         <div className={Styles.Profile}>
-            <div className="navbar lg:hidden bg-base-100 w-screen">
+            <div className="fixed z-20 navbar lg:hidden bg-base-100 w-screen">
                 <div className="flex-1 items-center">
                     <div className="avatar online">
                         <div className="w-10 rounded-full">
@@ -91,7 +99,7 @@ const ProfilesScreen: React.FC = () => {
                                 <span id="Line_6"></span>
                             </div>
                         </li>
-                        <li className=" p-1 w-full ">
+                        <li onClick={() => scrollTOElement("proHome")} className=" p-1 w-full ">
                             <div className="w-full flex items-center justify-center">
                                 <button
                                     className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
@@ -101,7 +109,7 @@ const ProfilesScreen: React.FC = () => {
                                 </button>
                             </div>
                         </li>
-                        <li className=" p-1 w-full ">
+                        <li onClick={() => scrollTOElement("proAbout")} className=" p-1 w-full ">
                             <div className="w-full flex items-center justify-center">
                                 <button
                                     className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
@@ -111,17 +119,27 @@ const ProfilesScreen: React.FC = () => {
                                 </button>
                             </div>
                         </li>
-                        <li className=" p-1 w-full ">
+                        <li onClick={() => scrollTOElement("proSkills")} className=" p-1 w-full ">
                             <div className="w-full flex items-center justify-center">
                                 <button
                                     className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
                             <span className="material-symbols-outlined opacity-75">
-                                contact_emergency
+                                star
                             </span>
                                 </button>
                             </div>
                         </li>
-                        <li className=" p-1 w-full ">
+                        <li onClick={() => scrollTOElement("proWay")} className=" p-1 w-full ">
+                            <div className="w-full flex items-center justify-center">
+                                <button
+                                    className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
+                            <span className="material-symbols-outlined opacity-75">
+                                aod
+                            </span>
+                                </button>
+                            </div>
+                        </li>
+                        <li onClick={() => scrollTOElement("proClients")} className=" p-1 w-full ">
                             <div className="w-full flex items-center justify-center">
                                 <button
                                     className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
@@ -131,7 +149,37 @@ const ProfilesScreen: React.FC = () => {
                                 </button>
                             </div>
                         </li>
-                        <li className=" p-1 w-full ">
+                        <li onClick={() => scrollTOElement("proFacts")} className=" p-1 w-full ">
+                            <div className="w-full flex items-center justify-center">
+                                <button
+                                    className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
+                            <span className="material-symbols-outlined opacity-75">
+                                favorite
+                            </span>
+                                </button>
+                            </div>
+                        </li>
+                        <li onClick={() => scrollTOElement("proSkillProgress")} className=" p-1 w-full ">
+                            <div className="w-full flex items-center justify-center">
+                                <button
+                                    className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
+                            <span className="material-symbols-outlined opacity-75">
+                                contact_emergency
+                            </span>
+                                </button>
+                            </div>
+                        </li>
+                        <li onClick={() => scrollTOElement("proMap")} className=" p-1 w-full ">
+                            <div className="w-full flex items-center justify-center">
+                                <button
+                                    className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
+                            <span className="material-symbols-outlined opacity-75">
+                                map
+                            </span>
+                                </button>
+                            </div>
+                        </li>
+                        <li onClick={() => scrollTOElement("proContact")} className=" p-1 w-full ">
                             <div className="w-full flex items-center justify-center">
                                 <button
                                     className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
@@ -141,12 +189,12 @@ const ProfilesScreen: React.FC = () => {
                                 </button>
                             </div>
                         </li>
-                        <li className=" p-1 w-full ">
+                        <li onClick={() => scrollTOElement("proFollow")} className=" p-1 w-full ">
                             <div className="w-full flex items-center justify-center">
                                 <button
                                     className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
                             <span className="material-symbols-outlined opacity-75">
-                                calendar_month
+                                share
                             </span>
                                 </button>
                             </div>
@@ -157,7 +205,7 @@ const ProfilesScreen: React.FC = () => {
 
                 <main className={classNames("bg-base-200 overflow-y-auto min-h-screen ml-auto pb-32", [Styles.Main])}>
 
-                    <section className="hero min-h-screen bg-cover bg-center bg-fixed"
+                    <section id="proHome" className="hero min-h-screen bg-cover bg-center bg-fixed"
                              style={{backgroundImage: "url('https://demo.themearabia.net/basma-resume/uploads/2021/11/unit-secretary-job-description-6888x4592-2020124.jpeg')"}}>
                         <div className="hero-overlay bg-[#00000070] bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
@@ -190,7 +238,7 @@ const ProfilesScreen: React.FC = () => {
                     </section>
 
                     <div className="px-3 md:px-5 max-w-[1300px] mx-auto">
-                        <section className="mt-5 text-center md:text-justify">
+                        <section id="proAbout" className="mt-5 text-center md:text-justify">
                             <div className="text-center flex flex-col justify-center items-center">
                                 <h1 className="text-4xl font-bold">About Me</h1>
                                 <span className="text-6xs opacity-75">Basma Design</span>
@@ -232,7 +280,7 @@ const ProfilesScreen: React.FC = () => {
                                 </div>
                             </div>
                         </section>
-                        <section className="mt-7">
+                        <section id="proSkills" className="mt-7">
                             <div className="flex justify-end flex-col border-b-2 border-base-300  items-end">
                                 <h1 className="text-4xl font-bold">What I‘m Doing</h1>
                                 <div className="h-1 mt-1.5 w-20 bg-primary rounded-box"/>
@@ -332,7 +380,7 @@ const ProfilesScreen: React.FC = () => {
 
                             </div>
                         </section>
-                        <section className="mt-10">
+                        <section id="proWay" className="mt-10">
                             <div className="flex justify-end flex-col border-b-2 border-base-300  items-end">
                                 <h1 className="text-4xl font-bold">Working Way</h1>
                                 <div className="h-1 mt-1.5 w-20 bg-primary rounded-box"/>
@@ -460,7 +508,7 @@ const ProfilesScreen: React.FC = () => {
                                 </div>
                             </div>
                         </section>
-                        <section className="mt-5">
+                        <section id="proClients" className="mt-5">
                             <div className="flex justify-end flex-col border-b-2 border-base-300  items-end">
                                 <h1 className="text-4xl font-bold">My Clients</h1>
                                 <div className="h-1 mt-1.5 w-20 bg-primary rounded-box"/>
@@ -518,7 +566,7 @@ const ProfilesScreen: React.FC = () => {
                                 </Swiper>
                             </div>
                         </section>
-                        <section className="mt-28">
+                        <section id="proFacts" className="mt-28">
                             <div className="flex justify-end flex-col border-b-2 border-base-300  items-end">
                                 <h1 className="text-4xl font-bold">Fun Facts</h1>
                                 <div className="h-1 mt-1.5 w-20 bg-primary rounded-box"/>
@@ -573,6 +621,98 @@ const ProfilesScreen: React.FC = () => {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </section>
+                        <section id="proSkillProgress" className="mt-20">
+                            <div className="flex justify-end flex-col border-b-2 border-base-300  items-end">
+                                <h1 className="text-4xl font-bold">Skills</h1>
+                                <div className="h-1 mt-1.5 w-20 bg-primary rounded-box"/>
+                            </div>
+                            <div className="py-3 px-5">
+                                {Skills.map(skill => (
+                                    <div key={skill.title} className={"my-3"}>
+                                        <div className="flex justify-between items-center">
+                                            <span>{skill.progress}%</span>
+                                            <span>{skill.title}</span>
+                                        </div>
+                                        <progress className="progress progress-primary w-full" value={skill.progress}
+                                                  max="100"></progress>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                        <section id="proMap" className="mt-32 text-center md:text-justify">
+                            <div className="text-center flex flex-col justify-center items-center">
+                                <h1 className="text-4xl font-bold">Contact Me</h1>
+                                <span className="text-6xs opacity-75">Need Some Help!</span>
+                                <div className="h-1 mt-1 w-16 bg-primary rounded-box"/>
+                            </div>
+                            <div className="mt-5 p-2 bg-base-300">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7225119.239421704!2d32.39466622802709!3d27.843908481970395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1655571461603!5m2!1sen!2seg"
+                                    width="100%" height={450} allowFullScreen={true} loading={"lazy"}
+                                    referrerPolicy="no-referrer-when-downgrade" title={"Google Map"}></iframe>
+                            </div>
+                        </section>
+                        <section id="proContact" className="mt-36">
+                            <div className="flex justify-end flex-col border-b-2 border-base-300  items-end">
+                                <h1 className="text-4xl font-bold">Contact Us</h1>
+                                <div className="h-1 mt-1.5 w-20 bg-primary rounded-box"/>
+                            </div>
+                            <div className="py-3 px-5 max-w-md ml-auto flex flex-col justify-between">
+                                <div className="flex items-center flex-row-reverse mt-3">
+                                    <span
+                                        className="material-symbols-outlined ml-3 p-3 rounded-full bg-base-100 text-primary">share_location</span>
+                                    <span className="">Egypt/cairo</span>
+                                </div>
+                                <div className="flex items-center flex-row-reverse mt-3">
+                                    <span
+                                        className="material-symbols-outlined ml-3 p-3 rounded-full bg-base-100 text-primary">call</span>
+                                    <span className="">0123456789</span>
+                                </div>
+                                <div className="flex items-center flex-row-reverse mt-3">
+                                    <span
+                                        className="material-symbols-outlined ml-3 p-3 rounded-full bg-base-100 text-primary">alternate_email</span>
+                                    <span className="">example@example.com</span>
+                                </div>
+
+                            </div>
+                        </section>
+                        <section id="proFollow" className="mt-7">
+                            <div className="flex justify-end flex-col border-b-2 border-base-300  items-end">
+                                <h1 className="text-4xl font-bold">Follow Me</h1>
+                                <div className="h-1 mt-1.5 w-20 bg-primary rounded-box"/>
+                            </div>
+                            <div className="flex justify-center mt-5 flex-wrap">
+                                <a href="https://twitter.com" className={"p-3 bg-blue-500 rounded-full ml-2 m-1 shadow"}
+                                   target="_blank"
+                                   rel="noreferrer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                         className="fill-white">
+                                        <path
+                                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+                                    </svg>
+                                </a>
+
+                                <a href="https://youtube.com" target="_blank"
+                                   className={"p-3 bg-red-700 rounded-full ml-2 m-1 shadow"}
+                                   rel="noreferrer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                         className="fill-white">
+                                        <path
+                                            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                                    </svg>
+                                </a>
+
+                                <a href="https://fb.com" target="_blank"
+                                   className={"p-3 bg-blue-900 rounded-full ml-2 m-1 shadow"}
+                                   rel="noreferrer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                         className="fill-white">
+                                        <path
+                                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+                                    </svg>
+                                </a>
                             </div>
                         </section>
 
