@@ -2,15 +2,21 @@ import React, {useState, useEffect, useRef} from 'react';
 import {useParams} from "react-router";
 import {Navigate} from "react-router-dom";
 import classNames from "classnames";
-import Styles from "./ProfilesScreen.module.scss";
 import {gsap} from "gsap";
 import {TextPlugin} from "gsap/TextPlugin";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {A11y, FreeMode} from "swiper";
+import Styles from "./ProfilesScreen.module.scss";
+import "swiper/scss";
+import "swiper/scss/free-mode";
+import "swiper/scss/pagination";
 
 const Music = require("../../assets/audio/music.mp3")
 const music = new Audio(Music);
 
 const ProfilesScreen: React.FC = () => {
     const words: string[] = ["Photographer", "Mobile Developer", "Web Developer", "UI/UX Designer"];
+    const clients: string[] = ["https://demo.themearabia.net/basma-resume/uploads/2021/11/06.png", "https://demo.themearabia.net/basma-resume/uploads/2021/11/08.png", "https://demo.themearabia.net/basma-resume/uploads/2021/11/04-1.png", "https://demo.themearabia.net/basma-resume/uploads/2021/11/05.png"]
     const userName = useParams().userName;
     const [menu, setMenu] = useState<boolean>(false);
     const [audio, setAudio] = useState<boolean>(false);
@@ -150,6 +156,7 @@ const ProfilesScreen: React.FC = () => {
                 </header>
 
                 <main className={classNames("bg-base-200 overflow-y-auto min-h-screen ml-auto pb-32", [Styles.Main])}>
+
                     <section className="hero min-h-screen bg-cover bg-center bg-fixed"
                              style={{backgroundImage: "url('https://demo.themearabia.net/basma-resume/uploads/2021/11/unit-secretary-job-description-6888x4592-2020124.jpeg')"}}>
                         <div className="hero-overlay bg-[#00000070] bg-opacity-60"></div>
@@ -181,8 +188,9 @@ const ProfilesScreen: React.FC = () => {
                             </div>
                         </div>
                     </section>
+
                     <div className="px-3 md:px-5 max-w-[1300px] mx-auto">
-                        <section className="mt-5 text-center md:text-current">
+                        <section className="mt-5 text-center md:text-justify">
                             <div className="text-center flex flex-col justify-center items-center">
                                 <h1 className="text-4xl font-bold">About Me</h1>
                                 <span className="text-6xs opacity-75">Basma Design</span>
@@ -324,7 +332,6 @@ const ProfilesScreen: React.FC = () => {
 
                             </div>
                         </section>
-
                         <section className="mt-10">
                             <div className="flex justify-end flex-col border-b-2 border-base-300  items-end">
                                 <h1 className="text-4xl font-bold">Working Way</h1>
@@ -453,6 +460,122 @@ const ProfilesScreen: React.FC = () => {
                                 </div>
                             </div>
                         </section>
+                        <section className="mt-5">
+                            <div className="flex justify-end flex-col border-b-2 border-base-300  items-end">
+                                <h1 className="text-4xl font-bold">My Clients</h1>
+                                <div className="h-1 mt-1.5 w-20 bg-primary rounded-box"/>
+                            </div>
+                            <div style={{direction: "ltr"}}>
+                                <Swiper
+                                    slidesPerView={7}
+                                    spaceBetween={30}
+                                    direction={'horizontal'}
+                                    pagination={{
+                                        clickable: true,
+                                    }}
+                                    modules={[FreeMode, A11y]}
+                                    className="mySwiper  by-10"
+                                    centeredSlides={true}
+                                    loop={true}
+
+                                    autoplay={{
+                                        delay: 1000,
+                                        disableOnInteraction: false,
+                                    }}
+                                    speed={1000}
+
+                                    breakpoints={{
+                                        "320": {
+                                            slidesPerView: 2.5,
+                                            spaceBetween: 30,
+                                        },
+                                        "768": {
+                                            slidesPerView: 4,
+                                            spaceBetween: 30,
+                                        },
+                                        "1024": {
+                                            slidesPerView: 5,
+                                            spaceBetween: 30,
+                                        },
+                                        "1280": {
+                                            slidesPerView: 6,
+                                            spaceBetween: 30,
+                                        },
+                                        "1600": {
+                                            slidesPerView: 7,
+                                            spaceBetween: 30,
+                                        }
+                                    }}
+                                >
+                                    {clients.map(img => (
+                                        <SwiperSlide key={img}>
+                                            <img width={250} height={100} draggable={false}
+                                                 onContextMenu={e => e.preventDefault()}
+                                                 src={img}
+                                                 alt={"ClientImage"}/>
+                                        </SwiperSlide>
+                                    ))}
+                                </Swiper>
+                            </div>
+                        </section>
+                        <section className="mt-28">
+                            <div className="flex justify-end flex-col border-b-2 border-base-300  items-end">
+                                <h1 className="text-4xl font-bold">Fun Facts</h1>
+                                <div className="h-1 mt-1.5 w-20 bg-primary rounded-box"/>
+                            </div>
+                            <div className={"flex flex-wrap gap-y-3 overflow-hidden lg:-mx-px p-2 md:p-10"}>
+                                <div className="w-full p-2 md:p-7 overflow-hidden  md:my-px  md:w-1/2 xl:w-1/4">
+                                    <div className="card w-full bg-base-100 shadow hover:shadow-xl">
+                                        <figure className="px-10 pt-10">
+                                     <span
+                                         className="material-symbols-outlined text-6xl opacity-80">alarm</span>
+                                        </figure>
+                                        <div className="card-body items-center text-center">
+                                            <h2 className="card-title">Working Hours</h2>
+                                            <p>365</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="w-full p-2 md:p-7 overflow-hidden  md:my-px  md:w-1/2 xl:w-1/4">
+                                    <div className="card w-full bg-base-100 shadow hover:shadow-xl ">
+                                        <figure className="px-10 pt-10">
+                                    <span
+                                        className="material-symbols-outlined text-6xl opacity-80">coffee</span>
+                                        </figure>
+                                        <div className="card-body items-center text-center">
+                                            <h2 className="card-title">Coffee Consumed</h2>
+                                            <p>352</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="w-full p-2 md:p-7 overflow-hidden  md:my-px  md:w-1/2 xl:w-1/4">
+                                    <div className="card w-full bg-base-100 shadow hover:shadow-xl ">
+                                        <figure className="px-10 pt-10">
+                                            <span
+                                                className="material-symbols-outlined text-6xl opacity-80">business_center</span>
+                                        </figure>
+                                        <div className="card-body items-center text-center">
+                                            <h2 className="card-title">Projects Done</h2>
+                                            <p>320</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="w-full p-2 md:p-7 overflow-hidden  md:my-px  md:w-1/2 xl:w-1/4">
+                                    <div className="card w-full bg-base-100 shadow hover:shadow-xl  ">
+                                        <figure className="px-10 pt-10">
+                                            <span
+                                                className="material-symbols-outlined text-6xl opacity-80">favorite</span>
+                                        </figure>
+                                        <div className="card-body items-center text-center">
+                                            <h2 className="card-title">Happy Clients</h2>
+                                            <p>1325</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
                     </div>
 
                 </main>
