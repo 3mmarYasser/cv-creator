@@ -21,11 +21,12 @@ import ResumeExamples from "../screens/ResumeScreen/ResumeExamples/ResumeExample
 import ResumeBuilder from "../screens/ResumeScreen/ResumeBuilder/ResumeBuilder";
 import HomeAds from "../screens/DashboardScreen/components/DashAds/components/HomeAds/HomeAds";
 import TemplatesAds from "../screens/DashboardScreen/components/DashAds/components/TemplatesAds/TemplatesAds";
-import "./App.scss";
 import ExamplesAds from "../screens/DashboardScreen/components/DashAds/components/ExamplesAds/ExamplesAds";
 import BuildAds from "../screens/DashboardScreen/components/DashAds/components/BuildAds/BuildAds";
 import UserAds from "../screens/DashboardScreen/components/DashAds/components/UserAds/UserAds";
 import ProfileAds from "../screens/DashboardScreen/components/DashAds/components/ProfileAds/ProfileAds";
+import ProfilesScreen from "../screens/ProfilesScreen/ProfilesScreen";
+import "./App.scss";
 
 const App: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
@@ -51,6 +52,10 @@ const App: React.FC = () => {
                         <Route path="me">
                             <Route index element={<UserScreen/>}/>
                             <Route path="edit" element={<UserEditScreen/>}/>
+                        </Route>
+
+                        <Route path="profiles" element={<ProfilesScreen/>}>
+                            <Route path=":userName" element={<ProfilesScreen/>}/>
                         </Route>
 
 

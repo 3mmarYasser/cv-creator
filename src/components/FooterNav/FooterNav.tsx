@@ -1,16 +1,19 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {useSelector} from "react-redux";
+import classNames from "classnames";
 
 interface Props {
 
 }
 
 const FooterNav: React.FC<Props> = () => {
+    const location = ((useLocation()).pathname).split("/")[1];
     const lang = ((useSelector((state: any) => state)).lang).value;
 
     return (
-        <footer className="footer footer-center w-[100vw] p-10 bg-base-200 text-base-content rounded">
+        <footer
+            className={classNames("footer footer-center w-[100vw] p-10 bg-base-200 text-base-content rounded", {"hidden": location === "profiles"})}>
             <div className="grid grid-flow-col gap-4">
                 <Link to="/"><span className="link link-hover">{lang === "AR" ? "الرئيسية" : "Home"}</span></Link>
                 <Link to="/resume"><span

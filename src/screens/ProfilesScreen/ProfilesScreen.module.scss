@@ -1,0 +1,44 @@
+.Profile {
+  font-family: 'Tajawal', sans-serif;
+}
+
+.Main {
+  @media screen and (min-width: 1024px) {
+    width: calc(100% - 80px);
+  }
+  width: 100vw;
+}
+
+.Music span {
+  display: inline-flex;
+  margin-right: 1px;
+  width: 4px;
+  height: 18px;
+  background: hsl(var(--p) / var(--tw-bg-opacity));
+}
+
+.menuOpen {
+  left: 0 !important;
+}
+
+.JobsTitle {
+  &:after, &:before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: #FFFFFF;
+  }
+
+  &:after {
+    left: auto;
+    right: 0;
+  }
+
+  &:before {
+    left: 0;
+    right: auto;
+  }
+}
