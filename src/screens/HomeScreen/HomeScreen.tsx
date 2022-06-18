@@ -4,16 +4,31 @@ import AppSlide from "./components/AppSlide/AppSlide";
 import TemplatesSlide from "./components/TemplatesSlide/TemplatesSlide";
 import ExamplesSlide from "./components/ExamplesSlide/ExamplesSlide";
 import ExtraSlide from "./components/ExtraSlide/ExtraSlide";
+import Ads from "../../components/Ads/Ads";
 
 const HomeScreen: React.FC = () => {
     return (
         <div>
             <MainSlide/>
+            <div className="w-screen mt-5 mb-5">
+                <Ads data={{width: 728, height: 100, id: 1}}/>
+            </div>
             <AppSlide/>
+            <div className="w-screen mt-5 mb-5">
+                <Ads data={{width: 970, height: 90, id: 2}}/>
+            </div>
             <TemplatesSlide/>
+            <div className="w-screen mt-5 mb-5">
+                <Ads data={{width: 728, height: 100, id: 3}}/>
+            </div>
             <ExtraSlide/>
+            <div className="w-screen mt-5 mb-5">
+                <Ads data={{width: 970, height: 90, id: 4}}/>
+            </div>
             <ExamplesSlide/>
-
+            <div className="w-screen mt-5 mb-5">
+                <Ads data={{width: 728, height: 100, id: 5}}/>
+            </div>
         </div>
     );
 };

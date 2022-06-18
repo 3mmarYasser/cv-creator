@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
+import Ads from "../../../../components/Ads/Ads";
 
 const ExtraSlide: React.FC = () => {
     const lang = ((useSelector((state: any) => state)).lang).value;
@@ -31,6 +32,9 @@ const ExtraSlide: React.FC = () => {
                     </Link>
                 </div>
 
+            </div>
+            <div className="w-screen">
+                <Ads data={{width: 970, height: 90, id: 3}}/>
             </div>
             <div id={"resume_proofreading"}
                  className="container mx-auto  flex flex-col sm:flex-row-reverse justify-center items-center sm:py-10 ">
@@ -68,7 +72,7 @@ const ExtraSlide: React.FC = () => {
                              src="https://enhancv.com/static/837513daf82f0ce8d3a4e7f03b9a2b4f/ee604/cc-image.png"
                              alt=""/>
                     </div>
-                    <div className="max-w-xl my-10 w-full mx-auto sm:mx-1  p-10 sm:p-0 pt-0">
+                    <div className="max-w-xl my-10 w-full flex flex-col items-center mx-auto sm:mx-1  p-10 sm:p-0 pt-0">
                         <h1 className="text-2xl md:text-4xl mb-5 lg:text-4xl font-bold">
                             {lang === "AR" ? "لست مضطرًا للتعامل مع البحث عن وظيفة بمفردك" : "You don’t have to deal with the job search alone"}
                         </h1>
@@ -112,6 +116,8 @@ const ExtraSlide: React.FC = () => {
                             </Link>
 
                         </div>
+                        <Ads data={{width: 470, height: 60, id: 5}}/>
+
                     </div>
                 </div>
 

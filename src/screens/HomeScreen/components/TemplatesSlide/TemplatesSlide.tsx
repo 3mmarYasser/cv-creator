@@ -1,18 +1,49 @@
 import React from 'react';
-import "swiper/scss";
-import "swiper/scss/free-mode";
-import "swiper/scss/pagination";
 import {FreeMode, A11y} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
-
-import cvImage from "../../../../assets/images/img.png"
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {fakeTemplates} from "../../../../fake/fakeTemplate";
+import Ads from "../../../../components/Ads/Ads";
+import "swiper/scss";
+import "swiper/scss/free-mode";
+import "swiper/scss/pagination";
 
-const slides = [cvImage, cvImage, cvImage, cvImage, cvImage, cvImage]
 const TemplatesSlide: React.FC = () => {
     const lang = ((useSelector((state: any) => state)).lang).value;
+    const templates = fakeTemplates.map((template, index) => {
+        if (Number.isInteger(index / 3)) {
+            return (
+                <>
+                    <SwiperSlide key={index * 0.57}>
+                        <div
+                            className="hover:text-primary cursor-pointer my-3 flex flex-col justify-center items-center">
+                            <Ads data={{width: 250, height: 360, id: 123}}/>
+                        </div>
+                    </SwiperSlide>
+
+                    <SwiperSlide key={template.id + index * 5.96}>
+                        <Link to="#"
+                              className="hover:text-primary cursor-pointer flex flex-col justify-center items-center">
+                            <img src={template.imagePath} alt="slide"
+                                 className="object-cover w-full max-w-[250px] my-3 drop-shadow-lg"/>
+                            <p>{template.title}</p>
+                        </Link>
+                    </SwiperSlide>
+                </>
+            )
+        }
+        return (
+            <SwiperSlide key={template.id * 0.38}>
+                <Link to="#"
+                      className="hover:text-primary cursor-pointer flex flex-col justify-center items-center">
+                    <img src={template.imagePath} alt="slide"
+                         className="object-cover w-full max-w-[250px] my-3 drop-shadow-lg"/>
+                    <p>{template.title}</p>
+                </Link>
+            </SwiperSlide>
+        )
+    })
 
     return (
         <div id={"resume_template"} className="flex w-screen items-center flex-col relative h-[904px] z-0">
@@ -85,18 +116,7 @@ const TemplatesSlide: React.FC = () => {
 
 
                 >
-                    {
-                        fakeTemplates.map((template, index) => {
-                            return <SwiperSlide key={template.id + index}>
-                                <Link to="#"
-                                      className="hover:text-primary cursor-pointer flex flex-col justify-center items-center">
-                                    <img src={template.imagePath} alt="slide"
-                                         className="object-cover w-full max-w-[250px] my-3 drop-shadow-lg"/>
-                                    <p>{template.title}</p>
-                                </Link>
-                            </SwiperSlide>
-                        })
-                    }
+                    {templates}
                 </Swiper>
             </div>
         </div>

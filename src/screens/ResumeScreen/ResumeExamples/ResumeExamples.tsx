@@ -48,7 +48,7 @@ const ResumeExamples: React.FC = () => {
                         <div className="flex">
                             {logos.map((logo, index) => {
                                 return (
-                                    <div key={index} className="my-6 grayscale">
+                                    <div key={index * 2} className="my-6 grayscale">
                                         <img className="w-24" src={logo} alt="provider-logo"/>
                                     </div>
                                 )
