@@ -1,10 +1,13 @@
 import React from 'react';
+import {useSelector} from "react-redux";
 
 
 const UserAds: React.FC = () => {
+    const lang = ((useSelector((state: any) => state)).lang).value;
+
     return (
         <>
-            <h1 className="text-2xl md:text-3xl">User Adds</h1>
+            <h1 className="text-2xl md:text-3xl">{lang === "AR" ? "إعلانات صفحة المستخدم" : "User Ads"}</h1>
             <div className="form-control">
                 <label className="label">
                     <span className="label-text">AD ID "1"</span>
