@@ -33,15 +33,6 @@ const UserScreen: React.FC<Props> = () => {
                                 <div className="text-primary mb-[30px]">
                                     <div className="grid gap-y-3 md:grid-cols-2 text-sm">
                                         <div className="grid grid-cols-2">
-                                            <div className="px-4 py-2 font-semibold">First Name :</div>
-                                            <div className="px-4 py-2 text-gray-600 ">Jane</div>
-                                        </div>
-                                        <div className="grid grid-cols-2">
-                                            <div className="px-4 py-2 font-semibold">Last Name :</div>
-                                            <div className="px-4 py-2 text-gray-600 ">Doe</div>
-                                        </div>
-
-                                        <div className="grid grid-cols-2">
                                             <div className="px-4 py-2 font-semibold">Email :</div>
                                             <div className="px-4 py-2">
                                                 <a rel="noreferrer" className="text-gray-600 "
@@ -55,10 +46,16 @@ const UserScreen: React.FC<Props> = () => {
                                     </div>
                                 </div>
 
-                                <Link to="/me/edit">
+                                <div className="flex w-full">
+                                    <Link className="w-[50%]" to="/me/edit">
                                     <span
                                         className="block text-center w-full text-success text-sm font-semibold rounded-lg hover:bg-base-100 focus:outline-none focus:shadow-outline focus:bg-base-100 hover:shadow-xs p-3 my-4">Edit Know</span>
-                                </Link>
+                                    </Link>
+                                    <Link className="w-[50%]" to="/me/profile">
+                                    <span
+                                        className="block text-center w-full text-success text-sm font-semibold rounded-lg hover:bg-base-100 focus:outline-none focus:shadow-outline focus:bg-base-100 hover:shadow-xs p-3 my-4">Edit Profile</span>
+                                    </Link>
+                                </div>
                             </div>
 
                             <div className="my-4"></div>
@@ -299,11 +296,6 @@ const UserScreen: React.FC<Props> = () => {
                                     <li className="flex items-center py-4">
                                         <span>Member since</span>
                                         <span className="ml-auto">May 07, 2022</span>
-                                    </li>
-
-                                    <li className="flex items-center py-4">
-                                        <span>Your Profile Views</span>
-                                        <span className="ml-auto">1579</span>
                                     </li>
                                     <li className="flex items-center py-4">
                                         <span>Cover Letter Number</span>
