@@ -11,15 +11,15 @@ const HomeScreen: React.FC = () => {
         <div>
             <MainSlide/>
             <div className="w-screen mt-5 mb-5">
-                <Ads data={{width: 728, height: 100, id: 1}}/>
+                <Ads data={{width: 1200, height: 90, id: 1}}/>
             </div>
             <AppSlide/>
             <div className="w-screen mt-5 mb-5">
-                <Ads data={{width: 970, height: 90, id: 2}}/>
+                <Ads data={{width: 1200, height: 90, id: 2}}/>
             </div>
             <TemplatesSlide/>
             <div className="w-screen mt-5 mb-5">
-                <Ads data={{width: 728, height: 100, id: 3}}/>
+                <Ads data={{width: 1200, height: 90, id: 3}}/>
             </div>
             <ExtraSlide/>
             <div className="w-screen mt-5 mb-5">
@@ -27,7 +27,7 @@ const HomeScreen: React.FC = () => {
             </div>
             <ExamplesSlide/>
             <div className="w-screen mt-5 mb-5">
-                <Ads data={{width: 728, height: 100, id: 5}}/>
+                <Ads data={{width: 1200, height: 150, id: 5}}/>
             </div>
         </div>
     );

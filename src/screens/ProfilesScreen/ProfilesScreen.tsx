@@ -103,7 +103,7 @@ const ProfilesScreen: React.FC = () => {
                             <div className="w-full flex items-center justify-center">
                                 <button
                                     className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
-                            <span className="material-symbols-outlined opacity-75">
+                            <span className="material-symbols-outlined opacity-60">
                                 cottage
                             </span>
                                 </button>
@@ -113,7 +113,7 @@ const ProfilesScreen: React.FC = () => {
                             <div className="w-full flex items-center justify-center">
                                 <button
                                     className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
-                            <span className="material-symbols-outlined opacity-75">
+                            <span className="material-symbols-outlined opacity-60">
                                 person
                             </span>
                                 </button>
@@ -123,7 +123,7 @@ const ProfilesScreen: React.FC = () => {
                             <div className="w-full flex items-center justify-center">
                                 <button
                                     className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
-                            <span className="material-symbols-outlined opacity-75">
+                            <span className="material-symbols-outlined opacity-60">
                                 star
                             </span>
                                 </button>
@@ -133,7 +133,7 @@ const ProfilesScreen: React.FC = () => {
                             <div className="w-full flex items-center justify-center">
                                 <button
                                     className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
-                            <span className="material-symbols-outlined opacity-75">
+                            <span className="material-symbols-outlined opacity-60">
                                 aod
                             </span>
                                 </button>
@@ -143,7 +143,7 @@ const ProfilesScreen: React.FC = () => {
                             <div className="w-full flex items-center justify-center">
                                 <button
                                     className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
-                            <span className="material-symbols-outlined opacity-75">
+                            <span className="material-symbols-outlined opacity-60">
                                 work
                             </span>
                                 </button>
@@ -153,7 +153,7 @@ const ProfilesScreen: React.FC = () => {
                             <div className="w-full flex items-center justify-center">
                                 <button
                                     className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
-                            <span className="material-symbols-outlined opacity-75">
+                            <span className="material-symbols-outlined opacity-60">
                                 favorite
                             </span>
                                 </button>
@@ -163,7 +163,7 @@ const ProfilesScreen: React.FC = () => {
                             <div className="w-full flex items-center justify-center">
                                 <button
                                     className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
-                            <span className="material-symbols-outlined opacity-75">
+                            <span className="material-symbols-outlined opacity-60">
                                 contact_emergency
                             </span>
                                 </button>
@@ -173,7 +173,7 @@ const ProfilesScreen: React.FC = () => {
                             <div className="w-full flex items-center justify-center">
                                 <button
                                     className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
-                            <span className="material-symbols-outlined opacity-75">
+                            <span className="material-symbols-outlined opacity-60">
                                 map
                             </span>
                                 </button>
@@ -183,7 +183,7 @@ const ProfilesScreen: React.FC = () => {
                             <div className="w-full flex items-center justify-center">
                                 <button
                                     className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
-                            <span className="material-symbols-outlined opacity-75">
+                            <span className="material-symbols-outlined opacity-60">
                                 mail
                             </span>
                                 </button>
@@ -192,8 +192,8 @@ const ProfilesScreen: React.FC = () => {
                         <li onClick={() => scrollTOElement("proFollow")} className=" p-1 w-full ">
                             <div className="w-full flex items-center justify-center">
                                 <button
-                                    className={classNames("cursor-pointer   btn btn-ghost btn-circle")}>
-                            <span className="material-symbols-outlined opacity-75">
+                                    className={classNames("cursor-pointer btn btn-ghost btn-circle")}>
+                            <span className="material-symbols-outlined opacity-60 ">
                                 share
                             </span>
                                 </button>
@@ -221,14 +221,19 @@ const ProfilesScreen: React.FC = () => {
                                 </p>
                                 <div className="mt-7 flex flex-wrap justify-center">
                                     <button
+                                        onClick={() => scrollTOElement("proAbout")}
                                         className="btn mb-5 mr-4 glass rounded-full flex justify-center items-center">About
                                         <span className="ml-2 material-symbols-outlined">badge</span>
                                     </button>
                                     <button
+                                        onClick={() => scrollTOElement("proContact")}
+
                                         className="btn mr-4 glass rounded-full flex justify-center items-center">Contact
                                         <span className="ml-2 material-symbols-outlined">contact_page</span>
                                     </button>
                                     <button
+                                        onClick={() => scrollTOElement("proClients")}
+
                                         className="btn mr-4 glass rounded-full flex justify-center items-center">Clients
                                         <span className="ml-2 material-symbols-outlined">apartment</span>
                                     </button>

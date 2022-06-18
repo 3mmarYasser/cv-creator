@@ -116,8 +116,6 @@ const ExtraSlide: React.FC = () => {
                             </Link>
 
                         </div>
-                        <Ads data={{width: 470, height: 60, id: 5}}/>
-
                     </div>
                 </div>
 
