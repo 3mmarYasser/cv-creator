@@ -150,7 +150,7 @@ const ProfilesScreen: React.FC = () => {
                 </header>
 
                 <main className={classNames("bg-base-200 overflow-y-auto min-h-screen ml-auto pb-32", [Styles.Main])}>
-                    <section className="hero min-h-screen"
+                    <section className="hero min-h-screen bg-cover bg-center bg-fixed"
                              style={{backgroundImage: "url('https://demo.themearabia.net/basma-resume/uploads/2021/11/unit-secretary-job-description-6888x4592-2020124.jpeg')"}}>
                         <div className="hero-overlay bg-[#00000070] bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
