@@ -7,7 +7,6 @@ import Navbar from "../components/Navbar/Navbar";
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import Page404 from "../screens/404/404";
 import AuthScreen from "../screens/AuthScreen/AuthScreen";
-import Editor from "../components/Editor/Editor";
 import UserScreen from "../screens/UserScreen/UserScreen";
 import UserEditScreen from "../screens/UserScreen/UserEditScreen";
 import DashboardScreen from "../screens/DashboardScreen/DashboardScreen";
@@ -17,10 +16,16 @@ import TemplateScreen from "../screens/DashboardScreen/components/TemplateScreen
 import FooterNav from "../components/FooterNav/FooterNav";
 import DashCoverLetter from "../screens/DashboardScreen/components/DashCoverLetter/DashCoverLetter";
 import DashAds from "../screens/DashboardScreen/components/DashAds/DashAds";
-import "./App.scss";
 import ResumeTemplate from "../screens/ResumeScreen/ResumeTemplates/ResumeTemplate";
 import ResumeExamples from "../screens/ResumeScreen/ResumeExamples/ResumeExamples";
 import ResumeBuilder from "../screens/ResumeScreen/ResumeBuilder/ResumeBuilder";
+import HomeAds from "../screens/DashboardScreen/components/DashAds/components/HomeAds/HomeAds";
+import TemplatesAds from "../screens/DashboardScreen/components/DashAds/components/TemplatesAds/TemplatesAds";
+import "./App.scss";
+import ExamplesAds from "../screens/DashboardScreen/components/DashAds/components/ExamplesAds/ExamplesAds";
+import BuildAds from "../screens/DashboardScreen/components/DashAds/components/BuildAds/BuildAds";
+import UserAds from "../screens/DashboardScreen/components/DashAds/components/UserAds/UserAds";
+import ProfileAds from "../screens/DashboardScreen/components/DashAds/components/ProfileAds/ProfileAds";
 
 const App: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
@@ -49,17 +54,25 @@ const App: React.FC = () => {
                         </Route>
 
 
+                        <Route path="resume">
+                            <Route path="templates" element={<ResumeTemplate/>}/>
+                            <Route path="examples" element={<ResumeExamples/>}/>
+                            <Route path="build" element={<ResumeBuilder/>}/>
+                        </Route>
+
                         <Route path="dashboard" element={<DashboardScreen/>}>
                             <Route index element={<DashIndex/>}/>
                             <Route path="users" element={<DashUsers/>}/>
                             <Route path="templates" element={<TemplateScreen/>}/>
                             <Route path="cover-letter" element={<DashCoverLetter/>}/>
-                            <Route path="ads" element={<DashAds/>}/>
-                        </Route>
-                        <Route path="resume">
-                            <Route path="templates" element={<ResumeTemplate/>}/>
-                            <Route path="examples" element={<ResumeExamples/>}/>
-                            <Route path="build" element={<ResumeBuilder/>}/>
+                            <Route path="ads" element={<DashAds/>}>
+                                <Route index element={<HomeAds/>}/>
+                                <Route path="templates" element={<TemplatesAds/>}/>
+                                <Route path="examples" element={<ExamplesAds/>}/>
+                                <Route path="build" element={<BuildAds/>}/>
+                                <Route path="user" element={<UserAds/>}/>
+                                <Route path="profile" element={<ProfileAds/>}/>
+                            </Route>
                         </Route>
                         <Route path="*" element={<Page404/>}/>
 

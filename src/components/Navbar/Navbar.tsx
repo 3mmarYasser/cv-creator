@@ -309,7 +309,7 @@ const Navbar = () => {
             {
                 <div
                     className={`bg-base-100 fixed left-0 right-0 z-10 h-full -top-full transition-all duration-[400ms]`}
-                    style={{top: `${(menu) ? "0" : "-100%"}`}}>
+                    style={{top: `${(menu) ? "0" : "-150%"}`}}>
                     <div className="flex flex-col items-center justify-center h-full">
                         <ul onClick={() => {
                             setMenu(!menu)
