@@ -1,19 +1,21 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {useParams} from "react-router";
 import {Navigate} from "react-router-dom";
 import classNames from "classnames";
 import Styles from "./ProfilesScreen.module.scss";
+import {gsap} from "gsap";
+import {TextPlugin} from "gsap/TextPlugin";
 
 const Music = require("../../assets/audio/music.mp3")
 const music = new Audio(Music);
 
-
 const ProfilesScreen: React.FC = () => {
+    const words: string[] = ["Photographer", "Mobile Developer", "Web Developer", "UI/UX Designer"];
     const userName = useParams().userName;
-    console.log(userName)
     const [menu, setMenu] = useState<boolean>(false);
     const [audio, setAudio] = useState<boolean>(false);
-
+    const AnimateTextRef = useRef<HTMLSpanElement | null>(null);
+    gsap.registerPlugin(TextPlugin)
     useEffect(() => {
         if (audio) {
             music.play().then();
@@ -22,6 +24,16 @@ const ProfilesScreen: React.FC = () => {
             music.currentTime = 0;
         }
     }, [audio]);
+    useEffect(() => {
+        let masterTl = gsap.timeline({repeat: -1})
+
+        words.forEach(word => {
+            let tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 1})
+            tl.to(AnimateTextRef.current, {duration: 1, text: word})
+            masterTl.add(tl)
+        })
+    }, []);
+
 
     if (userName === null || userName === undefined) return <Navigate to={"/404"}/>
     return (
@@ -137,21 +149,73 @@ const ProfilesScreen: React.FC = () => {
                     </ul>
                 </header>
 
-                <main className={classNames("bg-base-200 overflow-y-auto min-h-screen ml-auto", [Styles.Main])}>
+                <main className={classNames("bg-base-200 overflow-y-auto min-h-screen ml-auto pb-32", [Styles.Main])}>
                     <div className="hero min-h-screen"
                          style={{backgroundImage: "url('https://demo.themearabia.net/basma-resume/uploads/2021/11/unit-secretary-job-description-6888x4592-2020124.jpeg')"}}>
                         <div className="hero-overlay bg-[#00000070] bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="">
-                                <h3 className="mb-5 text-3xl">Hello, My Name Is</h3>
+                                <h3 className="text-2xl mb-5 md:text-3xl">Hello, My Name Is</h3>
                                 <h1 className="mb-5 text-4xl lg:text-6xl font-medium lg:text-[7rem]">Basma Design</h1>
-                                <h4 className={classNames("mb-5 text-3xl relative", [Styles.JobsTitle])}>
+                                <h4 className={classNames(" mb-5 md:text-3xl relative", [Styles.JobsTitle])}>
                                     A Creative Freelancer & Full Stack Developer
                                 </h4>
-                                <button className="btn btn-primary">Get Started</button>
+                                <p className="md:text-3xl font-bold">
+                                    <span className="mr-1">I‘m working as</span>
+                                    <span ref={AnimateTextRef}></span>
+                                </p>
+                                <div className="mt-7 flex flex-wrap justify-center">
+                                    <button
+                                        className="btn mb-5 mr-4 glass rounded-full flex justify-center items-center">About
+                                        <span className="ml-2 material-symbols-outlined">badge</span>
+                                    </button>
+                                    <button
+                                        className="btn mr-4 glass rounded-full flex justify-center items-center">Contact
+                                        <span className="ml-2 material-symbols-outlined">contact_page</span>
+                                    </button>
+                                    <button
+                                        className="btn mr-4 glass rounded-full flex justify-center items-center">Clients
+                                        <span className="ml-2 material-symbols-outlined">apartment</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div className="mt-5">
+                        <div className="text-center flex flex-col justify-center items-center">
+                            <h1 className="text-4xl font-bold">About Me</h1>
+                            <span className="text-6xs opacity-75">Basma Design</span>
+                            <div className="h-1 mt-1 w-16 bg-primary rounded-box"/>
+                        </div>
+                        <div className="hero">
+                            <div className="hero-content flex-col lg:flex-row-reverse">
+                                <div className="avatar">
+                                    <div
+                                        className="w-36 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                        <img draggable={false} onContextMenu={e => e.preventDefault()}
+                                             src="https://demo.themearabia.net/basma-resume/frontend/default/assets/images/avatar.jpg"
+                                             alt={""}/>
+                                    </div>
+                                </div>
+                                <div className={"py-7"} style={{direction: "rtl"}}>
+                                    <h1 className="text-3xl opacity-80 font-bold">Basma Design</h1>
+                                    <p className="py-1">I‘m a Freelance Full Stack Developer based in New York, USA, and
+                                        I‘m very passionate and dedicated to my work .With 8 years experience as a
+                                        professional Full Stack Developer, I have acquired the skills necessary to build
+                                        great and premium websites. Lorem ipsum dolor sit amet, mauris suspendisse
+                                        viverra eleifend tortor tellus suscipit, tortor aliquet at nulla mus, dignissim
+                                        neque, nulla neque. Ultrices proin mi urna nibh ut, aenean sollicitudin etiam
+                                        libero nisl, ultrices ridiculus in magna purus consequuntur, ipsum donec orci ad
+                                        vitae pede, id odio. Turpis venenatis at laoreet. Etiam commodo fusce in diam
+                                        feugiat, nullam suscipit tortor per velit viverra minim sed metus egestas sapien
+                                        consectetuer. Turpis venenatis at laoreet. Etiam commodo fusce in diam feugiat,
+                                        nullam suscipit tortor per velit viverra minim sed metus egestas sapien
+                                        consectetuer.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </main>
             </div>
         </div>
