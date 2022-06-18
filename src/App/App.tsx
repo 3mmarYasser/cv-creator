@@ -26,14 +26,17 @@ import BuildAds from "../screens/DashboardScreen/components/DashAds/components/B
 import UserAds from "../screens/DashboardScreen/components/DashAds/components/UserAds/UserAds";
 import ProfileAds from "../screens/DashboardScreen/components/DashAds/components/ProfileAds/ProfileAds";
 import ProfilesScreen from "../screens/ProfilesScreen/ProfilesScreen";
+import {useCookies} from 'react-cookie';
+
 import "./App.scss";
 
 const App: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
+    const [cookies, setCookies] = useCookies(["Authorization", "Refresh"]);
 
     useEffect(() => {
         dispatch(
-            GetUserThunk()
+            GetUserThunk("Authentication=" + cookies.Authorization + ";" + "Refresh=" + cookies.Refresh + ";")
         )
         window.addEventListener("keydown", e => {
             if (e?.key === "Control" || e?.key === "p") {
