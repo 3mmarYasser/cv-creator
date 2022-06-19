@@ -4,6 +4,7 @@ import ExperienceImage from "../../../../../assets/images/Editor/experience.png"
 import VolunteeringImage from "../../../../../assets/images/Editor/volunteering.png";
 import LanguagesImage from "../../../../../assets/images/Editor/languages.png";
 import IndustryImage from "../../../../../assets/images/Editor/Industry.png";
+import SkillsImage from "../../../../../assets/images/Editor/skills.png";
 
 const ResumeSections = (): Sections[] => {
     return [{
@@ -153,6 +154,30 @@ const ResumeSections = (): Sections[] => {
                       </form>
                   </div>
               </div></div>`
+        }, {
+            title: "Skills",
+            image: SkillsImage,
+            HTML: `
+<div data-editable="true" class="">
+              <div data-content-edit="true" id="custom-edit-title" class="uppercase editing_Text" placeholder="Skills" contenteditable="true"></div>
+
+         <div class="flex flex-wrap">
+             <div data-editable="true" data-inner-edit="true" class="w-fit">
+                 <div class="small-text w-fit opacity-75 mr-2 editing_Text" data-content-edit="true" placeholder="Tool / Technology" contenteditable="true"></div>
+             </div>
+         <div data-editable="true" data-inner-edit="true" class="w-fit">
+                 <div class="small-text w-fit opacity-75 mr-2 editing_Text" data-content-edit="true" placeholder="Tool / Technology" contenteditable="true"></div>
+             </div><div data-editable="true" data-inner-edit="true" class="w-fit">
+                 <div class="small-text w-fit opacity-75 mr-2 editing_Text" data-content-edit="true" placeholder="Tool / Technology" contenteditable="true"></div>
+             </div><div data-editable="true" data-inner-edit="true" class="w-fit">
+                 <div class="small-text w-fit opacity-75 mr-2 editing_Text" data-content-edit="true" placeholder="Tool / Technology" contenteditable="true"></div>
+             </div><div data-editable="true" data-inner-edit="true" class="w-fit">
+                 <div class="small-text w-fit opacity-75 mr-2 editing_Text" data-content-edit="true" placeholder="Tool / Technology" contenteditable="true"></div>
+             </div><div data-editable="true" data-inner-edit="true" class="w-fit">
+                 <div class="small-text w-fit opacity-75 mr-2 editing_Text" data-content-edit="true" placeholder="Tool / Technology" contenteditable="true"></div>
+             </div></div>
+          </div>
+`
         }]
 };
 
