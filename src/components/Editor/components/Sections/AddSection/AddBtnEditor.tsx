@@ -13,7 +13,6 @@ interface Props {
 const AddBtnEditor: React.FC<Props> = ({id}) => {
     const lang = ((useSelector((state: any) => state)).lang).value;
     const Side = getElByID(id);
-    console.log(Side?.offsetHeight);
     if (Side === null) return null
     return (
         <>

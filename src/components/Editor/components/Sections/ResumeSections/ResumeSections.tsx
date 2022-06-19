@@ -3,6 +3,7 @@ import SummaryImage from "../../../../../assets/images/Editor/Summary.png";
 import ExperienceImage from "../../../../../assets/images/Editor/experience.png";
 import VolunteeringImage from "../../../../../assets/images/Editor/volunteering.png";
 import LanguagesImage from "../../../../../assets/images/Editor/languages.png";
+import IndustryImage from "../../../../../assets/images/Editor/Industry.png";
 
 const ResumeSections = (): Sections[] => {
     return [{
@@ -123,6 +124,35 @@ const ResumeSections = (): Sections[] => {
     </div>          
   </div></div>
 `
+        }, {
+            title: "Industry Expertise",
+            image: IndustryImage,
+            HTML: `
+<div data-editable="true" class="">
+              <div data-content-edit="true" id="custom-edit-title" class="uppercase editing_Text" placeholder="Industry Expertise" contenteditable="true"></div>
+              <div data-editable="true" data-inner-edit="true" class="">
+                  <div>
+                      <div class="small-text resume-color-primary editing_Text" data-content-edit="true" placeholder="Area of Expertise" contenteditable="true"></div>
+                      <form class="max-w-[50%]">
+                          <input type="range" min="0" max="100" value="40" class="range range-xs">
+                      </form>
+                  </div>
+              </div>
+          <div data-editable="true" data-inner-edit="true" class="">
+                  <div>
+                      <div class="small-text resume-color-primary editing_Text" data-content-edit="true" placeholder="Area of Expertise" contenteditable="true"></div>
+                      <form class="max-w-[50%]">
+                          <input type="range" min="0" max="100" value="40" class="range range-xs">
+                      </form>
+                  </div>
+              </div><div data-editable="true" data-inner-edit="true" class="">
+                  <div>
+                      <div class="small-text resume-color-primary editing_Text" data-content-edit="true" placeholder="Area of Expertise" contenteditable="true"></div>
+                      <form class="max-w-[50%]">
+                          <input type="range" min="0" max="100" value="40" class="range range-xs">
+                      </form>
+                  </div>
+              </div></div>`
         }]
 };
 
