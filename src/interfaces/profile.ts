@@ -29,9 +29,11 @@ interface ProfileSocial {
 }
 
 interface Profile {
-    userName: string;
+    fullName: string;
     smallDisc: string;
     disc: string;
+    photo: string;
+    backdropPhoto: string;
     jobs: ProfileJobs[];
     ways: ProfileJobs[];
     clients: string[];

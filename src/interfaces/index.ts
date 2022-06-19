@@ -13,17 +13,11 @@ interface SignUp {
     name: string,
     email: string,
     password: string,
-    statusCode?: number,
-    message?: ErrMsg[],
-    error?: string
 }
 
 interface SignIn {
     email: string,
     password: string,
-    statusCode?: number,
-    message?: ErrMsg[],
-    error?: string
 }
 
 interface CV {

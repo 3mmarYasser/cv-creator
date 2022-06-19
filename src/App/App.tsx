@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "../store"
 import {GetUserThunk} from "../store/authSilce";
+import {useCookies} from 'react-cookie';
 import Navbar from "../components/Navbar/Navbar";
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import Page404 from "../screens/404/404";
@@ -26,17 +27,17 @@ import BuildAds from "../screens/DashboardScreen/components/DashAds/components/B
 import UserAds from "../screens/DashboardScreen/components/DashAds/components/UserAds/UserAds";
 import ProfileAds from "../screens/DashboardScreen/components/DashAds/components/ProfileAds/ProfileAds";
 import ProfilesScreen from "../screens/ProfilesScreen/ProfilesScreen";
-import {useCookies} from 'react-cookie';
-
+import EditProfile from "../screens/UserScreen/EditProfile";
 import "./App.scss";
 
 const App: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
-    const [cookies, setCookies] = useCookies(["Authorization", "Refresh"]);
+    const [cookies] = useCookies(["Authorization", "Refresh"]);
 
     useEffect(() => {
+        // /"Authentication=" + cookies.Authorization + ";" + "Refresh=" + cookies.Refresh + ";"
         dispatch(
-            GetUserThunk("Authentication=" + cookies.Authorization + ";" + "Refresh=" + cookies.Refresh + ";")
+            GetUserThunk(cookies)
         )
         window.addEventListener("keydown", e => {
             if (e?.key === "Control" || e?.key === "p") {
@@ -55,6 +56,7 @@ const App: React.FC = () => {
                         <Route path="me">
                             <Route index element={<UserScreen/>}/>
                             <Route path="edit" element={<UserEditScreen/>}/>
+                            <Route path="profile" element={<EditProfile/>}/>
                         </Route>
 
                         <Route path="profiles" element={<ProfilesScreen/>}>

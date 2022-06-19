@@ -9,167 +9,168 @@ import {useCookies} from 'react-cookie';
 import classNames from "classnames";
 
 
-const Login: React.FC = () => {
-    const lang = ((useSelector((state: any) => state)).lang).value;
+const AuthScreen: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
-    const [cookies, setCookie] = useCookies();
-
-    const initValue: SignIn = {
-        email: "",
-        password: ""
-    }
-    const login = (values: SignIn) => {
+    const [_, setCookie] = useCookies();
+    const loginFC = (values: SignIn) => {
         dispatch(signInThunk(values)).then(
             r => {
-                const AuthCookies = r.payload.cookies[0],
-                    AuthRefresh = r.payload.cookies[1];
-                setCookie(AuthCookies.name, AuthCookies.value, {
+                const AuthCookies = r.payload.Authorization.accessToken,
+                    AuthRefresh = r.payload.Authorization.refreshToken;
+                setCookie("Authorization", AuthCookies.token, {
                     maxAge: AuthCookies.maxAge
                 })
-                setCookie(AuthRefresh.name, AuthRefresh.value, {
+                setCookie("Refresh", AuthRefresh.token, {
                     maxAge: AuthRefresh.maxAge
                 })
+                window.location.reload()
             },
             e => console.error(e)
         );
     }
-    return (
-        <Formik initialValues={initValue} onSubmit={login}>
-            <Form className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <div className="card-body">
-                    <h1 className="text-1xl text-center mb-[20px]">{lang === "AR" ? "سجل الدخول إلى حسابك الأن !" : "Sign In to Your Account Know !"}</h1>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">{lang === "AR" ? "البريد الإلكترونى" : "ُEmail"}</span>
-                        </label>
-                        <Field autoComplete={"email"} name="email" type="email" placeholder="Email"
-                               className="input input-bordered"/>
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">{lang === "AR" ? "كلمة المرور" : "Password"}</span>
-                        </label>
-                        <Field suggested={"current-password"}
-                               autoComplete={"current-password"}
-                               name="password"
-                               type="password"
-                               placeholder="Password"
-                               className="input input-bordered"/>
-                        <label className="label">
-                            <Link to={"/login#forget-password"}><span
-                                className="label-text-alt link link-hover">{lang === "AR" ? "نسيت كلمة المرور ؟" : "Forgot password?"}</span></Link>
-                        </label>
-                    </div>
-                    <div className="form-control mt-6">
-                        <button type="submit"
-                                className="btn btn-primary">{lang === "AR" ? "تسجيل الدخول" : "Login"}</button>
-                    </div>
-                    <p className="text-center mt-[15px] ">{lang === "AR" ? "لا تمتلك حساب ؟" : "Don't have an account?"}
-                        <Link to={"/login#sign-up"}><span
-                            className="link link-primary font-bold">{lang === "AR" ? "حساب جديد" : "Sign-Up"}</span></Link>
-                    </p>
-                </div>
-            </Form>
-        </Formik>
-    )
-}
 
-const SignUpScreen: React.FC = () => {
-    const lang = ((useSelector((state: any) => state)).lang).value;
+    const Login: React.FC = () => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const initValue: SignIn = {
+            email: "",
+            password: ""
+        }
 
-    const dispatch: AppDispatch = useDispatch();
-    const initValues: SignUp = {
-        name: "",
-        email: "",
-        password: ""
+        return (
+            <Formik initialValues={initValue} onSubmit={loginFC}>
+                <Form className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card-body">
+                        <h1 className="text-1xl text-center mb-[20px]">{lang === "AR" ? "سجل الدخول إلى حسابك الأن !" : "Sign In to Your Account Know !"}</h1>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">{lang === "AR" ? "البريد الإلكترونى" : "ُEmail"}</span>
+                            </label>
+                            <Field autoComplete={"email"} name="email" type="email" placeholder="Email"
+                                   className="input input-bordered"/>
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">{lang === "AR" ? "كلمة المرور" : "Password"}</span>
+                            </label>
+                            <Field suggested={"current-password"}
+                                   autoComplete={"current-password"}
+                                   name="password"
+                                   type="password"
+                                   placeholder="Password"
+                                   className="input input-bordered"/>
+                            <label className="label">
+                                <Link to={"/login#forget-password"}><span
+                                    className="label-text-alt link link-hover">{lang === "AR" ? "نسيت كلمة المرور ؟" : "Forgot password?"}</span></Link>
+                            </label>
+                        </div>
+                        <div className="form-control mt-6">
+                            <button type="submit"
+                                    className="btn btn-primary">{lang === "AR" ? "تسجيل الدخول" : "Login"}</button>
+                        </div>
+                        <p className="text-center mt-[15px] ">{lang === "AR" ? "لا تمتلك حساب ؟" : "Don't have an account?"}
+                            <Link to={"/login#sign-up"}><span
+                                className="link link-primary font-bold">{lang === "AR" ? "حساب جديد" : "Sign-Up"}</span></Link>
+                        </p>
+                    </div>
+                </Form>
+            </Formik>
+        )
     }
-    const signup = (values: SignUp) => {
-        dispatch(signupThunk(values));
-    }
-    return (
-        <Formik initialValues={initValues} onSubmit={signup}>
-            <Form className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <div className="card-body">
-                    <h1 className="text-1xl text-center mb-[20px]">{lang === "AR" ? "انشئ حسابك الأن !" : "Create your account !"}</h1>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">{lang === "AR" ? "اسم المستخدم" : "User Name"}</span>
-                        </label>
-                        <Field autoComplete="username"
-                               name="name" type="text"
-                               placeholder="User Name"
-                               className="input input-bordered"/>
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">{lang === "AR" ? "البريد الإلكترونى" : "Email"}</span>
-                        </label>
+    const SignUpScreen: React.FC = () => {
+        const initValues: SignUp = {
+            name: "",
+            email: "",
+            password: ""
+        }
+        const signup = (values: SignUp) => {
+            dispatch(signupThunk(values)).then(
+                r => {
+                    const LoginData: SignIn = {email: values.email, password: values.password}
+                    loginFC(LoginData);
+                },
+                e => {
+                    console.error(e)
+                }
+            );
+        }
+        return (
+            <Formik initialValues={initValues} onSubmit={signup}>
+                <Form className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card-body">
+                        <h1 className="text-1xl text-center mb-[20px]">{lang === "AR" ? "انشئ حسابك الأن !" : "Create your account !"}</h1>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">{lang === "AR" ? "اسم المستخدم" : "User Name"}</span>
+                            </label>
+                            <Field autoComplete="username"
+                                   name="name" type="text"
+                                   placeholder="User Name"
+                                   className="input input-bordered"/>
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">{lang === "AR" ? "البريد الإلكترونى" : "Email"}</span>
+                            </label>
 
-                        <Field autoComplete="email"
-                               name="email"
-                               type="email"
-                               placeholder="Email"
-                               className="input input-bordered"/>
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">{lang === "AR" ? "كلمة المرور" : "Password"}</span>
-                        </label>
-                        <Field autoComplete="new-password"
-                               name="password"
-                               type="password"
-                               placeholder="Password"
-                               className="input input-bordered"/>
-                    </div>
-                    <div className="form-control">
-                        <label className="label cursor-pointer">
+                            <Field autoComplete="email"
+                                   name="email"
+                                   type="email"
+                                   placeholder="Email"
+                                   className="input input-bordered"/>
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">{lang === "AR" ? "كلمة المرور" : "Password"}</span>
+                            </label>
+                            <Field autoComplete="new-password"
+                                   name="password"
+                                   type="password"
+                                   placeholder="Password"
+                                   className="input input-bordered"/>
+                        </div>
+                        <div className="form-control">
+                            <label className="label cursor-pointer">
                             <span
                                 className="label-text">{lang === "AR" ? "أوافق على سياسة الخصوصية." : "I agree to Privacy policy."}</span>
-                            <input type="checkbox" defaultChecked={true} className="checkbox checkbox-primary"/>
+                                <input type="checkbox" defaultChecked={true} className="checkbox checkbox-primary"/>
+                            </label>
+                        </div>
+                        <div className="form-control mt-6">
+                            <button type="submit"
+                                    className="btn btn-primary">{lang === "AR" ? "انشاء حساب جديد" : "Sign Up"}</button>
+                        </div>
+                        <p className="text-center mt-[15px] "> {lang === "AR" ? "تملك بالفعل حساب ؟" : "Already have an account?"}
+                            <Link to={"/login"}><span
+                                className="link link-primary font-bold">{lang === "AR" ? " سجل الدخول " : "Login"}</span></Link>
+                        </p>
+                    </div>
+                </Form>
+            </Formik>
+        )
+    }
+    const ForgetPassword: React.FC = () => {
+        return (
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card-body">
+                    <h1 className="text-1xl text-center font-bold mb-[20px]">{lang === "AR" ? " استعادة كلمة المرور الخاصة بك!" : "Restore your password !"}</h1>
+                    <p className="text-1xl text-center mb-[40px]">{lang === "AR" ? "سنرسل لك بريدًا إلكترونيًا آمنًا يحتوي على رابط لتغيير كلمة المرور الخاصة بك." : "We will send you an secure email with a link to change your password."}</p>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">{lang === "AR" ? " بريدك الالكتروني " : "Your Email"}</span>
                         </label>
+                        <input type="text" placeholder="Your Email" className="input input-bordered"/>
                     </div>
                     <div className="form-control mt-6">
-                        <button type="submit"
-                                className="btn btn-primary">{lang === "AR" ? "انشاء حساب جديد" : "Sign Up"}</button>
+                        <button className="btn btn-primary">{lang === "AR" ? "إرسال" : "Send"}</button>
                     </div>
-                    <p className="text-center mt-[15px] "> {lang === "AR" ? "تملك بالفعل حساب ؟" : "Already have an account?"}
-                        <Link to={"/login"}><span
-                            className="link link-primary font-bold">{lang === "AR" ? " سجل الدخول " : "Login"}</span></Link>
+                    <p className="text-center mt-[15px] ">{lang === "AR" ? "ليس لديك حساب بعد؟" : "You don’t have an account yet?"}<Link
+                        to={"/login#sign-up"}><span
+                        className="link link-primary font-bold">{lang === "AR" ? "انشئ حساب جديد" : "Sign-Up"}</span></Link>
                     </p>
                 </div>
-            </Form>
-        </Formik>
-    )
-}
-
-
-const ForgetPassword: React.FC = () => {
-    const lang = ((useSelector((state: any) => state)).lang).value;
-
-    return (
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <div className="card-body">
-                <h1 className="text-1xl text-center font-bold mb-[20px]">{lang === "AR" ? " استعادة كلمة المرور الخاصة بك!" : "Restore your password !"}</h1>
-                <p className="text-1xl text-center mb-[40px]">{lang === "AR" ? "سنرسل لك بريدًا إلكترونيًا آمنًا يحتوي على رابط لتغيير كلمة المرور الخاصة بك." : "We will send you an secure email with a link to change your password."}</p>
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">{lang === "AR" ? " بريدك الالكتروني " : "Your Email"}</span>
-                    </label>
-                    <input type="text" placeholder="Your Email" className="input input-bordered"/>
-                </div>
-                <div className="form-control mt-6">
-                    <button className="btn btn-primary">{lang === "AR" ? "إرسال" : "Send"}</button>
-                </div>
-                <p className="text-center mt-[15px] ">{lang === "AR" ? "ليس لديك حساب بعد؟" : "You don’t have an account yet?"}<Link
-                    to={"/login#sign-up"}><span
-                    className="link link-primary font-bold">{lang === "AR" ? "انشئ حساب جديد" : "Sign-Up"}</span></Link>
-                </p>
             </div>
-        </div>
-    )
-}
-
-const AuthScreen: React.FC = () => {
+        )
+    }
 
     const location = useLocation();
     const lang = ((useSelector((state: any) => state)).lang).value;
