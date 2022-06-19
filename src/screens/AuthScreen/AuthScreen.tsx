@@ -10,6 +10,7 @@ import classNames from "classnames";
 
 
 const AuthScreen: React.FC = () => {
+    const lang = ((useSelector((state: any) => state)).lang).value;
     const dispatch: AppDispatch = useDispatch();
     const [_, setCookie] = useCookies();
     const loginFC = (values: SignIn) => {
@@ -173,7 +174,6 @@ const AuthScreen: React.FC = () => {
     }
 
     const location = useLocation();
-    const lang = ((useSelector((state: any) => state)).lang).value;
     const Auth: React.FC = () => {
         if (location.hash === "#sign-up") return <SignUpScreen/>
         else if (location.hash === "#forget-password") return <ForgetPassword/>

@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import EditRender from "./components/EditRender/EditRender";
 import {DownloadPDFByRef} from "./components/Providers/getPDF";
 import {removeSelection} from "./components/Providers/Selection";
@@ -7,6 +7,7 @@ import StyledModal from "../StyledModal/StyledModal";
 import {getElByID} from "./components/Providers/getInHTML";
 import ResumeHeader from "./components/Sections/ResumeHeader/ResumeHeader";
 import loadingIcon from "../../assets/svgs/loading.svg"
+import {useSelector} from "react-redux";
 import './Editor.scss'
 
 interface Props {
@@ -16,6 +17,7 @@ interface Props {
 }
 
 const Editor: React.FC<Props> = ({data, loading, err}) => {
+    const lang = ((useSelector((state: any) => state)).lang).value;
 
     const render = (): JSX.Element => {
         if (loading) return <p>Loading</p>
@@ -25,25 +27,34 @@ const Editor: React.FC<Props> = ({data, loading, err}) => {
 
     const editorRef = useRef<HTMLDivElement | null>(null);
     const [image, setImage] = useState<string>(loadingIcon)
-    const DownloadCV = async (): Promise<void> => {
-
+    const cleanEditor = () => {
         const ChickIsEditing: HTMLDivElement | null = document.querySelector('[data-render-page]');
         if (ChickIsEditing?.matches("[editor]")) {
             removeSelection(ChickIsEditing)
             getElByID("header-hover-bar")?.classList.add("hidden");
+            getElByID("resume-main-hover")?.classList.add("hidden");
+
         }
+        document.querySelectorAll("[data-btn-editor-section]").forEach(el => {
+            el.classList.add("hidden")
+        })
+    }
+    const DownloadCV = async (): Promise<void> => {
+        cleanEditor();
         await DownloadPDFByRef(editorRef.current)
+        document.querySelectorAll("[data-btn-editor-section]").forEach(el => {
+            el.classList.remove("hidden")
+        })
     }
 
     const PreviewCV = async (): Promise<void> => {
-        const ChickIsEditing: HTMLDivElement | null = document.querySelector('[data-render-page]');
-        if (ChickIsEditing?.matches("[editor]")) {
-            removeSelection(ChickIsEditing)
-            getElByID("header-hover-bar")?.classList.add("hidden");
-        }
+        cleanEditor();
         setImage(await getImageFromRef(editorRef.current))
-
+        document.querySelectorAll("[data-btn-editor-section]").forEach(el => {
+            el.classList.remove("hidden")
+        })
     }
+
 
     return (
         <div className="pt-[100px]">
@@ -51,12 +62,12 @@ const Editor: React.FC<Props> = ({data, loading, err}) => {
 
                 <section className="w-[100vw] justify-center flex mb-5">
                     <button onClick={DownloadCV}
-                            className="self-center btn btn-primary text-primary-content px-10 ">Download
+                            className="self-center btn btn-primary text-primary-content px-10 ">{lang === "AR" ? "تنزيل" : "Download"}
                     </button>
                     <label htmlFor="PreviewCV" onClick={PreviewCV}
-                           className="self-center btn btn-main text-primary-content px-10 ml-[20px] modal-open">Preview</label>
+                           className="self-center btn btn-main text-primary-content px-10 mx-7 modal-open">{lang === "AR" ? "معاينة" : "Preview"}</label>
                 </section>
-                <section className="flex flex-col items-center justify-center mt-[50px]">
+                <section className="flex flex-col items-center justify-center mt-[50px] overflow-hidden">
                     <div className="shadow">
                         <div ref={editorRef}>
                             {render()}

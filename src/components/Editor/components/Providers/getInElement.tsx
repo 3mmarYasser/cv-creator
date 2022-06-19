@@ -25,7 +25,15 @@ const AllChildren = (target: any): HTMLElement[] => {
     }
     return []
 };
+const getElementOffset = (el: HTMLElement) => {
+    const rect = el.getBoundingClientRect();
+    return {
+        left: rect.left + window.scrollX,
+        top: rect.top + window.scrollY
+    };
+}
 export {
     AllParents,
-    AllChildren
+    AllChildren,
+    getElementOffset
 }

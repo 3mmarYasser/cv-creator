@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ResumeHeader = (): string => {
     return `
-    <div id="large">
+<div id="large">
     <div data-editable="true" data-resume-header="true"> 
 
       <div data-h-left="true">
@@ -18,8 +18,12 @@ const ResumeHeader = (): string => {
 
       <div id="h-photo" data-h-right="true"> <div data-h-image="true" class="image-curve"></div></div>
     </div>
-    <div id="left-aria" data-left-aria="true"></div>
-    <div id="right-aria" data-right-aria="true"></div>
+    <div class="flex">
+    
+      <div id="left-aria" data-left-aria="true"></div>
+       <div id="right-aria" data-right-aria="true"></div>
+    
+    </div>
 </div>
 `
 }

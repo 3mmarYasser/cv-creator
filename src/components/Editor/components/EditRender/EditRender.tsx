@@ -5,10 +5,11 @@ import {AddAttrByAttr, AddClassByAttr} from "../Providers/AddInReturn";
 import UserImage from "../../../../assets/svgs/user.svg"
 import {CheckAttr} from "../Providers/CheckIn";
 import uploadImage from "../Providers/uploadImage";
-import './EditRender.scss'
 import {getElementByAttr, getElByID} from "../Providers/getInHTML";
 import ResumeHeaderHover from "../Sections/ResumeHeader/ResumeHeaderHover";
 import ResumeMainHover from "../Sections/ResumeMainHover/ResumeMainHover";
+import AddBtnEditor from "../Sections/AddSection/AddBtnEditor";
+import './EditRender.scss'
 
 
 interface Props {
@@ -21,11 +22,6 @@ const EditRender: React.FC<Props> = ({data}) => {
     const [builtInData, setBuiltInData] = useState<Array<JSX.Element>>([])
     const [selected, setSelected] = useState<HTMLElement | null>(null)
 
-    useEffect(() => {
-        document.querySelectorAll("[data-editable]").forEach(el => {
-            el.setAttribute(`data-uid`, (el.getBoundingClientRect().top * Math.round(Math.random() * 100) + Math.round(Math.random() * 500)).toString())
-        })
-    }, []);
     useEffect(() => {
         const inputUpload = document.createElement('input');
         inputUpload.type = "file";
@@ -86,7 +82,8 @@ const EditRender: React.FC<Props> = ({data}) => {
                 {builtInData}
                 {selected && !selected?.matches("[data-resume-header]") && selected.matches("[data-editable]") ?
                     <ResumeMainHover selected={selected}/> : null}
-
+                <AddBtnEditor id="left-aria"/>
+                <AddBtnEditor id="right-aria"/>
             </div>
         </>
     );

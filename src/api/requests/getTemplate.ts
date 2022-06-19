@@ -1,8 +1,9 @@
-import Axios from "../config/Axios";
-const getTemplate = async ():Promise<any>=>{
+import axios from "axios";
+
+const getTemplate = async (): Promise<any> => {
     try {
-      return await Axios.get("/templates/templateone.html")
-    }catch (e:any){
+        return await axios.get("http://localhost:5000/templates/templateone.html")
+    } catch (e: any) {
         throw new Error(e)
     }
 }

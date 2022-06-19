@@ -118,7 +118,7 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
     return (
         <>
             <div id="header-hover-bar"
-                 className={`hidden absolute flex justify-center items-center p-[10px] h-[40px] bg_color rounded-[20px]`}
+                 className={`hidden absolute flex justify-center items-center p-[10px] h-[40px] bg-white rounded-[20px]`}
                  style={{top: `${(top - 40)}px`, left: `${left}px`, transform: "translate(-50% , 0)"}}>
 
                 <div className="dropdown dropdown-right setting-header-hover">

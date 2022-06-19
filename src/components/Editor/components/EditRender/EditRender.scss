@@ -9,6 +9,10 @@
   --resume-color: #A300CB;
 }
 
+.resume-color-primary {
+  color: var(--resume-color);
+}
+
 .resume_overlay {
   background-color: rgba(80, 77, 98, .2) !important;
 }
@@ -176,6 +180,36 @@
   }
 }
 
+
+#left-aria {
+  width: 60%;
+  padding: 5px;
+}
+
+#custom-edit-title {
+  padding: 3px;
+  border-bottom: solid 3px hsl(var(--n));
+}
+
+#right-aria {
+  width: 40%;
+  padding: 5px;
+}
+
+[data-inner-edit ="true"] {
+  &:hover {
+    border: unset;
+  }
+}
+
+#custom-edit-desc {
+  font-size: 0.9rem;
+}
+
+#mainContentEditor {
+  display: flex;
+}
+
 @media screen and (max-width: 950px) {
   .render-resume-page {
     width: 100vw !important;
@@ -203,6 +237,7 @@
       font-size: 1.5rem;
     }
   }
+
   #small {
     font-size: 0.5rem;
 
@@ -226,30 +261,11 @@
   .setting-header-hover-phone {
     display: block !important;
   }
-}
-
-#left-aria {
-  width: 60%;
-  padding: 5px;
-}
-
-#custom-edit-title {
-  padding: 3px;
-  border-bottom: solid 3px hsl(var(--n));
-}
-
-#right-aria {
-  width: 40%;
-  padding: 5px;
-}
-
-[data-inner-edit ="true"] {
-  &:hover {
-    border: unset;
+  #mainContentEditor {
+    flex-direction: column;
   }
-}
+  #left-aria, #right-aria {
+    width: 100%;
+  }
 
-#custom-edit-desc {
-  font-size: 0.9rem;
 }
-
