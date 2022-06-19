@@ -18,13 +18,11 @@ const ResumeHeader = (): string => {
 
       <div id="h-photo" data-h-right="true"> <div data-h-image="true" class="image-curve"></div></div>
     </div>
-    <div class="flex">
-    
+    <div id="mainContentEditor">
       <div id="left-aria" data-left-aria="true"></div>
        <div id="right-aria" data-right-aria="true"></div>
-    
+       </div>
     </div>
-</div>
 `
 }
 export default ResumeHeader;
