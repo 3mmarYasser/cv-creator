@@ -101,6 +101,10 @@
 
 }
 
+#left-aria, #right-aria {
+  height: fit-content;
+}
+
 #header-title {
   color: var(--resume-color);
   margin-bottom: 10px;
@@ -261,11 +265,4 @@
   .setting-header-hover-phone {
     display: block !important;
   }
-  #mainContentEditor {
-    flex-direction: column;
-  }
-  #left-aria, #right-aria {
-    width: 100%;
-  }
-
 }

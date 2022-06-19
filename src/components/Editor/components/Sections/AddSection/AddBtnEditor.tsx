@@ -13,16 +13,19 @@ interface Props {
 const AddBtnEditor: React.FC<Props> = ({id}) => {
     const lang = ((useSelector((state: any) => state)).lang).value;
     const Side = getElByID(id);
+    console.log(Side?.offsetHeight);
+    if (Side === null) return null
     return (
         <>
-            <div data-btn-editor-section={true} className="absolute" style={{
-                top: `${Side ? ((getElementOffset(Side).top + Side.offsetHeight) + 40) : -10000}px`,
-                left: `${Side ? (getElementOffset(Side).left + Side.getBoundingClientRect().width / 2) : -10000}px`,
+            <div data-btn-editor-section={true} className="absolute mt-7 md:mt-0" style={{
+                top: `${((getElementOffset(Side).top + Side.offsetHeight) + 40)}px`,
+                left: `${(getElementOffset(Side).left + Side.getBoundingClientRect().width / 2)}px`,
                 transform: "translate(-50% , 0)",
                 direction: "ltr"
             }}>
-                <label htmlFor={`${id === "left-aria" ? "SectionsLeftModal" : "SectionsRightModal"}`}
-                       className={classNames("btn ", {"btn-primary": id === "left-aria"})}>{lang === "AR" ? "قسم جديد" : "New Section"}</label>
+                <label
+                    htmlFor={Side?.offsetHeight < 900 ? `${id === "left-aria" ? "SectionsLeftModal" : "SectionsRightModal"}` : ""}
+                    className={classNames("btn", {"btn-primary": id === "left-aria"}, {"btn-disabled": Side?.offsetHeight > 900})}>{lang === "AR" ? "قسم جديد" : "New Section"}</label>
             </div>
             {id === "left-aria" ?
                 <StyledModal id={"SectionsLeftModal"}>

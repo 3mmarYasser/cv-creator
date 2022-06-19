@@ -16,7 +16,7 @@ const AddSectionEditor: React.FC<Props> = ({id}) => {
                 {ResumeSections().map((section, index) => (
                     <div key={section.title + index}
                          className="w-full overflow-hidden md:my-px md:px-px lg:w-1/2 ">
-                        <div className="card w-96 rounded-none ">
+                        <div className="card w-96 max-w-full rounded-none ">
                             <div
                                 className="w-full h-36 bg-contain bg-center bg-no-repeat flex justify-center items-center "
                                 style={{backgroundImage: `url("${section.image}")`}}>
