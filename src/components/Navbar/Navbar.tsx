@@ -161,13 +161,15 @@ const Navbar = () => {
                     }}>{activeTheme}</button>
 
             <header tabIndex={100}
-                    className={classNames("w-[100vw]  pt-5 flex justify-center fixed z-50 ", {"hidden": location === "profiles"})}>
+                    className={classNames("w-[100vw]  flex justify-center fixed z-50 ", {"hidden": location === "profiles"})}>
 
                 <nav
-                    className={classNames("flex navbar bg-base-200 rounded-box w-screen-lg mx-5 border-primary border-2 ")}
-                    style={{boxShadow: `${show && "0 5px 0 3px #0000001f"} `, border: `${show && "0"}`}}>
+                    className={classNames("flex navbar w-screen bg-base-200 py-7", {"bg-base-100 py-0": !show})}>
 
-                    <div className={classNames("flex items-center w-fit ml-8", {"ml-0 mr-8": lang === "AR"})}>
+                    <div
+                        style={{transition: "margin-right 300ms ease-in-out"}}
+
+                        className={classNames("flex items-center w-[30px] ml-8 mr-[9rem]", {"ml-0 mr-8": lang === "AR"}, {"mr-0": !show})}>
                         <Link to="">
                             <svg className="fill-primary w-[150px] md:w-[194px]" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 143 22">
@@ -193,8 +195,7 @@ const Navbar = () => {
                         </Link>
                     </div>
 
-                    <ul className={classNames("w-full mx-8  text-lg hidden lg:flex")}>
-
+                    <ul className={classNames("w-full mx-8  text-lg hidden lg:flex bg-base-200", {"bg-base-100": !show})}>
 
                         <li>
                             <div className="dropdown cursor-pointer mx-2">
@@ -275,7 +276,7 @@ const Navbar = () => {
                         <li onClick={ChangeLang}>
                         <span
                             className={classNames("btn-ghost flex hover:bg-transparent hover:text-primary cursor-pointer mx-2", {"flex-row-reverse": lang === "AR"})}>
-                                                               {lang === "AR" ? "الإنجليزية" : lang === "EN" ? "AR" : "AR"}
+                                                               {lang === "AR" ? "EN" : lang === "EN" ? "عربى" : "AR"}
                             <i className="material-icons ml-2 text-primary">translate</i>
                         </span>
 
@@ -359,7 +360,7 @@ const Navbar = () => {
                                 <li className="mt-5" onClick={ChangeLang}>
                                 <span
                                     className="btn-ghost flex hover:bg-transparent hover:text-primary cursor-pointer mx-2 text-2xl">
-                                                               {lang === "AR" ? "الإنجليزية" : lang === "EN" ? "AR" : "AR"}
+                                                               {lang === "AR" ? "EN " : lang === "EN" ? "عربى" : "AR"}
                                     <i className="material-icons ml-2 text-primary">translate</i></span>
                                 </li>
                                 <li className="mt-5">

@@ -1,5 +1,5 @@
 import React from 'react';
-import {FreeMode, A11y} from "swiper";
+import {FreeMode, A11y, Autoplay} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
@@ -8,6 +8,7 @@ import Ads from "../../../../components/Ads/Ads";
 import "swiper/scss";
 import "swiper/scss/free-mode";
 import "swiper/scss/pagination";
+import "swiper/scss/autoplay"
 
 const TemplatesSlide: React.FC = () => {
     const lang = ((useSelector((state: any) => state)).lang).value;
@@ -80,14 +81,14 @@ const TemplatesSlide: React.FC = () => {
                     pagination={{
                         clickable: true,
                     }}
-                    modules={[FreeMode, A11y]}
+                    modules={[FreeMode, A11y, Autoplay]}
                     className="mySwiper  by-10"
                     centeredSlides={true}
                     loop={true}
-
                     autoplay={{
-                        delay: 1000,
+                        delay: -1,
                         disableOnInteraction: false,
+                        waitForTransition: false,
                     }}
                     speed={1000}
 

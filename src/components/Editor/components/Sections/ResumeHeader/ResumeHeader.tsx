@@ -12,10 +12,8 @@ const ResumeHeader = (): string => {
               <div id="h-email"><i class="material-icons">alternate_email</i><div data-content-edit="true" placeholder="Email"></div></div>
               <div id="h-link"><i class="material-icons">attach_file</i><div data-content-edit="true" placeholder="website/link"></div></div>
               <div id="h-location"><i class="material-icons">share_location</i><div data-content-edit="true" placeholder="Location"></div></div>
-
             </div>            
       </div>
-
       <div id="h-photo" data-h-right="true"> <div data-h-image="true" class="image-curve"></div></div>
     </div>
     <div id="mainContentEditor">

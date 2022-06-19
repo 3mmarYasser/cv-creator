@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {useParams} from "react-router";
-import {Navigate} from "react-router-dom";
+import {Link, Navigate} from "react-router-dom";
 import classNames from "classnames";
 import {gsap} from "gsap";
 import {TextPlugin} from "gsap/TextPlugin";
@@ -75,8 +75,9 @@ const ProfilesScreen: React.FC = () => {
                 </div>
             </div>
             <div style={{direction: "ltr"}} className="overflow-hidden flex flex-row w-screen min-h-screen">
+
                 <header
-                    className={classNames("fixed transition-all z-10 left-[-100px] lg:left-0  w-[80px] h-full  items-center overflow-x-hidden bg-base-100  flex flex-col overflow-y-auto", {[Styles.menuOpen]: menu})}>
+                    className={classNames("fixed transition-all z-10 left-[-100px] lg:left-0  w-[80px] h-full  items-center overflow-x-hidden bg-base-100  flex flex-col justify-between overflow-y-auto", {[Styles.menuOpen]: menu})}>
                     <ul tabIndex={0} className="mt-2 w-full">
                         <li className="border-b-[1px] border-base-300 p-2 w-full hidden lg:block">
                             <div className="avatar online">
@@ -201,7 +202,13 @@ const ProfilesScreen: React.FC = () => {
                         </li>
 
                     </ul>
+                    <Link to={"/"} className={classNames("cursor-pointer mb-7 btn btn-primary btn-circle")}>
+                            <span className="material-symbols-outlined opacity-60">
+                                arrow_back
+                            </span>
+                    </Link>
                 </header>
+
 
                 <main className={classNames("bg-base-200 overflow-y-auto min-h-screen ml-auto pb-32", [Styles.Main])}>
 
