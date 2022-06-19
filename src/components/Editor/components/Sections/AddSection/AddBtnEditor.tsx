@@ -25,7 +25,7 @@ const AddBtnEditor: React.FC<Props> = ({id}) => {
             }}>
                 <label
                     htmlFor={Side?.offsetHeight < 900 ? `${id === "left-aria" ? "SectionsLeftModal" : "SectionsRightModal"}` : ""}
-                    className={classNames("btn", {"btn-primary": id === "left-aria"}, {"btn-disabled": Side?.offsetHeight > 900})}>{lang === "AR" ? "قسم جديد" : "New Section"}</label>
+                    className={classNames("btn ", {"btn-primary": id === "left-aria"}, {"btn-disabled": Side?.offsetHeight > 900})}>{lang === "AR" ? "قسم جديد" : "New Section"}</label>
             </div>
             {id === "left-aria" ?
                 <StyledModal id={"SectionsLeftModal"}>

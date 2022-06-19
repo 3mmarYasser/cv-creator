@@ -28,7 +28,7 @@ const ResumeMainHover: React.FC<Props> = ({selected}) => {
                 left: `${selected ? (getElementOffset(selected).left + selected.getBoundingClientRect().width / 2) : -10000}px`,
                 transform: "translate(-50% , 0)",
                 direction: "ltr"
-            }} id="resume-main-hover" className="absolute btn-group">
+            }} id="resume-main-hover" className="absolute btn-group min-w-[100px] z-20">
                 <button disabled={mainContentEditor?.offsetHeight > 900}
                         onClick={() => {
                             if (selected && selected?.parentElement !== undefined && selected?.parentElement !== null && selected?.innerHTML !== undefined) {

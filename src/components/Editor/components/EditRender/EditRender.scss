@@ -234,21 +234,18 @@
       }
     }
   }
-  #large {
-    font-size: 0.8rem;
+  #large, #small {
+    & div, & p, & h1, & h2, & h3, & h4, & span {
+      font-size: 0.5rem !important;
+    }
+
+    font-size: 0.5rem !important;
 
     #header-name {
-      font-size: 1.5rem;
+      font-size: 0.8rem !important;
     }
   }
 
-  #small {
-    font-size: 0.5rem;
-
-    #header-name {
-      font-size: 1rem;
-    }
-  }
   .resume-header-Image {
     align-self: center;
   }
