@@ -5,12 +5,15 @@ import VolunteeringImage from "../../../../../assets/images/Editor/volunteering.
 import LanguagesImage from "../../../../../assets/images/Editor/languages.png";
 import IndustryImage from "../../../../../assets/images/Editor/Industry.png";
 import SkillsImage from "../../../../../assets/images/Editor/skills.png";
+import CoursesImage from "../../../../../assets/images/Editor/Courses.png";
+import PhilosophyImage from "../../../../../assets/images/Editor/Philosophy.png";
 
 const ResumeSections = (): Sections[] => {
-    return [{
-        title: "Summary",
-        image: SummaryImage,
-        HTML: `
+    return [
+        {
+            title: "Summary",
+            image: SummaryImage,
+            HTML: `
 <div data-editable="true" class="resume_Edit_selected" editing="true">
 
         <div data-content-edit="true" id="custom-edit-title" class="uppercase editing_Text" placeholder="Summary" contenteditable="true"></div>
@@ -23,10 +26,11 @@ const ResumeSections = (): Sections[] => {
       </div>
 
 `
-    }, {
-        title: "Experience",
-        image: ExperienceImage,
-        HTML: `
+        },
+        {
+            title: "Experience",
+            image: ExperienceImage,
+            HTML: `
 <div data-editable="true" >
 
         <div data-content-edit="true" id="custom-edit-title" class="uppercase editing_Text" placeholder="Experience" contenteditable="true"></div>
@@ -56,8 +60,8 @@ const ResumeSections = (): Sections[] => {
          </div>
 
 `
-    }
-        , {
+        },
+        {
             title: "Volunteering",
             image: VolunteeringImage,
             HTML: `
@@ -82,8 +86,8 @@ const ResumeSections = (): Sections[] => {
         </div>
       </div>
 `
-        }
-        , {
+        },
+        {
             title: "Languages",
             image: LanguagesImage,
             HTML: `
@@ -125,7 +129,8 @@ const ResumeSections = (): Sections[] => {
     </div>          
   </div></div>
 `
-        }, {
+        },
+        {
             title: "Industry Expertise",
             image: IndustryImage,
             HTML: `
@@ -154,7 +159,8 @@ const ResumeSections = (): Sections[] => {
                       </form>
                   </div>
               </div></div>`
-        }, {
+        },
+        {
             title: "Skills",
             image: SkillsImage,
             HTML: `
@@ -178,7 +184,52 @@ const ResumeSections = (): Sections[] => {
              </div></div>
           </div>
 `
-        }]
+        },
+        {
+            title: "Training / Courses",
+            image: CoursesImage,
+            HTML: `
+<div data-editable="true">
+              <div data-content-edit="true" id="custom-edit-title" class="uppercase editing_Text" placeholder="Training / Courses" contenteditable="true"></div>
+              <div class="flex flex-wrap justify-between w-full">
+
+              <div class="w-1/2" data-editable="true" data-inner-edit="true">
+                  <div class="small-text w-full resume-color-primary editing_Text" data-content-edit="true" placeholder="Course Title" contenteditable="true"></div>
+                  <div class="small-text w-full opacity-75 editing_Text" data-content-edit="true" placeholder="Which institution provided the course?" contenteditable="true"></div>
+              </div>
+
+              <div class="w-1/2" data-editable="true" data-inner-edit="true">
+                  <div class="small-text w-full resume-color-primary editing_Text" data-content-edit="true" placeholder="Course Title" contenteditable="true"></div>
+                  <div class="small-text w-full opacity-75 editing_Text" data-content-edit="true" placeholder="Which institution provided the course?" contenteditable="true"></div>
+              </div><div class="w-1/2" data-editable="true" data-inner-edit="true">
+                  <div class="small-text w-full resume-color-primary editing_Text" data-content-edit="true" placeholder="Course Title" contenteditable="true"></div>
+                  <div class="small-text w-full opacity-75 editing_Text" data-content-edit="true" placeholder="Which institution provided the course?" contenteditable="true"></div>
+              </div><div class="w-1/2" data-editable="true" data-inner-edit="true">
+                  <div class="small-text w-full resume-color-primary editing_Text" data-content-edit="true" placeholder="Course Title" contenteditable="true"></div>
+                  <div class="small-text w-full opacity-75 editing_Text" data-content-edit="true" placeholder="Which institution provided the course?" contenteditable="true"></div>
+              </div></div>
+          </div>
+`
+        },
+        {
+            title: "My Life Philosophy",
+            image: PhilosophyImage,
+            HTML: `
+            <div data-editable="true" class="">
+
+              <div data-content-edit="true" id="custom-edit-title" class="uppercase editing_Text" placeholder="My Life Philosophy" contenteditable="true"></div>
+
+              <div data-editable="true" data-inner-edit="true" class="">
+                  <div class="small-text resume-color-primary editing_Text" data-content-edit="true" placeholder="What's your philosophy?" contenteditable="true"></div>
+                  <div class="small-text resume-color-primary w-fit ml-auto editing_Text" data-content-edit="true" placeholder="Author" contenteditable="true"></div>
+              </div>
+          <div data-editable="true" data-inner-edit="true" class="">
+                  <div class="small-text resume-color-primary editing_Text" data-content-edit="true" placeholder="What's your philosophy?" contenteditable="true"></div>
+                  <div class="small-text opacity-75 w-fit ml-auto editing_Text" data-content-edit="true" placeholder="Author" contenteditable="true"></div>
+              </div></div>
+`
+        }
+    ]
 };
 
 export default ResumeSections;
