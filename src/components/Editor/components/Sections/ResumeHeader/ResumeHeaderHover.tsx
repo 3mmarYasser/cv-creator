@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import StyledSwitch from "../../../../StyledSwitch/StyledSwitch";
 import {getElByID, getElementByAttr} from "../../Providers/getInHTML";
+import {useSelector} from "react-redux";
 
 interface Styling {
     title: boolean
@@ -19,6 +20,8 @@ interface Props {
 }
 
 const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
+    const lang = ((useSelector((state: any) => state)).lang).value;
+
     const HTitle = getElByID("header-title"),
         HPhone = getElByID("h-phone"),
         HLink = getElByID("h-link"),
@@ -45,7 +48,7 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
                     SetStyling({...styling, title: !e.target.checked})
                     HTitle?.classList.toggle("pro-hidden")
                 }}>
-                    Show title
+                    {lang === "AR" ? "اظهر العنوان" : "Show title"}
                 </StyledSwitch>
             </li>
 
@@ -54,7 +57,7 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
                     SetStyling({...styling, phone: !e.target.checked});
                     HPhone?.classList.toggle("pro-hidden");
                 }}>
-                    Show Phone
+                    {lang === "AR" ? "اظهر رقم الهاتف" : "Show Phone"}
                 </StyledSwitch>
             </li>
 
@@ -63,7 +66,7 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
                     SetStyling({...styling, link: !e.target.checked});
                     HLink?.classList.toggle("pro-hidden");
                 }}>
-                    Show Link
+                    {lang === "AR" ? "اظهر الرابط" : "Show Link"}
                 </StyledSwitch>
             </li>
 
@@ -72,7 +75,7 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
                     SetStyling({...styling, email: !e.target.checked});
                     HEmail?.classList.toggle("pro-hidden");
                 }}>
-                    Show Email
+                    {lang === "AR" ? "اظهر البريد الإلكترونى" : "Show Email"}
                 </StyledSwitch>
             </li>
 
@@ -81,7 +84,7 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
                     SetStyling({...styling, location: !e.target.checked});
                     HLocation?.classList.toggle("pro-hidden");
                 }}>
-                    Show Location
+                    {lang === "AR" ? "اظهر العنوان" : "Show Location"}
                 </StyledSwitch>
             </li>
 
@@ -90,7 +93,7 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
                     SetStyling({...styling, photo: !e.target.checked});
                     HPhoto?.classList.toggle("pro-hidden");
                 }}>
-                    Show Photo
+                    {lang === "AR" ? "اظهر الصورة" : " Show Photo"}
                 </StyledSwitch>
             </li>
 
@@ -101,7 +104,7 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
                     SetStyling({...styling, uppercase: !e.target.checked});
                     HUppercase?.classList.toggle("uppercase");
                 }}>
-                    Uppercase Name
+                    {lang === "AR" ? "الاسم بأحرف كبيرة" : " Uppercase Name"}
                 </StyledSwitch>
             </li>
 
@@ -110,7 +113,7 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
                     SetStyling({...styling, curve: !e.target.checked});
                     HCurve?.classList.toggle("image-curve");
                 }}>
-                    Curve Image
+                    {lang === "AR" ? "صورة دائرية" : "Curve Image"}
                 </StyledSwitch>
             </li>
         </>
@@ -139,9 +142,9 @@ const ResumeHeaderHover: React.FC<Props> = ({top, left}) => {
             </div>
 
             <input type="checkbox" id="resume-header-modal" className="modal-toggle"/>
-            <label htmlFor="resume-header-modal" className="modal cursor-pointer modal-bottom">
+            <label htmlFor="resume-header-modal" className="modal cursor-pointer modal-bottom ">
                 <label className="modal-box relative" htmlFor="">
-                    <ul>
+                    <ul className="z-10">
                         {switchContainer}
                     </ul>
                 </label>
