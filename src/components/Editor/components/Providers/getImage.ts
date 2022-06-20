@@ -4,7 +4,6 @@ import {getElementByAttr} from "./getInHTML";
 const getImageFromRef = async (ref: HTMLElement | null): Promise<string> => {
     const mobile: HTMLElement | null = document.getElementById("mobile")
     const editor: HTMLElement | null = getElementByAttr("[data-Editor]")
-    console.log(editor)
     if (mobile !== null && editor !== null) {
         mobile.classList.remove("mobile")
         editor.style.width = "930px"

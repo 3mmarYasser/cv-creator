@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import EditRender from "./components/EditRender/EditRender";
 import {DownloadPDFByRef} from "./components/Providers/getPDF";
 import {removeSelection} from "./components/Providers/Selection";
@@ -53,7 +53,6 @@ const Editor: React.FC<Props> = ({data, loading, err}) => {
             el.classList.remove("hidden")
         })
     }
-
 
     return (
         <div className="pt-[100px]">

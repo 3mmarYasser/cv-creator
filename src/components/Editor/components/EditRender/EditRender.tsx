@@ -67,9 +67,24 @@ const EditRender: React.FC<Props> = ({data}) => {
             selected && selected?.matches("[data-resume-header]") ? headerHoverBar?.classList.remove("hidden") : headerHoverBar?.classList.add("hidden");
         }
 
-
+        const rangeInputs = document.querySelectorAll('input[type="range"]')
+        if (rangeInputs !== null) {
+            rangeInputs.forEach(input => {
+                if (input !== null) {
+                    input.addEventListener("input", (e) => {
+                        // @ts-ignore
+                        const min = e.target.min
+                        // @ts-ignore
+                        const max = e.target.max
+                        // @ts-ignore
+                        const val = e.target.value
+                        // @ts-ignore
+                        e.target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
+                    })
+                }
+            })
+        }
     }, [builtInData, selected]);
-
 
     return (
         <>

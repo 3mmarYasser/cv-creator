@@ -141,7 +141,7 @@ const ResumeSections = (): Sections[] => {
                   <div>
                       <div class="small-text resume-color-primary editing_Text" data-content-edit="true" placeholder="Area of Expertise" contenteditable="true"></div>
                       <div class="max-w-[50%]">
-                          <input type="range" min="0" max="100" value="40" class="range range-xs">
+                          <input type="range" min="0" max="100" value="100" class="editor-range">
                       </div>
                   </div>
               </div>
@@ -149,7 +149,7 @@ const ResumeSections = (): Sections[] => {
                   <div>
                       <div class="small-text resume-color-primary editing_Text" data-content-edit="true" placeholder="Area of Expertise" contenteditable="true"></div>
                       <div class="max-w-[50%]">
-                          <input type="range" min="0" max="100" value="40" class="range range-xs">
+                          <input type="range" min="0" max="100" value="100" class="editor-range">
                       </div>
                   </div>
               </div>
@@ -157,7 +157,7 @@ const ResumeSections = (): Sections[] => {
                   <div>
                       <div class="small-text resume-color-primary editing_Text" data-content-edit="true" placeholder="Area of Expertise" contenteditable="true"></div>
                       <div class="max-w-[50%]">
-                          <input type="range" min="0" max="100" value="40" class="range range-xs">
+                          <input type="range" min="0" max="100" value="100" class="editor-range">
                       </div>
                   </div>
               </div>
