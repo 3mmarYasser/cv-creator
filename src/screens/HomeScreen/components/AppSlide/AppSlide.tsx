@@ -23,7 +23,7 @@ const AppSlide: React.FC = () => {
     return (
         <div className="flex flex-col mx-auto w-screen">
             <div
-                className={classNames("hidden w-screen bg-base-200 fixed top-[64px] px-5 z-20 left-0 mx-auto pt-3 justify-center items-center space-x-5  border-b-4 border-ghost", {"lg:flex": show})}>
+                className={classNames("hidden transition-all w-screen bg-base-200 fixed top-[64px] px-5 z-20 left-0 mx-auto pt-3 justify-center items-center space-x-5  border-b-4 border-ghost", {"lg:flex": show})}>
                 <span
                     onClick={() => scrollTOElement("resume_builder")}
                     className="px-5 py-3 cursor-pointer flex flex-col justify-center items-center hover:text-primary transition duration-300 border-b-4 border-transparent hover:border-primary"

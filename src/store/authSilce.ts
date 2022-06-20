@@ -4,7 +4,6 @@ import {SignUp, User, SignIn} from "../interfaces";
 
 
 export const GetUserThunk = createAsyncThunk("auth", async (data: any) => {
-        console.log(data)
         try {
             return (await (Axios.get("/auth", {
                 withCredentials: true,
