@@ -1,14 +1,14 @@
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useRef, useState} from 'react';
 import EditRender from "./components/EditRender/EditRender";
 import {DownloadPDFByRef} from "./components/Providers/getPDF";
 import {removeSelection} from "./components/Providers/Selection";
-import {getImageFromRef} from "./components/Providers/getImage";
 import StyledModal from "../StyledModal/StyledModal";
 import {getElByID} from "./components/Providers/getInHTML";
 import ResumeHeader from "./components/Sections/ResumeHeader/ResumeHeader";
 import loadingIcon from "../../assets/svgs/loading.svg"
 import {useSelector} from "react-redux";
 import './Editor.scss'
+import {getImageFromRef} from "./components/Providers/getImage";
 
 interface Props {
     data: string;
@@ -33,7 +33,6 @@ const Editor: React.FC<Props> = ({data, loading, err}) => {
             removeSelection(ChickIsEditing)
             getElByID("header-hover-bar")?.classList.add("hidden");
             getElByID("resume-main-hover")?.classList.add("hidden");
-
         }
         document.querySelectorAll("[data-btn-editor-section]").forEach(el => {
             el.classList.add("hidden")

@@ -221,10 +221,12 @@
     padding: 20px 5px !important;
 
   }
+
   .resume-header {
     flex-direction: column-reverse;
     align-items: center;
   }
+
   .header-contact {
     flex-direction: column;
 
@@ -234,6 +236,7 @@
       }
     }
   }
+
   #large, #small {
     & div, & p, & h1, & h2, & h3, & h4, & span {
       font-size: 0.5rem !important;
@@ -249,16 +252,20 @@
   .resume-header-Image {
     align-self: center;
   }
+
   .resume-header-left {
     width: 100%;
     margin-top: 10px;
   }
+
   .resume-header-right {
     width: 100%;
   }
+
   .setting-header-hover {
     display: none !important;
   }
+
   .setting-header-hover-phone {
     display: block !important;
   }
