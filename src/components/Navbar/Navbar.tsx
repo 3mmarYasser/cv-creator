@@ -37,7 +37,7 @@ const themes = [
 ];
 
 const Navbar = () => {
-    //Get Loaction
+    //Get Location
     const location = ((useLocation()).pathname).split("/")[1];
     //Get Lang from SELECTOR
     const lang = ((useSelector((state: any) => state)).lang).value;
@@ -171,7 +171,9 @@ const Navbar = () => {
 
                         className={classNames("flex items-center w-[30px] ml-8 mr-[9rem]", {"ml-0 mr-8": lang === "AR"}, {"mr-0": !show})}>
                         <Link to="">
-                            <svg className="fill-primary w-[150px] md:w-[194px]" xmlns="http://www.w3.org/2000/svg"
+                            <svg className={classNames("fill-primary w-[150px] md:w-[194px] -z-10")}
+                                 style={lang === "AR" ? {transform: "scale(-1)"} : {}}
+                                 xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 143 22">
                                 <g>
                                     <path
@@ -195,7 +197,7 @@ const Navbar = () => {
                         </Link>
                     </div>
 
-                    <ul className={classNames("w-full mx-8  text-lg hidden lg:flex bg-base-200", {"bg-base-100": !show})}>
+                    <ul className={classNames("w-full mx-8  text-lg hidden lg:flex bg-base-200 z-10", {"bg-base-100": !show})}>
 
                         <li>
                             <div className="dropdown cursor-pointer mx-2">
@@ -277,7 +279,7 @@ const Navbar = () => {
                         <span
                             className={classNames("btn-ghost flex hover:bg-transparent hover:text-primary cursor-pointer mx-2", {"flex-row-reverse": lang === "AR"})}>
                                                                {lang === "AR" ? "EN" : lang === "EN" ? "عربى" : "AR"}
-                            <i className="material-icons ml-2 text-primary">translate</i>
+
                         </span>
 
                         </li>
@@ -291,7 +293,7 @@ const Navbar = () => {
                             </Link>
                             <Link to={"login#sign-up"}>
                                 <button className="btn btn-primary text-primary-content px-10 text-lg">
-                                    {lang === "AR" ? "حساب جديد" : "sign-up"}
+                                    {lang === "AR" ? "ابدأ الأن" : "Get Started"}
                                 </button>
                             </Link>
                         </div>
@@ -361,7 +363,7 @@ const Navbar = () => {
                                 <span
                                     className="btn-ghost flex hover:bg-transparent hover:text-primary cursor-pointer mx-2 text-2xl">
                                                                {lang === "AR" ? "EN " : lang === "EN" ? "عربى" : "AR"}
-                                    <i className="material-icons ml-2 text-primary">translate</i></span>
+                                    </span>
                                 </li>
                                 <li className="mt-5">
                                     <div className=" w-screen flex flex-col justify-center items-center ml-auto">
@@ -374,7 +376,7 @@ const Navbar = () => {
 
                                         <Link className="btn btn-primary text-primary-content px-10 text-md"
                                               to={"/login#sign-up"}>
-                                            {lang === "AR" ? "حساب جديد" : "sign-up"}
+                                            {lang === "AR" ? "ابدأ الأن" : "Get Started"}
                                         </Link>
                                     </div>
                                 </li>

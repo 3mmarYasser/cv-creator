@@ -1,18 +1,77 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from "react-router-dom";
 import {scrollTOElement} from "../../../../utils/scrollElement";
 import {useSelector} from "react-redux";
+import classNames from "classnames";
 
 const AppSlide: React.FC = () => {
     const lang = ((useSelector((state: any) => state)).lang).value;
-
+    const [show, setShow] = useState<boolean>(false)
+    const showNavHome = () => {
+        if (typeof window !== 'undefined') {
+            if (window.scrollY > 900) {
+                setShow(true);
+            } else {
+                setShow(false);
+            }
+        }
+    };
+    useEffect((): ReturnType<any> => {
+        window.addEventListener("scroll", showNavHome)
+        return () => window.removeEventListener
+    }, [])
     return (
         <div className="flex flex-col mx-auto w-screen">
+            <div
+                className={classNames("hidden w-screen bg-base-200 fixed top-[64px] px-5 z-20 left-0 mx-auto pt-3 justify-center items-center space-x-5  border-b-4 border-ghost", {"lg:flex": show})}>
+                <span
+                    onClick={() => scrollTOElement("resume_builder")}
+                    className="px-5 py-3 cursor-pointer flex flex-col justify-center items-center hover:text-primary transition duration-300 border-b-4 border-transparent hover:border-primary"
+                >
+                        {lang === "AR" ? "منشئ السيرة الذاتية" : "Resume Builder"}
+                </span>
 
+                <span
+                    onClick={() => scrollTOElement("resume_template")}
+
+                    className="px-5 py-3 cursor-pointer flex flex-col justify-center items-center hover:text-primary transition duration-300 border-b-4 border-transparent hover:border-primary"
+                >
+                          {lang === "AR" ? "قوالب السيرة الذاتية" : "Resume Templates"}
+
+                </span>
+
+                <span
+                    onClick={() => scrollTOElement("resume_examples")}
+
+                    className="px-5 py-3 cursor-pointer flex flex-col justify-center items-center hover:text-primary transition duration-300 border-b-4 border-transparent hover:border-primary"
+                >
+                        {lang === "AR" ? "أمثلة السيرة الذاتية" : "Resume Examples"}
+
+                </span>
+
+                <span
+                    onClick={() => scrollTOElement("resume_proofreading")}
+
+                    className="px-5 py-3 cursor-pointer flex flex-col justify-center items-center hover:text-primary transition duration-300 border-b-4 border-transparent hover:border-primary"
+                >
+                        {lang === "AR" ? "التدقيق اللغوي" : "Proofreading"}
+
+                </span>
+                <span
+                    onClick={() => scrollTOElement("career_counseling")}
+
+                    className="px-5 py-3 cursor-pointer flex flex-col justify-center items-center hover:text-primary transition duration-300 border-b-4 border-transparent hover:border-primary"
+                >
+                        {lang === "AR" ? "إرشاد وظيفي" : "Career Counseling"}
+                </span>
+            </div>
+
+
+            {/*2 Home NVE*/}
             <div className="container mx-auto pt-3 justify-center items-center space-x-5 hidden  lg:flex">
                 <span
                     onClick={() => scrollTOElement("resume_builder")}
-                    className="px-5 cursor-pointer flex flex-col justify-center items-center border-b-4 border-ghost hover:border-primary hover:text-primary transition duration-300"
+                    className="px-5 cursor-pointer flex flex-col justify-center items-center hover:text-primary transition duration-300"
                 >
                     <b className="text-xl">
                         {lang === "AR" ? "منشئ السيرة الذاتية" : "Resume Builder"}
@@ -25,7 +84,7 @@ const AppSlide: React.FC = () => {
                 <span
                     onClick={() => scrollTOElement("resume_template")}
 
-                    className="px-5 cursor-pointer flex flex-col justify-center items-center border-b-4 border-ghost hover:border-primary hover:text-primary transition duration-300"
+                    className="px-5 cursor-pointer flex flex-col justify-center items-center hover:text-primary transition duration-300"
                 >
                     <b className="text-xl">
                           {lang === "AR" ? "قوالب السيرة الذاتية" : "Resume Templates"}
@@ -38,7 +97,7 @@ const AppSlide: React.FC = () => {
                 <span
                     onClick={() => scrollTOElement("resume_examples")}
 
-                    className="px-5 cursor-pointer flex flex-col justify-center items-center border-b-4 border-ghost hover:border-primary hover:text-primary transition duration-300"
+                    className="px-5 cursor-pointer flex flex-col justify-center items-center hover:text-primary transition duration-300"
                 >
                     <b className="text-xl">
                         {lang === "AR" ? "أمثلة السيرة الذاتية" : "Resume Examples"}
@@ -51,7 +110,7 @@ const AppSlide: React.FC = () => {
                 <span
                     onClick={() => scrollTOElement("resume_proofreading")}
 
-                    className="px-5 cursor-pointer flex flex-col justify-center items-center border-b-4 border-ghost hover:border-primary hover:text-primary transition duration-300"
+                    className="px-5 cursor-pointer flex flex-col justify-center items-center hover:text-primary transition duration-300"
                 >
                     <b className="text-xl">
                         {lang === "AR" ? "التدقيق اللغوي" : "Proofreading"}
@@ -63,7 +122,7 @@ const AppSlide: React.FC = () => {
                 <span
                     onClick={() => scrollTOElement("career_counseling")}
 
-                    className="px-5 cursor-pointer flex flex-col justify-center items-center border-b-4 border-ghost hover:border-primary hover:text-primary transition duration-300"
+                    className="px-5 cursor-pointer flex flex-col justify-center items-center hover:text-primary transition duration-300"
                 >
                     <b className="text-xl">
                         {lang === "AR" ? "إرشاد وظيفي" : "Career Counseling"}
@@ -77,7 +136,7 @@ const AppSlide: React.FC = () => {
             <div id="resume_builder"
                  className="container mx-auto flex flex-col sm:flex-row justify-center items-center sm:py-10">
                 <div className="p-8">
-                    <img width="600px"
+                    <img width="450px"
                          style={{"filter": "drop-shadow(-23px 23px 3px #00000038)"}}
                          draggable={false}
                          onContextMenu={e => e.preventDefault()}
@@ -86,7 +145,7 @@ const AppSlide: React.FC = () => {
                 </div>
 
                 <div className="max-w-xl my-10 w-full mx-auto sm:mx-1  p-10 sm:p-0 pt-0">
-                    <h1 className="text-2xl mb-5 md:text-6xl">
+                    <h1 className="text-xl mb-5 md:text-4xl">
                         {lang === "AR" ? "منشئ السيرة الذاتية الذي يثق به المحترفون" : "The resume builder trusted by professionals"}
                     </h1>
                     <p className="opacity-75">
