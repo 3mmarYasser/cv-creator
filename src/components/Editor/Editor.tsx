@@ -65,10 +65,14 @@ const Editor: React.FC<Props> = ({data, loading, err}) => {
                     </button>
                     <label htmlFor="PreviewCV" onClick={PreviewCV}
                            className="self-center btn btn-main text-primary-content px-10 mx-7 modal-open">{lang === "AR" ? "معاينة" : "Preview"}</label>
+                    <button onClick={() => {
+                    }}
+                            className="self-center btn btn-primary text-primary-content px-10 ">DEMO
+                    </button>
                 </section>
                 <section className="flex flex-col items-center justify-center mt-[50px] overflow-hidden">
-                    <div className="shadow">
-                        <div ref={editorRef}>
+                    <div className="shadow ">
+                        <div id="mobile" ref={editorRef} className="mobile">
                             {render()}
                         </div>
                     </div>

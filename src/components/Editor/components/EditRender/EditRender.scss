@@ -214,59 +214,62 @@
   display: flex;
 }
 
-@media screen and (max-width: 950px) {
-  .render-resume-page {
-    width: 100vw !important;
-    background-color: transparent !important;
-    padding: 20px 5px !important;
+.mobile {
+  @media screen and (max-width: 950px) {
+    .render-resume-page {
+      width: 100vw;
+      background-color: transparent;
+      padding: 20px 5px;
 
-  }
+    }
 
-  .resume-header {
-    flex-direction: column-reverse;
-    align-items: center;
-  }
+    .resume-header {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
 
-  .header-contact {
-    flex-direction: column;
+    .header-contact {
+      flex-direction: column;
 
-    & > div {
-      div {
-        max-width: 100%;
+      & > div {
+        div {
+          max-width: 100%;
+        }
       }
     }
-  }
 
-  #large, #small {
-    & div, & p, & h1, & h2, & h3, & h4, & span {
-      font-size: 0.5rem !important;
+    #large, #small {
+      & div, & p, & h1, & h2, & h3, & h4, & span {
+        font-size: 0.5rem;
+      }
+
+      font-size: 0.5rem;
+
+      #header-name {
+        font-size: 0.8rem;
+      }
     }
 
-    font-size: 0.5rem !important;
+    .resume-header-Image {
+      align-self: center;
+    }
 
-    #header-name {
-      font-size: 0.8rem !important;
+    .resume-header-left {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .resume-header-right {
+      width: 100%;
+    }
+
+    .setting-header-hover {
+      display: none !important;
+    }
+
+    .setting-header-hover-phone {
+      display: block !important;
     }
   }
 
-  .resume-header-Image {
-    align-self: center;
-  }
-
-  .resume-header-left {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .resume-header-right {
-    width: 100%;
-  }
-
-  .setting-header-hover {
-    display: none !important;
-  }
-
-  .setting-header-hover-phone {
-    display: block !important;
-  }
 }
