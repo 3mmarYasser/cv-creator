@@ -4,7 +4,7 @@ import html2canvas from "html2canvas";
 const getImageFromRef = async (ref: HTMLElement | null): Promise<string> => {
     let ImageRes: string = "";
     if (ref !== null) {
-        await htmlToImage.toPng(ref, {quality: 1, pixelRatio: 5}).then(
+        await htmlToImage.toPng(ref, {quality: 1}).then(
             (Img) => {
                 ImageRes = Img
             }
