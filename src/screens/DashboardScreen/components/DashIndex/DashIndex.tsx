@@ -99,7 +99,7 @@ interface Props {
 const DashIndex: React.FC<Props> = () => {
 
     return (
-        <div className="w-[100vw] min-h-[100vh] pt-[170px]">
+        <div className="w-[100vw] min-h-[100vh]">
             <div
                 className="w-[100vw]   flex flex-col justify-between md:flex-row">
                 <div className="w-[100vw] p-[10px] lg:w-[70%]">

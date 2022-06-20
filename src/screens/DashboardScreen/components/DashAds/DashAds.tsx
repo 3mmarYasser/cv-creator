@@ -9,7 +9,7 @@ const DashAds: React.FC = () => {
     const lang = ((useSelector((state: any) => state)).lang).value;
 
     return (
-        <div className="pt-[170px] overflow-x-auto w-full">
+        <div className=" overflow-x-auto w-full">
             <div className="max-w-[1024px] m-auto">
                 <div className="mx-3">
                     <div className="tabs overflow-x-auto flex-nowrap">

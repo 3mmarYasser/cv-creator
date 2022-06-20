@@ -43,7 +43,7 @@ const DashUsers: React.FC<Props> = () => {
 
     ]
     return (
-        <div className=" pt-[170px] overflow-x-auto w-full">
+        <div className=" overflow-x-auto w-full">
             <div className="max-w-[1024px] m-auto">
                 <div className="form-control">
                     <div className="input-group mb-[20px]">

@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const DashNav: React.FC = () => {
     return (
         <div>
-            <div className="navbar overflow-x-auto hiddenScrollBar z-20 fixed mt-[90px] justify-center">
+            <div className="navbar overflow-x-auto hiddenScrollBar z-20 pt-[120px] justify-center">
                 <div className="navbar-center pl-[120px] md:pl-0">
                     <ul className="menu menu-horizontal p-0">
                         <li><Link to="/dashboard"><span>Dashboard</span></Link></li>
