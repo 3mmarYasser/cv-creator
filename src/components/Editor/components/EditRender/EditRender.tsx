@@ -76,7 +76,7 @@ const EditRender: React.FC<Props> = ({data}) => {
             <div onClick={(e) => HandelSelect(e, rendererRef.current, setSelected)} data-render-page={true}
                  style={{direction: "ltr"}}
                  ref={rendererRef}
-                 className={classNames("w-[930px] bg_color h-[1330px] transition-all p-[60px] render-resume-page")}
+                 className={classNames("w-[930px] bg_color h-[1330px] transition-all render-resume-page")}
                  dangerouslySetInnerHTML={{__html: data}}/>
             <div>
                 {builtInData}

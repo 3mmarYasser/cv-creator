@@ -28,15 +28,15 @@ const Editor: React.FC<Props> = ({data, loading, err}) => {
     const editorRef = useRef<HTMLDivElement | null>(null);
     const [image, setImage] = useState<string>(loadingIcon)
     const cleanEditor = () => {
+        document.querySelectorAll("[data-btn-editor-section]").forEach(el => {
+            el.classList.add("hidden")
+        })
         const ChickIsEditing: HTMLDivElement | null = document.querySelector('[data-render-page]');
         if (ChickIsEditing?.matches("[editor]")) {
             removeSelection(ChickIsEditing)
             getElByID("header-hover-bar")?.classList.add("hidden");
             getElByID("resume-main-hover")?.classList.add("hidden");
         }
-        document.querySelectorAll("[data-btn-editor-section]").forEach(el => {
-            el.classList.add("hidden")
-        })
     }
     const DownloadCV = async (): Promise<void> => {
         cleanEditor();
@@ -65,10 +65,6 @@ const Editor: React.FC<Props> = ({data, loading, err}) => {
                     </button>
                     <label htmlFor="PreviewCV" onClick={PreviewCV}
                            className="self-center btn btn-main text-primary-content px-10 mx-7 modal-open">{lang === "AR" ? "معاينة" : "Preview"}</label>
-                    <button onClick={() => {
-                    }}
-                            className="self-center btn btn-primary text-primary-content px-10 ">DEMO
-                    </button>
                 </section>
                 <section className="flex flex-col items-center justify-center mt-[50px] overflow-hidden">
                     <div className="shadow ">

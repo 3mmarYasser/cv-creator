@@ -1,5 +1,4 @@
 import * as htmlToImage from 'html-to-image';
-import html2canvas from "html2canvas";
 import {getElementByAttr} from "./getInHTML";
 
 const getImageFromRef = async (ref: HTMLElement | null): Promise<string> => {
@@ -12,7 +11,7 @@ const getImageFromRef = async (ref: HTMLElement | null): Promise<string> => {
     }
     let ImageRes: string = "";
     if (ref !== null) {
-        await htmlToImage.toPng(ref, {
+        await htmlToImage.toJpeg(ref, {
             quality: 1,
             canvasWidth: 930,
             canvasHeight: 1330,
@@ -25,7 +24,7 @@ const getImageFromRef = async (ref: HTMLElement | null): Promise<string> => {
                 overflow: "hidden",
                 minWidth: "930px",
                 minHeight: "1330px",
-                width: "930ps",
+                width: "930px",
                 height: "1330px",
                 position: "fixed",
                 top: "0",
@@ -45,15 +44,6 @@ const getImageFromRef = async (ref: HTMLElement | null): Promise<string> => {
     return ImageRes;
 }
 
-const getImage = async (ref: HTMLElement | any): Promise<string> => {
-    let ImageRes: string = "";
-    await html2canvas(ref, {windowWidth: 2000, logging: false}).then(canvas => {
-
-        console.log(canvas)
-        ImageRes = canvas.toDataURL("image/png");
-    });
-    return ImageRes
-}
 
 export {
     getImageFromRef

@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ResumeHeader = (): string => {
     return `
-<div data-Editor="true" id="large" class="w-full">
+<div data-Editor="true" id="large" class="w-full p-[60px]">
     <div data-editable="true" data-resume-header="true"> 
 
       <div data-h-left="true">
